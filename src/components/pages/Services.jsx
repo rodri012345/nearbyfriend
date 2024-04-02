@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from '../Fotter'
 
 export const Services = () => {
   return (
@@ -103,6 +104,7 @@ export const Services = () => {
         culpa dolorum? Provident eos doloribus soluta maxime obcaecati quam, a,
         quod blanditiis dolores odit aliquid quis distinctio.
       </div>
+      <Footer />
     </>
   );
 };
