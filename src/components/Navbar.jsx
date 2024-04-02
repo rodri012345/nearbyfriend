@@ -27,7 +27,7 @@ export const Navbar = () => {
           <NavLink to="/contact">Mi Cuenta</NavLink>
         </li>
         <li>
-          <NavLink to="/Mi Cuenta">Registro</NavLink>
+          <NavLink to="/RegistroCliente">Registro</NavLink>
         </li>
       </ul>
     </nav>

@@ -9,7 +9,7 @@ nav {
     align-items: center;
     background-color: #0f172a;
     color: white;
-    position: sticky;
+    /*position: sticky;*/
     top: 0;
 }
 
