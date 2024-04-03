@@ -1,5 +1,7 @@
 import React from "react";
 
 export const About = () => {
-  return <h1>About</h1>;
+  return (
+    <input type="file" accept=".jpg,.jpeg,.png"></input>
+  );
 };
