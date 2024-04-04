@@ -1,1 +1,0 @@
-Hola Rodrigo, por fin solucionamos el problema de git.
