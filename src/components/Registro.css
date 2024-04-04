@@ -74,6 +74,10 @@
         max-width: 100%;
     }
 
+    .hobbies-list .ant-checkbox-group {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajusta el tamaño de las columnas para pantallas más pequeñas */
+        grid-gap: 8px; /* Reduce el espaciado entre las casillas de verificación */
+    }
 }
 
 
