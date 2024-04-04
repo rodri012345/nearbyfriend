@@ -13,7 +13,7 @@ function Footer() {
         <p className='footer-subscription-text'>
           Suscribite y comiensa, Ya no estes solo.
         </p>
-        <div className='input-areas'>
+        {/*<div className='input-areas'>
           <form>
             <input
               className='footer-input'
@@ -23,7 +23,7 @@ function Footer() {
             />
             <Button buttonStyle='btn--outline'>Suscribirse</Button>
           </form>
-        </div>
+  </div>*/}
       </section>
       <div class='footer-links'>
         <div className='footer-link-wrapper'>
