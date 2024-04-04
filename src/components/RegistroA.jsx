@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Registro.css";
-import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber} from "antd";
+import { Form, Button, Checkbox, DatePicker, Input, Select, InputNumber, Space, message, Col, Row, Upload } from "antd";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
 import { PlusOutlined } from '@ant-design/icons';
@@ -16,6 +16,7 @@ const normFile = (e) => {
     return e && e.fileList;
 };
 
+
 function Registro() {
 
     const [form] = Form.useForm();
@@ -29,7 +30,7 @@ function Registro() {
             values.dob = dob;
         }
 
-        const hobbies = values.hobbies || []; 
+        const hobbies = values.hobbies || [];
         console.log(hobbies);
 
         const formData = {
@@ -39,17 +40,17 @@ function Registro() {
             contraseña: values.contraseña,
             confirmarContraseña: values.confirmarContraseña,
             genero: values.genero,
+            departamento: values.departamento,
+            telefono: values.telefono,
             dob: values.dob,
             agreement: values.agreement,
         };
 
         try {
-           { /*if (hobbies.length < 3) {
-                message.error('Debe seleccionar al menos tres hobbies para registrarse.');
-                return;
-            }
-        */}
-            const docRef = await addDoc(collection(db, 'clientes'), {formData, hobbies});
+
+           
+
+            const docRef = await addDoc(collection(db, 'amigos'), { formData, hobbies });
             console.log('Documento agregado con ID: ', docRef.id);
             message.success('¡Registro exitoso!');
             form.resetFields();
@@ -62,7 +63,7 @@ function Registro() {
 
     return (
         <div className="Registro">
-            <h1 className='titulo'>Registro Cliente</h1>
+            <h1 className='titulo'>Registro Amigo</h1>
             <header className="Registro-header">
                 <Row gutter={[16, 16]}>
                     <Col span={12}>
@@ -289,15 +290,23 @@ function Registro() {
                         </div>
                         <div className="image-gallery">
                             <Form
+                                name='form2'
                                 labelCol={{ span: 5 }}
                                 wrapperCol={{ span: 45 }}
                                 layout="vertical"
                                 style={{ maxWidth: 600 }}
                             >
-                                <Form.Item label="" name="aboutMe">
+                                <Form.Item label=""
+                                 name="aboutMe"
+                                 rules={[{
+                                    required: true,
+                                    message: "Por favor cuentenos sobre usted"
+                                }]}
+                                 >
                                     <h2>Cuentanos Sobre Ti</h2>
-                                    <TextArea rows={5} placeholder="" />
+                                    <TextArea rows={5} placeholder="Escribe sobre ti" />
                                 </Form.Item>
+
                                 <h2>Sube tu foto de perfil</h2>
                                 <Form.Item label="" valuePropName="fileList" getValueFromEvent={normFile}>
                                     <Upload action="src\components\amigo-img" listType="picture-card">
@@ -317,6 +326,5 @@ function Registro() {
         </div>
     );
 }
-
 
 export default Registro;
