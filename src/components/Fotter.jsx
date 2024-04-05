@@ -11,7 +11,7 @@ function Footer() {
           El amigo que necesitas para ese momento especial.
         </p>
         <p className='footer-subscription-text'>
-          Suscribite y comiensa, Ya no estes solo.
+          Suscribite y comienza, Ya no estes solo.
         </p>
         {/*<div className='input-areas'>
           <form>

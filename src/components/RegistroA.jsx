@@ -48,7 +48,7 @@ function Registro() {
 
         try {
 
-           
+
 
             const docRef = await addDoc(collection(db, 'amigos'), { formData, hobbies });
             console.log('Documento agregado con ID: ', docRef.id);
@@ -83,15 +83,18 @@ function Registro() {
                                 rules={[
                                     {
                                         required: true,
-                                        message: "Por favor Ingrese su Nombre",
+                                        message: "Por favor ingrese su Nombre",
                                     },
                                     { whitespace: true },
-                                    { min: 3 },
+                                    { min: 3, message: "El nombre debe tener al menos 3 caracteres" },
+                                    { max: 30, message: "El nombre no puede tener más de 30 caracteres" },
+                                    { pattern: /^[a-zA-Z\s]*$/, message: "El nombre solo puede contener letras del alfabeto" },
                                 ]}
                                 hasFeedback
                             >
                                 <Input placeholder="Escriba su Nombre" />
                             </Form.Item>
+
 
                             <Form.Item
                                 name="apellido"
@@ -102,7 +105,9 @@ function Registro() {
                                         message: "Por favor Ingrese su Apellido",
                                     },
                                     { whitespace: true },
-                                    { min: 3 },
+                                    { min: 3, message: "El nombre debe tener al menos 3 caracteres" },
+                                    { max: 30, message: "El nombre no puede tener más de 30 caracteres" },
+                                    { pattern: /^[a-zA-Z\s]*$/, message: "El nombre solo puede contener letras del alfabeto" },
                                 ]}
                                 hasFeedback
                             >
@@ -143,7 +148,7 @@ function Registro() {
                                                 return Promise.resolve();
                                             }
                                             return Promise.reject(
-                                                "Las contraseñas no coinsiden."
+                                                "Las contraseñas no coinciden."
                                             );
                                         },
                                     }),
@@ -191,12 +196,26 @@ function Registro() {
 
                             <Form.Item
                                 name="dob"
-                                label="Feha de Nacimiento"
+                                label="Fecha de Nacimiento"
                                 rules={[
                                     {
                                         required: true,
-                                        message: "Por favor Ingrese su fecha de nacimineto",
+                                        message: "Por favor ingrese su fecha de nacimiento",
                                     },
+                                    ({ getFieldValue }) => ({
+                                        validator(_, value) {
+                                            const dob = moment(value);
+                                            const minDate = moment().subtract(18, 'years').startOf('year'); // Menor de 18 años desde el inicio del año actual
+                                            const cutoffDate = moment('2005-01-01'); // Fecha de corte: 1 de enero de 2005
+                                            if (dob.isAfter(minDate)) {
+                                                return Promise.reject(new Error('Para registrarse, debe ser mayor a 18 años'));
+                                            }
+                                            if (dob.isAfter(moment()) || dob.isBefore(cutoffDate)) {
+                                                return Promise.reject(new Error('Fecha de nacimiento inválida'));
+                                            }
+                                            return Promise.resolve();
+                                        },
+                                    }),
                                 ]}
                                 hasFeedback
                             >
@@ -207,6 +226,7 @@ function Registro() {
                                 />
                             </Form.Item>
 
+
                             <Form.Item
                                 name="correo"
                                 label="Correo"
@@ -216,6 +236,12 @@ function Registro() {
                                         message: "Por favor Ingrese su Correo",
                                     },
                                     { type: "email", message: "Por favor Ingrese un Correo Valido" },
+                                    {
+                                        validator: (_, value) =>
+                                            value && value.includes(".")
+                                                ? Promise.resolve()
+                                                : Promise.reject(""),
+                                    },
                                 ]}
                                 hasFeedback
                             >
@@ -227,10 +253,28 @@ function Registro() {
                             <Form.Item
                                 name="telefono"
                                 label="Telefono"
-                                rules={[{ required: true, message: 'Por favor Ingrese su Correo' }]}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Por favor Ingrese su Telefono',
+                                    },
+                                    {max: 15, message: "El telefono no puede tener más de 15 caracteres" },
+                                    {
+                                        validator: (_, value) => {
+                                            if (value && !Number.isInteger(value)) {
+                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            }
+                                            if (value && value <= 0) {
+                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            }
+                                            return Promise.resolve();
+                                        },
+                                    },
+                                ]}
                             >
                                 <InputNumber style={{ width: '100%' }} placeholder='Escriba su Telefono' />
                             </Form.Item>
+
 
 
                             <Form.Item
@@ -297,12 +341,12 @@ function Registro() {
                                 style={{ maxWidth: 600 }}
                             >
                                 <Form.Item label=""
-                                 name="aboutMe"
-                                 rules={[{
-                                    required: true,
-                                    message: "Por favor cuentenos sobre usted"
-                                }]}
-                                 >
+                                    name="aboutMe"
+                                    rules={[{
+                                        required: true,
+                                        message: "Por favor cuentenos sobre usted"
+                                    }]}
+                                >
                                     <h2>Cuentanos Sobre Ti</h2>
                                     <TextArea rows={5} placeholder="Escribe sobre ti" />
                                 </Form.Item>
