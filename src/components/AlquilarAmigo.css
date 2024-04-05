@@ -1,0 +1,44 @@
+.AlquilarAmigo {
+    text-align: center;
+}
+
+.titulo {
+    padding: 1rem;
+}
+
+.AlquilarAmigo-header {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(27, 18, 210);
+}
+
+.datos-personales,
+.hobbies-amigo {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.datos-personales h2,
+.hobbies-amigo h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .AlquilarAmigo-header {
+        font-size: calc(8px + 2vmin);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .AlquilarAmigo-header {
+        font-size: calc(6px + 2vmin);
+    }
+}
