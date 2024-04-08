@@ -8,4 +8,4 @@ export const Contact = () => {
       <Footer />
     </>
   );
-};4
+};

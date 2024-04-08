@@ -1,0 +1,25 @@
+.Data-container {
+    display: inline-block;
+    padding: auto;
+    margin-left: 690px;
+    margin-top: 50px;
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+.Data-hoby {
+    display: inline-block;
+    padding: auto;
+    margin-left: 400px;
+    margin-top: 50px;
+    max-width: 30%;
+    max-height:30%;
+}
+.Data-des {
+    display: inline-block;
+    padding: auto;
+    margin-left: 50px;
+    margin-top: 300px;
+    max-width: 30%;
+    max-height:30%;
+}
