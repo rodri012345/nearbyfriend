@@ -6,15 +6,14 @@ const Hobbies = [
     'Saltar',
     'Nadar',
     'Corre',
-    'asdasd',
 ]
 const Mostar2 = () => {
 
 
     return (
-        <div>
-        <List className="Data-hoby"
-        size="small"
+        <div >
+        <List 
+        size="large"
         header={<h2>Hobbies</h2>}
         bordered
         dataSource={Hobbies}

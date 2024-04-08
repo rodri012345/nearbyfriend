@@ -8,4 +8,16 @@
       bordered
       dataSource={Hobbies}
       renderItem={(item) => <List.Item>{item}</List.Item>}/>
- {datos.map((prod) => <h2 key={prod.id}>{prod.formData.nombre}</h2>)}*/
+      recupera datos;
+      {datos.map((prod) => <h2 key={prod.id}>{prod.formData.nombre}</h2>)}
+       <Col span={8} >
+            <div>
+                <Mostrar />
+            </div>
+        </Col>
+        <Col span={8}>
+                <Mostar2 />        
+        </Col>
+        <Col span={8}>
+        </Col>
+      */

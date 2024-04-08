@@ -7,6 +7,7 @@ import Mostar2 from './Mostrar2';
 import {Col, Row} from 'antd';
 import Mostrar from './Mostar';
 import Mostrar3 from './Mostrar3';
+import PerfilC from './Mostrar3';
 
 
 
@@ -31,19 +32,8 @@ function PerfilAmigo () {
 
     }, [])
     return (
-      <Row gutter={[16,16]} > 
-        <Col span={8} >
-            <div>
-                <Mostrar />
-            </div>
-        </Col>
-        <Col span={8}>
-                <Mostar2 />        
-        </Col>
-        <Col span={8}>
             
-        </Col>
-      </Row>
+            <PerfilC />
         
     )
 }
