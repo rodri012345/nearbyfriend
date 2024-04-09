@@ -1,5 +1,12 @@
 .Registro {
-    text-align: center;
+    text-align:center;
+    
+}
+
+.registo-contenedo{
+    display: flex;
+    justify-content: space-between;
+    
 }
 .titulo{
     padding: 1rem;
