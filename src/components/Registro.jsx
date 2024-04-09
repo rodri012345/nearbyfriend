@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Registro.css";
-import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber} from "antd";
+import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber } from "antd";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
 import { PlusOutlined } from '@ant-design/icons';
@@ -29,7 +29,7 @@ function Registro() {
             values.dob = dob;
         }
 
-        const hobbies = values.hobbies || []; 
+        const hobbies = values.hobbies || [];
         console.log(hobbies);
 
         const formData = {
@@ -44,12 +44,12 @@ function Registro() {
         };
 
         try {
-           { /*if (hobbies.length < 3) {
+            { /*if (hobbies.length < 3) {
                 message.error('Debe seleccionar al menos tres hobbies para registrarse.');
                 return;
             }
         */}
-            const docRef = await addDoc(collection(db, 'clientes'), {formData, hobbies});
+            const docRef = await addDoc(collection(db, 'clientes'), { formData, hobbies });
             console.log('Documento agregado con ID: ', docRef.id);
             message.success('¡Registro exitoso!');
             form.resetFields();
@@ -85,7 +85,9 @@ function Registro() {
                                         message: "Por favor Ingrese su Nombre",
                                     },
                                     { whitespace: true },
-                                    { min: 3 },
+                                    { min: 3, message: "El nombre debe tener al menos 3 caracteres" },
+                                    { max: 30, message: "El nombre no puede tener más de 30 caracteres" },
+                                    { pattern: /^[a-zA-Z\s]*$/, message: "El nombre solo puede contener letras del alfabeto" },
                                 ]}
                                 hasFeedback
                             >
@@ -101,7 +103,9 @@ function Registro() {
                                         message: "Por favor Ingrese su Apellido",
                                     },
                                     { whitespace: true },
-                                    { min: 3 },
+                                    { min: 3, message: "El nombre debe tener al menos 3 caracteres" },
+                                    { max: 30, message: "El nombre no puede tener más de 30 caracteres" },
+                                    { pattern: /^[a-zA-Z\s]*$/, message: "El nombre solo puede contener letras del alfabeto" },
                                 ]}
                                 hasFeedback
                             >
@@ -142,7 +146,7 @@ function Registro() {
                                                 return Promise.resolve();
                                             }
                                             return Promise.reject(
-                                                "Las contraseñas no coinsiden."
+                                                "Las contraseñas no coinciden."
                                             );
                                         },
                                     }),
@@ -194,7 +198,7 @@ function Registro() {
                                 rules={[
                                     {
                                         required: true,
-                                        message: "Por favor Ingrese su fecha de nacimineto",
+                                        message: "Por favor Ingrese su fecha de nacimiento",
                                     },
                                 ]}
                                 hasFeedback
@@ -215,6 +219,12 @@ function Registro() {
                                         message: "Por favor Ingrese su Correo",
                                     },
                                     { type: "email", message: "Por favor Ingrese un Correo Valido" },
+                                    {
+                                        validator: (_, value) =>
+                                            value && value.includes(".")
+                                                ? Promise.resolve()
+                                                : Promise.reject(""),
+                                    },
                                 ]}
                                 hasFeedback
                             >
@@ -226,10 +236,28 @@ function Registro() {
                             <Form.Item
                                 name="telefono"
                                 label="Telefono"
-                                rules={[{ required: true, message: 'Por favor Ingrese su Correo' }]}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Por favor Ingrese su Telefono',
+                                    },
+                                    {max: 15, message: "El telefono no puede tener más de 15 caracteres" },
+                                    {
+                                        validator: (_, value) => {
+                                            if (value && !Number.isInteger(value)) {
+                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            }
+                                            if (value && value <= 0) {
+                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            }
+                                            return Promise.resolve();
+                                        },
+                                    },
+                                ]}
                             >
                                 <InputNumber style={{ width: '100%' }} placeholder='Escriba su Telefono' />
                             </Form.Item>
+
 
 
                             <Form.Item
