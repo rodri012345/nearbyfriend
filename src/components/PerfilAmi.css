@@ -1,0 +1,48 @@
+.perfil-ami-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.perfil-ami-content {
+    display: flex;
+    align-items: center;
+}
+
+.foto-amigo {
+    flex: 0 0 auto;
+    width: 400px;
+    margin-right: 40px;
+}
+
+.foto-amigo img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.datos-hobbies {
+    display: flex; /* No es necesario establecer display: flex; aquí */
+}
+
+.datos-personales {
+    margin-left: 150px;
+    margin-bottom: 20px;
+}
+
+.datos-personales,
+.hobbies {
+    margin-right: 20px; /* Agrega un margen entre los elementos */
+}
+
+.hobbies {
+    flex: 1;
+}
+.datos-personales,
+.hobbies {
+    margin-right: 20px; /* Agrega un margen entre los elementos */
+    border: 1px solid #2a2ca1; /* Agrega un borde para hacer visible el margen */
+    padding: 10px; /* Agrega relleno para mejorar la apariencia */
+}
+

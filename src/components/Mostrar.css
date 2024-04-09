@@ -106,9 +106,6 @@
         .PerfilCHeader {
             font-size: calc(6px + 2vmin);}
         }
-    .mostra-da{
-        
-    }
-    .mostra-ho{
-    
-    }
+        .Modal {
+            width: 400px;
+          }

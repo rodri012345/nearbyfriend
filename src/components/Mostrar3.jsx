@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Mostrar.css";
-import { Descriptions,Col,Row,Image ,Rate} from 'antd';
+import { Descriptions,Col, Row, Image ,Rate, Modal, Button} from 'antd';
 import Mostrar from './Mostar';
 import Mostar2 from './Mostrar2';
 function PerfilC(){
@@ -58,9 +58,7 @@ function PerfilC(){
                 </Row>
                 <Row gutter={[12,12]}>
                 <div>
-                <h2></h2>
-                
-                  
+    
                 </div>
                 </Row>
               </div>
