@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, updateDoc, collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase-conf'; // Asegúrate de importar tu configuración de Firebase
-import './PerfilAmi.css';
+import { db } from '../firebase/firebase-conf'; 
+import './PerfilAmi.css'; 
+import { Button, Modal, Input, DatePicker, Typography, Rate } from 'antd'; 
 
-const PerfilAmi= ({ amigoId }) => {
+const { Title, Text } = Typography;
+
+const PerfilAmi = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
     const [modalAbierto, setModalAbierto] = useState(false);
     const [evento, setEvento] = useState({
@@ -56,61 +59,70 @@ const PerfilAmi= ({ amigoId }) => {
         <div className="perfil-ami-container">
             {amigo && (
                 <div className="perfil-ami-content">
-                    {amigo && (
-                <div className="perfil-ami-content">
                     <div className="foto-amigo">
                         <img src="src/img/450_1000.jpeg" alt="Foto del amigo" />
+                
+                <Rate defaultValue={3} />
+            
                     </div>
+                    
                     <div className="datos-hobbies">
                         <div className="datos-personales">
-                            <h3>Datos Personales</h3>
-                            <p>Nombre: {amigo.formData.nombre}</p>
-                            <p>Apellido: {amigo.formData.apellido}</p>
-                            <p>Ciudad: {amigo.formData.departamento}</p>
-                            <p>Correo: {amigo.formData.correo}</p>
-                            <p>Teléfono: {amigo.formData.telefono}</p>
+                            <Title level={4}>Datos Personales</Title>
+                            <Text>Nombre: {amigo.formData.nombre}</Text>
+                            <Text>Apellido: {amigo.formData.apellido}</Text>
+                            <Text>Ciudad: {amigo.formData.departamento}</Text>
+                            <Text>Correo: {amigo.formData.correo}</Text>
+                            <Text>Teléfono: {amigo.formData.telefono}</Text>
                         </div>
                         <div className="hobbies">
-                            <h3>Hobbies</h3>
-                            <p>Pintar</p>
-                            <p> Cine </p>
-                            <p>Musica</p>
-                            <p>Viajes</p>
-                            <p>{amigo.formData.hobbies}</p>
+                            <Title level={4}>Hobbies</Title>
+                            <Text>Pintar</Text>
+                            <Text>Cine</Text>
+                            <Text>Musica</Text>
+                            <Text>Viajes</Text>
+                            <Text>{amigo.formData.hobbies}</Text>
                         </div>
                     </div>
+                
                 </div>
             )}
-                    <button onClick={toggleModal} style={{ marginTop: '20px' }}>Agregar Evento</button>
-                    {modalAbierto && (
-                        <div className="modal">
-                            <h2>Agregar Evento</h2>
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor="fecha">Fecha:</label>
-                                <input type="date" id="fecha" name="fecha" value={evento.fecha} onChange={handleChange} required />
-
-                                <label htmlFor="hora">Hora:</label>
-                                <input type="time" id="hora" name="hora" value={evento.hora} onChange={handleChange} required />
-
-                                <label htmlFor="duracion">Duración (horas):</label>
-                                <input type="number" id="duracion" name="duracion" min="1" value={evento.duracion} onChange={handleChange} required />
-
-                                <label htmlFor="descripcion">Descripción:</label>
-                                <textarea id="descripcion" name="descripcion" rows="4" value={evento.descripcion} onChange={handleChange} required></textarea>
-
-                                <label htmlFor="lugar">Lugar de encuentro:</label>
-                                <input type="text" id="lugar" name="lugar" value={evento.lugar} onChange={handleChange} required />
-
-                                <button type="submit">Guardar</button>
-                                <button type="button" onClick={toggleModal}>Cancelar</button>
-                            </form>
-                        </div>
-                    )}
+            <Button className='mon-n' type="primary" onClick={toggleModal} style={{ marginTop: '20px' }}>Solicitud de alquiler</Button>
+            <Modal
+                title="Agregar Evento"
+                visible={modalAbierto}
+                onCancel={toggleModal}
+                onOk={handleSubmit}
+            >
+                <div>
+                    <label htmlFor="fecha">Fecha:</label>
+                    <DatePicker value={evento.fecha} onChange={(date, dateString) => setEvento({ ...evento, fecha: dateString })} />
                 </div>
-            )}
+                <div>
+                    <label htmlFor="hora">Hora:</label>
+                    <Input type="time" value={evento.hora} onChange={(e) => setEvento({ ...evento, hora: e.target.value })} />
+                </div>
+                <div>
+                    <label htmlFor="duracion">Duración (horas):</label>
+                    <Input type="number" min="1" value={evento.duracion} onChange={(e) => setEvento({ ...evento, duracion: e.target.value })} />
+                </div>
+                <div>
+                    <label htmlFor="descripcion">Descripción:</label>
+                    <Input.TextArea rows={4} value={evento.descripcion} onChange={(e) => setEvento({ ...evento, descripcion: e.target.value })} />
+                </div>
+                <div>
+                    <label htmlFor="lugar">Lugar de encuentro:</label>
+                    <Input value={evento.lugar} onChange={(e) => setEvento({ ...evento, lugar: e.target.value })} />
+                </div>
+            </Modal>
+            <div className="descripcion">
+                        <Title level={4}>Descripción</Title>
+                        <Text>Ir de paseo en bicicleta, la aventura, los videojuegos</Text>
+                    </div>
         </div>
     );
 };
+
 const App2 = () => {
     return (
         <div>
@@ -120,3 +132,4 @@ const App2 = () => {
 };
 
 export default App2;
+

@@ -7,12 +7,13 @@
 
 .perfil-ami-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .foto-amigo {
     flex: 0 0 auto;
-    width: 400px;
+    width: 300px;
     margin-right: 40px;
 }
 
@@ -23,76 +24,51 @@
 }
 
 .datos-hobbies {
-    display: flex; /* No es necesario establecer display: flex; aquí */
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
 .datos-personales {
-    margin-left: 150px;
-    margin-bottom: 20px;
-}
-
-.datos-personales,
-.hobbies {
-    margin-right: 20px; /* Agrega un margen entre los elementos */
+    margin-right: 40px;
+    
+    padding: 10px;
 }
 
 .hobbies {
     flex: 1;
-}
-.datos-personales,
-.hobbies {
-    margin-right: 20px; /* Agrega un margen entre los elementos */
-    border: 1px solid #2a2ca1; /* Agrega un borde para hacer visible el margen */
-    padding: 10px; /* Agrega relleno para mejorar la apariencia */
-}
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    z-index: 9999;
+    margin-left: 40px;
+   
+    padding: 10px;
 }
 
-.modal h2 {
-    margin-top: 0;
+.descripcion {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 350px;
 }
 
-.modal form {
+.ant-typography {
+    margin-bottom: 20px;
+}
+
+.datos-personales {
     display: flex;
     flex-direction: column;
 }
 
-.modal label {
-    margin-bottom: 5px;
+.hobbies {
+    display: flex;
+    flex-direction: column;
+}
+.mon-n{
+    margin-top: 20px;
+    margin-left: 350px;
+}
+.ant-rate {
+    margin-top: 10px; /* Margen superior para separar la puntuación de la foto */
+
 }
 
-.modal input,
-.modal textarea {
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
 
-.modal button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-.modal button[type="submit"] {
-    background-color: #28a745;
-}
-
-.modal button[type="button"] {
-    background-color: #dc3545;
-}
 
