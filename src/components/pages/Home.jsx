@@ -1,6 +1,7 @@
 import React from "react";
-
+import Footer from '../Fotter'
 export const Home = () => {
-  return <h1>Home</h1>;
-  <h1>Hello</h1>
+  return (
+    <Footer />
+  );
 };

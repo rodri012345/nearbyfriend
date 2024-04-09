@@ -1,5 +1,11 @@
 import React from "react";
-
+import Registro from "../Registro";
+import Footer from "../Fotter";
 export const Contact = () => {
-  return <h1>Contact</h1>;
-};
+  return (
+    <>
+      <Registro />
+      <Footer />
+    </>
+  );
+};4

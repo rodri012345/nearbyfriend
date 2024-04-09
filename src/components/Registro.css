@@ -1,0 +1,95 @@
+.Registro {
+    text-align:center;
+    
+}
+
+.registo-contenedo{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.titulo{
+    padding: 1rem;
+}
+.Registro-header {
+    /* background-color: #282c34; */
+   
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(27, 18, 210);
+}
+
+.hobbies-list-container {
+    display: inline-block; 
+    text-align: center; 
+    overflow: auto; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.hobbies-list {
+    margin-top: 20px;
+    
+}
+
+.ant-checkbox-group-item {
+    display: grid;
+    margin-bottom: 8px;
+}
+
+
+.ant-checkbox-inner {
+    border-radius: 5px;
+}
+
+
+.hobbies-list {
+    margin-top: 0px;
+}
+
+.hobbies-list h2 {
+    font-size: 1.2rem;
+    color: #333; 
+    margin-bottom: 10px; 
+}
+.hobbies-list .ant-checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-gap: 8px; 
+    text-align: left; 
+}
+
+
+@media screen and (max-width: 768px) {
+    .Registro-header {
+        font-size: calc(8px + 2vmin);
+    }
+
+    .hobbies-list-container {
+        max-width: 100%;
+    }
+
+    .hobbies-list-container {
+        max-width: 100%;
+    }
+
+    .hobbies-list .ant-checkbox-group {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajusta el tamaño de las columnas para pantallas más pequeñas */
+        grid-gap: 8px; /* Reduce el espaciado entre las casillas de verificación */
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .Registro-header {
+        font-size: calc(6px + 2vmin);
+    }
+}
