@@ -45,4 +45,54 @@
     border: 1px solid #2a2ca1; /* Agrega un borde para hacer visible el margen */
     padding: 10px; /* Agrega relleno para mejorar la apariencia */
 }
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    margin-bottom: 5px;
+}
+
+.modal input,
+.modal textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.modal button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal button[type="submit"] {
+    background-color: #28a745;
+}
+
+.modal button[type="button"] {
+    background-color: #dc3545;
+}
 
