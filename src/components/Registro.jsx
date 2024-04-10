@@ -35,10 +35,11 @@ const normFile = (e) => {
 
 
 function Registro() {
-  const {foto,setFoto} = useState(null)
+  const [foto,setFoto] = useState(null)
   const handleUpload = (res) => {
     setFoto(res);
     console.log('res contiene', res)
+    console.log('el enlace de la foto es:',foto)
   }
   const [form] = Form.useForm();
 
@@ -52,9 +53,9 @@ function Registro() {
 
     const hobbies = values.hobbies || [];
     console.log(hobbies);
-    
+    console.log(foto)
     const formData = {
-      
+      fotoCliente: foto,
       nombre: values.nombre,
       apellido: values.apellido,
       correo: values.correo,
@@ -300,7 +301,7 @@ function Registro() {
                   label="Telefono"
                   rules={[
                     {
-                      required: true,
+                      required: false,
                       message: "Por favor Ingrese su Telefono",
                     },
                     {
@@ -394,27 +395,11 @@ function Registro() {
                 >
                   <Form.Item label="" name="aboutMe">
                     <h2>Cuentanos Sobre Ti</h2>
-                    <TextArea rows={5} placeholder="" />
+                    <TextArea  rows={5} placeholder="" />
                   </Form.Item>
-                  <h2>Sube tu foto de perfil</h2>
-                  <Form.Item
-                    label=""
-                    valuePropName="fileList"
-                    getValueFromEvent={normFile}
-                  >
-                    <Upload
-                      action="src\components\amigo-img"
-                      listType="picture-card"
-                    >
-                      <button
-                        style={{ border: 0, background: "none" }}
-                        type="button"
-                      >
-                        <PlusOutlined />
-                        <div style={{ marginTop: 8 }}>Subir Foto</div>
-                      </button>
-                    </Upload>
-                  </Form.Item>
+                  
+                    
+                  
                 </Form>
               </div>
             </Col>

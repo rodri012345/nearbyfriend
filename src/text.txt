@@ -1,0 +1,40 @@
+import {React, useState} from 'react'
+import { uploadFile } from '../firebase/firebase-conf'
+import {Avatar} from 'antd'
+import { UserOutlined, UploadOutlined } from '@ant-design/icons'
+
+
+function SubirFoto() {
+  const [file, setFile] = useState(null)
+  const [result,setResult] = useState(null)
+  
+  
+  
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    try {
+      const res = await uploadFile(file)
+      setResult(res)
+      console.log(res)
+    } catch (error) {
+      console.error(error)
+    }
+    
+  }
+
+  
+
+  return (
+    <form>
+      {result ? (
+        <Avatar shape= 'square' size={300} src={result} />
+      ) : (
+        <Avatar  shape= 'square' size={300} icon={<UserOutlined />} />
+      )}
+      <input type="file" name="" id="" onChange={e => setFile(e.target.files[0])} />
+      <button >Upload</button>
+    </form>
+  )
+}
+export default SubirFoto

@@ -4,7 +4,7 @@ import {Avatar} from 'antd'
 import { UserOutlined, UploadOutlined } from '@ant-design/icons'
 
 
-  function SubirFoto({onUpload}) {
+  function SubirFotoAmigo({onUpload}) {
   const [file, setFile] = useState(null)
   const [result,setResult] = useState(null)
   
@@ -41,21 +41,10 @@ import { UserOutlined, UploadOutlined } from '@ant-design/icons'
       <Avatar  shape= 'square' size={300} icon={<UserOutlined />} src={result}  />
       
       <input type="file" name="" id="" onChange={handleFileChange}/>
-      {/* <Upload
-                      action="src\components\amigo-img"
-                      listType="picture-card"
-                    >
-                      <button
-                        style={{ border: 0, background: "none" }}
-                        type="button"
-                      >
-                        <PlusOutlined />
-                        <div style={{ marginTop: 8 }}>Subir Foto</div>
-                      </button>
-                    </Upload> */}
+      
     </div>
   )
 }
 
-export default SubirFoto
+export default SubirFotoAmigo
 
