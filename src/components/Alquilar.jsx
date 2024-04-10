@@ -39,7 +39,7 @@ const PerfilAmi = ({ amigoId }) => {
     const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Verificar si el campo de duración solo contiene números y no excede las 5 horas
+    
     if (name === 'duracion' && !/^\d*$/.test(value)) {
         return;
     }
@@ -49,7 +49,7 @@ const PerfilAmi = ({ amigoId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Verificar si algún campo está vacío
+            
             if (
                 evento.fecha.trim() === '' ||
                 evento.hora.trim() === '' ||
@@ -65,7 +65,7 @@ const PerfilAmi = ({ amigoId }) => {
             await addDoc(eventosRef, evento);
             console.log("Evento agregado correctamente a Firebase.");
             setModalAbierto(false);
-            // Restablecer el estado del evento a su valor inicial
+            
             setEvento({
                 fecha: '',
                 hora: '',
@@ -80,7 +80,7 @@ const PerfilAmi = ({ amigoId }) => {
     
     const handleCancel = () => {
         setModalAbierto(false);
-        // Restablecer el estado del evento a su valor inicial
+        
         setEvento({
             fecha: '',
             hora: '',
@@ -100,7 +100,7 @@ const PerfilAmi = ({ amigoId }) => {
                 <div className="perfil-ami-content">
                     <div className="foto-amigo">
                         <img src="src/img/450_1000.jpeg" alt="Foto del amigo" />
-                        {/* Aquí va el componente Rate */}
+                        {}
                     </div>
                     
                     <div className="datos-hobbies">
