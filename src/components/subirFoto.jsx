@@ -40,7 +40,7 @@ import { UserOutlined, UploadOutlined } from '@ant-design/icons'
     <div>
       <Avatar  shape= 'square' size={300} icon={<UserOutlined />} src={result}  />
       
-      <input type="file" name="" id="" onChange={handleFileChange}/>
+      <input type="file" name="" id="" onChange={handleFileChange} accept=".jpg,.png"/>
       {/* <Upload
                       action="src\components\amigo-img"
                       listType="picture-card"
