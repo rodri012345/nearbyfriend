@@ -71,4 +71,101 @@
 }
 
 
+/* Estilos para el modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/* Estilos para el contenido del modal */
+.modal-content {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    max-width: 400px; /* Ancho máximo del modal */
+    width: 100%;
+}
+
+/* Estilos para el botón de cerrar el modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #aaa; /* Color de la 'x' */
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000; /* Cambia el color al pasar el ratón sobre la 'x' */
+}
+
+/* Estilos para las etiquetas de los campos del formulario */
+label {
+    font-weight: bold;
+}
+
+/* Estilos para los campos de entrada del formulario */
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilos para los botones del formulario */
+button[type="submit"],
+button[type="button"] {
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px; /* Margen derecho entre los botones */
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilos para la descripción */
+.descripcion {
+    margin-top: 20px;
+}
+
+/* Estilos para el texto de la descripción */
+.descripcion h4 {
+    margin-bottom: 10px;
+}
+/* Estilos para el botón de solicitud de alquiler */
+
+.mon-n {
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.mon-n:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón */
+}

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { doc, getDoc, updateDoc, collection, addDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
 import './PerfilAmi.css'; 
-import { Button, Modal, Input, DatePicker, Typography, Rate } from 'antd'; 
-
-const { Title, Text } = Typography;
 
 const PerfilAmi = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
@@ -16,7 +13,7 @@ const PerfilAmi = ({ amigoId }) => {
         descripcion: '',
         lugar: ''
     });
-
+    const today = new Date().toISOString().split('T')[0];
     useEffect(() => {
         const obtenerAmigo = async () => {
             try {
@@ -40,20 +37,62 @@ const PerfilAmi = ({ amigoId }) => {
     };
 
     const handleChange = (e) => {
-        setEvento({ ...evento, [e.target.name]: e.target.value });
-    };
+    const { name, value } = e.target;
 
+    // Verificar si el campo de duración solo contiene números y no excede las 5 horas
+    if (name === 'duracion' && !/^\d*$/.test(value)) {
+        return;
+    }
+
+    setEvento({ ...evento, [name]: value });
+};
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Verificar si algún campo está vacío
+            if (
+                evento.fecha.trim() === '' ||
+                evento.hora.trim() === '' ||
+                evento.duracion.trim() === '' ||
+                evento.descripcion.trim() === '' ||
+                evento.lugar.trim() === ''
+            ) {
+                alert('Todos los campos son obligatorios');
+                return;
+            }
+            
             const eventosRef = collection(db, "eventos");
             await addDoc(eventosRef, evento);
             console.log("Evento agregado correctamente a Firebase.");
             setModalAbierto(false);
+            // Restablecer el estado del evento a su valor inicial
+            setEvento({
+                fecha: '',
+                hora: '',
+                duracion: '',
+                descripcion: '',
+                lugar: ''
+            });
         } catch (error) {
             console.error("Error al agregar el evento:", error);
         }
     };
+    
+    const handleCancel = () => {
+        setModalAbierto(false);
+        // Restablecer el estado del evento a su valor inicial
+        setEvento({
+            fecha: '',
+            hora: '',
+            duracion: '',
+            descripcion: '',
+            lugar: ''
+        });
+    };
+
+
+    
+
 
     return (
         <div className="perfil-ami-container">
@@ -61,64 +100,67 @@ const PerfilAmi = ({ amigoId }) => {
                 <div className="perfil-ami-content">
                     <div className="foto-amigo">
                         <img src="src/img/450_1000.jpeg" alt="Foto del amigo" />
-                
-                <Rate defaultValue={3} />
-            
+                        {/* Aquí va el componente Rate */}
                     </div>
                     
                     <div className="datos-hobbies">
                         <div className="datos-personales">
-                            <Title level={4}>Datos Personales</Title>
-                            <Text>Nombre: {amigo.formData.nombre}</Text>
-                            <Text>Apellido: {amigo.formData.apellido}</Text>
-                            <Text>Ciudad: {amigo.formData.departamento}</Text>
-                            <Text>Correo: {amigo.formData.correo}</Text>
-                            <Text>Teléfono: {amigo.formData.telefono}</Text>
+                            <h4>Datos Personales</h4>
+                            <p>Nombre: {amigo.formData.nombre}</p>
+                            <p>Apellido: {amigo.formData.apellido}</p>
+                            <p>Ciudad: {amigo.formData.departamento}</p>
+                            <p>Correo: {amigo.formData.correo}</p>
+                            <p>Teléfono: {amigo.formData.telefono}</p>
                         </div>
                         <div className="hobbies">
-                            <Title level={4}>Hobbies</Title>
-                            <Text>Pintar</Text>
-                            <Text>Cine</Text>
-                            <Text>Musica</Text>
-                            <Text>Viajes</Text>
-                            <Text>{amigo.formData.hobbies}</Text>
+                            <h4>Hobbies</h4>
+                            <p>Pintar</p>
+                            <p>Cine</p>
+                            <p>Musica</p>
+                            <p>Viajes</p>
+                            <p>{amigo.formData.hobbies}</p>
                         </div>
                     </div>
                 
                 </div>
             )}
-            <Button className='mon-n' type="primary" onClick={toggleModal} style={{ marginTop: '20px' }}>Solicitud de alquiler</Button>
-            <Modal
-                title="Agregar Evento"
-                visible={modalAbierto}
-                onCancel={toggleModal}
-                onOk={handleSubmit}
-            >
-                <div>
-                    <label htmlFor="fecha">Fecha:</label>
-                    <DatePicker value={evento.fecha} onChange={(date, dateString) => setEvento({ ...evento, fecha: dateString })} />
-                </div>
-                <div>
-                    <label htmlFor="hora">Hora:</label>
-                    <Input type="time" value={evento.hora} onChange={(e) => setEvento({ ...evento, hora: e.target.value })} />
-                </div>
-                <div>
-                    <label htmlFor="duracion">Duración (horas):</label>
-                    <Input type="number" min="1" value={evento.duracion} onChange={(e) => setEvento({ ...evento, duracion: e.target.value })} />
-                </div>
-                <div>
-                    <label htmlFor="descripcion">Descripción:</label>
-                    <Input.TextArea rows={4} value={evento.descripcion} onChange={(e) => setEvento({ ...evento, descripcion: e.target.value })} />
-                </div>
-                <div>
-                    <label htmlFor="lugar">Lugar de encuentro:</label>
-                    <Input value={evento.lugar} onChange={(e) => setEvento({ ...evento, lugar: e.target.value })} />
-                </div>
-            </Modal>
+            <button className='mon-n' onClick={toggleModal} style={{ marginTop: '20px' }}>Solicitud de Alquiler</button>
+            {modalAbierto &&
+           <div className="modal">
+           <div className="modal-content">
+               <span className="close" onClick={toggleModal}>&times;</span>
+               <form onSubmit={handleSubmit}>
+                   <div>
+                       <label htmlFor="fecha">Fecha:</label>
+                       <input type="date" name="fecha" value={evento.fecha} min={today} onChange={handleChange} />
+                   </div>
+                   <div>
+                       <label htmlFor="hora">Hora:</label>
+                       <input type="time" name="hora" value={evento.hora} onChange={handleChange} />
+                   </div>
+                   <div>
+                       <label htmlFor="duracion">Duración (horas):</label>
+                       <input type="number" min="1" max="5" name="duracion" value={evento.duracion} onChange={handleChange} />
+                   </div>
+                   <div>
+                       <label htmlFor="descripcion">Descripción:</label>
+                       <textarea rows={4}  maxLength={80} name="descripcion" value={evento.descripcion} onChange={handleChange} />
+                   </div>
+                   <div>
+                       <label htmlFor="lugar">Lugar de encuentro:</label>
+                       <input  maxLength={40} name="lugar" value={evento.lugar} onChange={handleChange} />
+                   </div>
+                   
+                   <button type="button" onClick={handleCancel}>Cancelar</button>
+                   <button type="submit">Aquilar</button>
+               </form>
+           </div>
+       </div>
+            }
             <div className="descripcion">
-                        <Title level={4}>Descripción</Title>
-                        <Text>Ir de paseo en bicicleta, la aventura, los videojuegos</Text>
-                    </div>
+                <h4>Descripción</h4>
+                <p>Ir de paseo en bicicleta, la aventura, los videojuegos</p>
+            </div>
         </div>
     );
 };
@@ -132,4 +174,5 @@ const App2 = () => {
 };
 
 export default App2;
+
 
