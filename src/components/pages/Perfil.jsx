@@ -1,13 +1,13 @@
 import React from "react";
-import PerfilAmigo from "../PerfilAmigo"
 import Footer from "../Fotter";
 import App2 from "../Alquilar";
+import Alquilar from "../Alquilar";
 export const Perfil = () => {
     return (
         <>
         
         
-        <App2 ></App2>
+        <Alquilar />
         <Footer />
 
         </>

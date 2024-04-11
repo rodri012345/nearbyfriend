@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
-import './PerfilAmi.css'; 
+import './Alquilar.css';
 
 const PerfilAmi = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
@@ -165,7 +165,7 @@ const PerfilAmi = ({ amigoId }) => {
     );
 };
 
-const App2 = () => {
+const Alquilar = () => {
     return (
         <div>
             <PerfilAmi amigoId="wLuH5ZXjLh4kWltUMTUo" />
@@ -173,6 +173,6 @@ const App2 = () => {
     );
 };
 
-export default App2;
+export default Alquilar;
 
 
