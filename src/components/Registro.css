@@ -1,88 +1,60 @@
+/* Registro.css */
+
 .Registro {
     text-align: center;
-}
-.titulo{
-    padding: 1rem;
-}
-.Registro-header {
-    /* background-color: #282c34; */
-   
-    min-height: 50vh;
+    padding: 20px;
+  }
+  .Registro h1{
+    margin-bottom: 1rem;
+
+  }
+  .Registro .Registro-header {
+    max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    padding: 20px;
+    background-color: #f0f2f5; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  .Registro h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Color del texto */
+  }
+  
+  .Registro .ant-checkbox-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(27, 18, 210);
-}
-
-.hobbies-list-container {
-    display: inline-block; 
-    text-align: center; 
-    overflow: auto; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    margin-bottom: 20px; 
-    border: 2px solid black;
-    border-radius: 5px;
-}
-
-.hobbies-list {
-    margin-top: 20px;
-    
-}
-
-.ant-checkbox-group-item {
-    display: grid;
-    margin-bottom: 8px;
-}
-
-
-.ant-checkbox-inner {
-    border-radius: 5px;
-}
-
-
-.hobbies-list {
-    margin-top: 0px;
-}
-
-.hobbies-list h2 {
-    font-size: 1.2rem;
-    color: #333; 
-    margin-bottom: 10px; 
-}
-.hobbies-list .ant-checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    grid-gap: 8px; 
-    text-align: left; 
-}
-
-
-@media screen and (max-width: 768px) {
-    .Registro-header {
-        font-size: calc(8px + 2vmin);
-    }
-
-    .hobbies-list-container {
-        max-width: 100%;
-    }
-
-    .hobbies-list-container {
-        max-width: 100%;
-    }
-
-    .hobbies-list .ant-checkbox-group {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajusta el tamaño de las columnas para pantallas más pequeñas */
-        grid-gap: 8px; /* Reduce el espaciado entre las casillas de verificación */
-    }
-}
-
-
-@media screen and (max-width: 576px) {
-    .Registro-header {
-        font-size: calc(6px + 2vmin);
-    }
-}
+  }
+  
+  .Registro .ant-form-item-label {
+    text-align: left; /* Alinea el texto del label a la izquierda */
+    color: #666; /* Color del texto */
+  }
+  
+  .Registro .ant-form-item-control {
+    text-align: left; /* Alinea el contenido del input a la izquierda */
+  }
+  
+  .Registro .ant-btn {
+    width: 100%; /* Ancho completo */
+    max-width: 300px; /* Ancho máximo */
+    margin: 20px auto; /* Centra el botón horizontalmente y agrega espacio en la parte superior e inferior */
+    background-color: #1890ff; /* Color de fondo */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    color: #fff; /* Color del texto */
+    font-size: 16px;
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave */
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .Registro .ant-btn:hover {
+    background-color: #40a9ff; /* Color de fondo al pasar el ratón */
+  }
