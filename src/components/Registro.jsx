@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import "./Registro.css";
 import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber } from "antd";
 import { collection, addDoc } from 'firebase/firestore';
@@ -19,6 +19,38 @@ const normFile = (e) => {
 function Registro() {
 
     const [form] = Form.useForm();
+    const [imageUploaded, setImageUploaded] = useState(false);
+
+    const imageUploadRef = useRef(null);
+
+    const handleImageUpload = async () => {
+        if (imageUploadRef.current.fileList.length === 0) {
+            message.error('Debes seleccionar una imagen para continuar.');
+            return;
+        }
+
+        const file = imageUploadRef.current.fileList[0];
+        const fileName = `<span class="math-inline">\{Math\.random\(\)\.toString\(36\)\}\-</span>{file.name}`;
+
+        try {
+            const imageRef = storageRef.child(`images/${fileName}`);
+            await imageRef.put(file);
+            const downloadURL = await imageRef.getDownloadURL();
+            setImageUploaded(true);
+            console.log('Image uploaded:', downloadURL);
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            message.error('Hubo un error al subir la imagen.');
+        }
+    };
+
+    const handleNext = () => {
+        form.validateFields(['aboutMe'], (errorInfo) => {
+            if (!errorInfo) {
+                setImageUploaded(true);
+            }
+        });
+    };
 
     const onFinish = async (values) => {
 
@@ -41,14 +73,17 @@ function Registro() {
             genero: values.genero,
             dob: values.dob,
             agreement: values.agreement,
+            imagenPerfil: imageUploadRef.current.fileList[0] ? imageUploadRef.current.fileList[0].name : "",
         };
 
+        
+
         try {
-            { /*if (hobbies.length < 3) {
+            { if (hobbies.length < 3) {
                 message.error('Debe seleccionar al menos tres hobbies para registrarse.');
                 return;
             }
-        */}
+        }
             const docRef = await addDoc(collection(db, 'clientes'), { formData, hobbies });
             console.log('Documento agregado con ID: ', docRef.id);
             message.success('¡Registro exitoso!');
@@ -194,7 +229,7 @@ function Registro() {
 
                             <Form.Item
                                 name="dob"
-                                label="Feha de Nacimiento"
+                                label="Fecha de Nacimiento"
                                 rules={[
                                     {
                                         required: true,
@@ -241,7 +276,7 @@ function Registro() {
                                         required: true,
                                         message: 'Por favor Ingrese su Telefono',
                                     },
-                                    {max: 15, message: "El telefono no puede tener más de 15 caracteres" },
+                                    {max: 8, message: "El telefono no puede tener más de 8 caracteres" },
                                     {
                                         validator: (_, value) => {
                                             if (value && !Number.isInteger(value)) {
@@ -321,20 +356,36 @@ function Registro() {
                                 wrapperCol={{ span: 45 }}
                                 layout="vertical"
                                 style={{ maxWidth: 600 }}
+                                
                             >
                                 <Form.Item label="" name="aboutMe">
                                     <h2>Cuentanos Sobre Ti</h2>
-                                    <TextArea rows={5} placeholder="" />
+                                    <TextArea rows={5} placeholder="Escribe sobre ti" />
+                                    
                                 </Form.Item>
                                 <h2>Sube tu foto de perfil</h2>
+                                
                                 <Form.Item label="" valuePropName="fileList" getValueFromEvent={normFile}>
-                                    <Upload action="src\components\amigo-img" listType="picture-card">
-                                        <button style={{ border: 0, background: 'none' }} type="button">
-                                            <PlusOutlined />
-                                            <div style={{ marginTop: 8 }}>Subir Foto</div>
-                                        </button>
-                                    </Upload>
-                                </Form.Item>
+                                <Upload 
+                                  action="src\components\amigo-img" 
+                                  listType="picture-card"
+                                  beforeUpload={(file) => {
+                                  const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+                                  if (!isJpgOrPng) {
+                                  message.error('Solo se permiten archivos JPG o PNG');
+                                  return Upload.LIST_IGNORE;
+                                  }
+                                  return true; // continue upload
+                                  }}
+                                >
+                            <button style={{ border: 0, background: 'none' }} type="button">
+                            <PlusOutlined />
+                            <div style={{ marginTop: 8 }}>Subir Foto</div>
+                            </button>
+                            </Upload>
+                            </Form.Item>
+
+                                    
 
                             </Form >
 
