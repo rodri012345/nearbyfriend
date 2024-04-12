@@ -14,6 +14,8 @@ function App() {
         <Route path="/RegistroCliente" element={<RegistroCliente />} />
         <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
         <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/SubirFotos" element={<SubirFotos />} />
       </Routes>
     </div>
   );
