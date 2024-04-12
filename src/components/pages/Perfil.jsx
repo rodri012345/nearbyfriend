@@ -1,9 +1,10 @@
 import React from "react";
 import Footer from "../Fotter";
-export const Contact = () => {
+import Alquilar from "../Alquilar";
+export const Perfil = () => {
   return (
     <>
-      
+      <Alquilar />
       <Footer />
     </>
   );
