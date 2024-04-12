@@ -99,7 +99,7 @@ function Registro() {
             <SubirFoto onUpload={handleUpload} />
             
         </div>
-      <div className="Registro" style={{marginLeft:'30px'}}>
+      <div className="Registro" >
         <h1 className="titulo">Registro Cliente</h1>
         <header className="Registro-header">
           <Row gutter={[16, 16]}>
