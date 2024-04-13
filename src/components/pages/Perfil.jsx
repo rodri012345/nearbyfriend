@@ -1,10 +1,10 @@
 import React from "react";
-import Registro from "../Registro";
 import Footer from "../Fotter";
-export const Contact = () => {
+import Alquilar from "../Alquilar";
+export const Perfil = () => {
   return (
     <>
-      <Registro />
+      <Alquilar />
       <Footer />
     </>
   );
