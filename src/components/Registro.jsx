@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import SubirFoto from "./subirFoto";
+import React from 'react';
 import "./Registro.css";
 import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber } from "antd";
 import { collection, addDoc } from 'firebase/firestore';
@@ -15,18 +14,14 @@ const { TextArea } = Input;
 
 
 
-
 function Registro() {
-  const {foto,setFoto} = useState(null)
-  const handleUpload = (res) => {
-    setFoto(res);
-    console.log('res contiene', res)
-  }
-  const [form] = Form.useForm();
 
-  const onFinish = async (values) => {
-    const dob = values.dob ? values.dob.toDate() : null;
-    delete values.dob;
+    const [form] = Form.useForm();
+
+    const onFinish = async (values) => {
+
+        const dob = values.dob ? values.dob.toDate() : null;
+        delete values.dob;
 
         if (dob) {
             values.dob = dob;
@@ -104,131 +99,126 @@ function Registro() {
                                 <Input placeholder="Escriba su Apellido" />
                             </Form.Item>
 
-                <Form.Item
-                  name="contraseña"
-                  label="Contraseña"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Por Favor Ingrese su Contraseña",
-                    },
-                    { min: 6, message: "Debe de tener mas de 6 caracteres" },
-                    /*{
+                            <Form.Item
+                                name="contraseña"
+                                label="Contraseña"
+                                rules={[
+                                    {
+                                        required: true, message: "Por Favor Ingrese su Contraseña"
+                                    },
+                                    { min: 6, message: "Debe de tener mas de 6 caracteres" },
+                                    /*{
                                         validator: (_, value) =>
                                             value && value.includes("A")
                                                 ? Promise.resolve()
                                                 : Promise.reject("Contraseña no Valida"),
                                     },*/
-                  ]}
-                  hasFeedback
-                >
-                  <Input.Password placeholder="Escriba su Contraseña" />
-                </Form.Item>
+                                ]}
+                                hasFeedback
+                            >
+                                <Input.Password placeholder="Escriba su Contraseña" />
+                            </Form.Item>
 
-                <Form.Item
-                  name="confirmarContraseña"
-                  label="Confirme Contraseña"
-                  dependencies={["contraseña"]}
-                  rules={[
-                    {
-                      required: true,
-                      message: "Debe confirmar su Contraseña",
-                    },
-                    ({ getFieldValue }) => ({
-                      validator(_, value) {
-                        if (!value || getFieldValue("contraseña") === value) {
-                          return Promise.resolve();
-                        }
-                        return Promise.reject("Las contraseñas no coinciden.");
-                      },
-                    }),
-                  ]}
-                  hasFeedback
-                >
-                  <Input.Password placeholder="Confirme su Contraseña" />
-                </Form.Item>
+                            <Form.Item
+                                name="confirmarContraseña"
+                                label="Confirme Contraseña"
+                                dependencies={["contraseña"]}
+                                rules={[
+                                    {
+                                        required: true, message: "Debe confirmar su Contraseña"
+                                    },
+                                    ({ getFieldValue }) => ({
+                                        validator(_, value) {
+                                            if (!value || getFieldValue("contraseña") === value) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(
+                                                "Las contraseñas no coinciden."
+                                            );
+                                        },
+                                    }),
+                                ]}
+                                hasFeedback
+                            >
+                                <Input.Password placeholder="Confirme su Contraseña" />
+                            </Form.Item>
 
-                <Form.Item
-                  name="genero"
-                  label="Genero"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Por favor Seleccione un Genero",
-                    },
-                  ]}
-                >
-                  <Select placeholder="Seleccione su Genero">
-                    <Select.Option value="masculino">Masculino</Select.Option>
-                    <Select.Option value="femenino">Femenino</Select.Option>
-                    <Select.Option value="otro">Otro</Select.Option>
-                  </Select>
-                </Form.Item>
 
-                <Form.Item
-                  name="departamento"
-                  label="Departamento"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Por favor Seleccione un Departamento",
-                    },
-                  ]}
-                >
-                  <Select placeholder="Seleccione su Departamento">
-                    <Select.Option value="la paz">La Paz</Select.Option>
-                    <Select.Option value="santa cruz">Santa Cruz</Select.Option>
-                    <Select.Option value="Cochabamba">Cochabamba</Select.Option>
-                    <Select.Option value="oruro">Oruro</Select.Option>
-                    <Select.Option value="sucre">Sucre</Select.Option>
-                    <Select.Option value="tarija">Tarija</Select.Option>
-                    <Select.Option value="potosi">Potosi</Select.Option>
-                    <Select.Option value="beni">Beni</Select.Option>
-                    <Select.Option value="pando">Pando</Select.Option>
-                  </Select>
-                </Form.Item>
+                            <Form.Item
+                                name="genero"
+                                label="Genero"
+                                rules={[{
+                                    required: true,
+                                    message: "Por favor Seleccione un Genero"
+                                }]}
+                            >
+                                <Select placeholder="Seleccione su Genero">
+                                    <Select.Option value="masculino">Masculino</Select.Option>
+                                    <Select.Option value="femenino">Femenino</Select.Option>
+                                    <Select.Option value="otro">Otro</Select.Option>
+                                </Select>
+                            </Form.Item>
 
-                <Form.Item
-                  name="dob"
-                  label="Feha de Nacimiento"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Por favor Ingrese su fecha de nacimiento",
-                    },
-                  ]}
-                  hasFeedback
-                >
-                  <DatePicker
-                    style={{ width: "100%" }}
-                    picker="date"
-                    placeholder="Seleccione una fecha"
-                  />
-                </Form.Item>
+                            <Form.Item name="departamento"
+                                label="Departamento"
+                                rules={[{
+                                    required: true,
+                                    message: "Por favor Seleccione un Departamento"
+                                }]}
+                            >
+                                <Select placeholder="Seleccione su Departamento">
+                                    <Select.Option value="la paz">La Paz</Select.Option>
+                                    <Select.Option value="santa cruz">Santa Cruz</Select.Option>
+                                    <Select.Option value="Cochabamba">Cochabamba</Select.Option>
+                                    <Select.Option value="oruro">Oruro</Select.Option>
+                                    <Select.Option value="sucre">Sucre</Select.Option>
+                                    <Select.Option value="tarija">Tarija</Select.Option>
+                                    <Select.Option value="potosi">Potosi</Select.Option>
+                                    <Select.Option value="beni">Beni</Select.Option>
+                                    <Select.Option value="pando">Pando</Select.Option>
+                                </Select>
+                            </Form.Item>
 
-                <Form.Item
-                  name="correo"
-                  label="Correo"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Por favor Ingrese su Correo",
-                    },
-                    {
-                      type: "email",
-                      message: "Por favor Ingrese un Correo Valido",
-                    },
-                    {
-                      validator: (_, value) =>
-                        value && value.includes(".")
-                          ? Promise.resolve()
-                          : Promise.reject(""),
-                    },
-                  ]}
-                  hasFeedback
-                >
-                  <Input placeholder="Escriba su Correo" />
-                </Form.Item>
+                            <Form.Item
+                                name="dob"
+                                label="Feha de Nacimiento"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Por favor Ingrese su fecha de nacimiento",
+                                    },
+                                ]}
+                                hasFeedback
+                            >
+                                <DatePicker
+                                    style={{ width: "100%" }}
+                                    picker="date"
+                                    placeholder="Seleccione una fecha"
+                                />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="correo"
+                                label="Correo"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Por favor Ingrese su Correo",
+                                    },
+                                    { type: "email", message: "Por favor Ingrese un Correo Valido" },
+                                    {
+                                        validator: (_, value) =>
+                                            value && value.includes(".")
+                                                ? Promise.resolve()
+                                                : Promise.reject(""),
+                                    },
+                                ]}
+                                hasFeedback
+                            >
+                                <Input placeholder="Escriba su Correo" />
+                            </Form.Item>
+
+
 
                             <Form.Item
                                 name="telefono"
