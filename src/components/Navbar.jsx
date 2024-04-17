@@ -34,7 +34,7 @@ export const Navbar = () => {
           <NavLink to="/services">Quienes Somos</NavLink>
         </li>
         <li>
-          <NavLink to="/Perfil">Mi Cuenta</NavLink>
+          <NavLink to="/Perfil">Cuenta</NavLink>
         </li>
         <li className="registro-item">
           <span onClick={toggleRegistro}>Registro</span>

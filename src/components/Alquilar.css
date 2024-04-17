@@ -1,3 +1,4 @@
+/* Estilos base para pantalla grande */
 .perfil-ami-container {
     margin: 20px;
     padding: 20px;
@@ -35,6 +36,7 @@
     padding: 10px;
     max-width: 300px;
     grid-gap: 3px; 
+    flex: 1;
 }
 
 .hobbies {
@@ -118,7 +120,7 @@ input[type="number"],
 textarea {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -217,4 +219,43 @@ button[type="button"]:hover {
         margin: 10px;
         padding: 10px;
     }
+}
+.Fila{
+    display: flex;
+    flex-wrap: wrap;
+}
+.DesckTitulo{
+    text-align: center;
+}
+
+.descripcion {
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+    max-width: 500px;
+    grid-gap: 2px; 
+    padding: 8px 10px 20px 10px;
+    border:2px solid #0056b3;
+
+}
+
+.datos-personales {
+    flex: 1;
+    margin-right: 30px;
+    padding: 10px;
+    max-width: 300px;
+    grid-gap: 3px; 
+    border:2px solid #0056b3;
+}
+
+.hobbies {
+    flex: 1;
+    margin-left: 0px;
+    padding: 10px;
+    max-width: 200px;
+    grid-gap: 2px; 
+    border:2px solid #0056b3;
+
+
 }
