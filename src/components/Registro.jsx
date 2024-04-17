@@ -41,7 +41,7 @@ function Registro() {
             hobbies: values.hobbies || []
         };
         localStorage.setItem('formData', JSON.stringify(values));
-        // Redirige a la página "SubirFoto"
+      
         window.location.href = '/SubirFotos';
         console.log({ formData })
     };
