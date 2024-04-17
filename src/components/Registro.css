@@ -1,67 +1,70 @@
 .Registro {
-    text-align: center;
-    padding: 20px;
-  }
-  .Registro h1{
-    margin-bottom: 1rem;
+  text-align: center;
+  padding: 20px;
+}
 
-  }
-  .Registro .Registro-header {
-    max-width: 800px; 
-    margin: 0 auto; 
-    padding: 20px 20px 0px;
-    background-color: #d1d1d157; 
-    border-radius: 10px; 
-    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .Registro h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;  
-  }
-  
-  .Registro .ant-checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .Registro .ant-form-item-label {
-    text-align: left; 
-    color: #666; 
-  }
-  
-  .Registro .ant-form-item-control {
-    text-align: left; 
-  }
-  
-  .Registro .ant-btn {
-    width: 100%; 
-    max-width: 300px;
-    margin: 20px auto; 
-    background-color: #1890ff; 
-    border: none;
-    border-radius: 5px; 
-    color: #fffffff7; 
-    font-size: 16px;
-    padding: 10px 20px; 
-    cursor: pointer;
-    transition: background-color 0.3s; 
-    display: inline-flex;
+.Registro h1 {
+  margin-bottom: 1rem;
+
+}
+
+.Registro .Registro-header {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 20px 0px;
+  background-color: #d1d1d157;
+  border-radius: 10px;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Registro h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.Registro .ant-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Registro .ant-form-item-label {
+  text-align: left;
+  color: #666;
+}
+
+.Registro .ant-form-item-control {
+  text-align: left;
+}
+
+.Registro .ant-btn {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  background-color: #1890ff;
+  border: none;
+  border-radius: 5px;
+  color: #fffffff7;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  }
-  
-  .Registro .ant-btn:hover {
-    background-color: #40a9ff; 
-  }
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
 
-  .hobbies-container {
-    border: 2px solid #343739;
-    border-radius: 5px;
-    padding: 15px;
-    padding-bottom: 5px;
-    box-shadow: 15px 15px 15px 15px  rgba(50, 119, 246, 0.1); 
-   
+.Registro .ant-btn:hover {
+  background-color: #75d606bf;
+}
+
+.hobbies-container {
+  border: 2px solid #343739;
+  border-radius: 5px;
+  padding: 20px 5px;
+  padding-bottom: px;
+  box-shadow: 15px 5px 15px 15px rgba(0, 0, 0, 0.1);
+
 }

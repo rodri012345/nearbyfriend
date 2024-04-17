@@ -1,7 +1,7 @@
 nav {
-    background-color: #0f172a;
+    background-color: #293646;
     color: white;
-    padding: 10px 20px;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,6 +11,7 @@ nav {
     font-size: 1.5rem;
     text-decoration: none;
     color: white;
+    padding-left: 60px;
   }
   
   .menu {
@@ -49,6 +50,9 @@ nav {
   .registro-item {
     position: relative;
     cursor: pointer;
+    background-color: #17cf97;
+    border-radius: 10px;
+    
   }
   
   .sub-menu {
@@ -64,6 +68,7 @@ nav {
   
   .registro-item:hover .sub-menu {
     display: block;
+    
   }
   
   .sub-menu li {
@@ -87,7 +92,7 @@ nav {
 }
 
   .registro-item:hover{
-    color: #17cf97;
+    color: #fff;
   }
 
 .menu-items .selected {

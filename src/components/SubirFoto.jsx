@@ -1,28 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Upload, Button } from "antd";
+import { Col, Row, Upload, Button, message, Result } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import avatarDefault from '../img/avatar2.jpg';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
-import {  message } from "antd";
-
-
+import './SubirFoto.css'
 
 function SubirFoto() {
-
     const URL_DEFAULT = avatarDefault;
     const [image, setImage] = useState(URL_DEFAULT);
     const [aboutText, setAboutText] = useState('');
-
-    useEffect(() => {
-        // Recupera los datos del almacenamiento local
-        const formData = JSON.parse(localStorage.getItem('formData'));
-        // Guarda los datos en Firebase solo si ya existe el aboutText
-        if (aboutText.trim() !== '') {
-            guardarDatosEnFirebase(formData);
-        }
-    }, [aboutText]);
-
+    const [registroExitoso, setRegistroExitoso] = useState(false);
 
     const handleChange = (e) => {
         const file = e.target.files[0];
@@ -38,8 +26,7 @@ function SubirFoto() {
     const handleAboutChange = (e) => {
         setAboutText(e.target.value);
     };
-    
-    
+
     const handleRegister = () => {
         if (!aboutText.trim()) {
             message.error("Por favor, completa la sección 'Cuentanos más de ti'");
@@ -50,30 +37,28 @@ function SubirFoto() {
             console.error("Error: formData es nulo.");
             return;
         }
-        formData.imageURL = image; // Agrega la URL de la imagen a los datos
+        formData.imageURL = image;
         guardarDatosEnFirebase(formData);
     };
-    
 
     const guardarDatosEnFirebase = async (formData) => {
         try {
-            // Agregar el aboutText al formData
             formData.aboutText = aboutText;
             const docRef = await addDoc(collection(db, "clientes"), formData);
             console.log("Documento guardado con ID: ", docRef.id);
-            // Limpiar el localStorage después de guardar en Firebase
             localStorage.removeItem('formData');
+            setRegistroExitoso(true);
         } catch (e) {
             console.error("Error al agregar documento: ", e);
         }
     };
+
     const handleGoBack = () => {
-        // Redirige a la página de registro
         window.location.href = '/RegistroCliente';
     };
 
     return (
-        <div>
+        <div className="subir-header">
             <h1 style={{ textAlign: "center" }}>Registrarse</h1>
             <Row gutter={[110, 10]} style={{ justifyContent: "center" }}>
                 <Col>
@@ -82,8 +67,8 @@ function SubirFoto() {
                         <img
                             src={image}
                             alt="cargando imagen"
-                            width={"300px"}
-                            height={"320px"}
+                            width={"250px"}
+                            height={"280px"}
                             style={{ borderRadius: "30px" }}
                         />
                         <Upload style={{ marginLeft: "30px" }}>
@@ -99,33 +84,45 @@ function SubirFoto() {
                     </div>
                 </Col>
 
-                <Col style={{ width: '35%' }}>
-                    <div style={{ marginTop: "110px" }}>
+                <Col className="cuentanos">
+                    <div style={{ marginTop: "10px" }}>
                         <h2>Cuentanos más de ti</h2>
                         <textarea
-                            name="text"
-                            id="tex1"
-                            cols="30"
-                            rows="10"
-                            style={{ width: "100%" }}
-                            onChange={handleAboutChange}
+                             name="text"
+                             id="tex1"
+                             cols="40" // Ajusta el número de columnas
+                             rows="15" // Ajusta el número de filas
+                             style={{ width: "100%" }}
+                             onChange={handleAboutChange}
                         ></textarea>
                     </div>
                 </Col>
             </Row>
+            {registroExitoso && (
+                <div className="mensaje-flotante">
+                    <Result
+                        status="success"
+                        title="Felicidades! Tu registro fue exitoso!"
+                        subTitle="Ahora podras comensar a disfrutar de lo mejor de nuestra comunidad."
+                        extra={[
+                            <Button type="primary" key="console">
+                                Cerrar
+                            </Button>
+                            
+                        ]}
+                    />
+                </div>
+            )}
 
-            <div
-                style={{
-                    marginTop: "50px",
-                    display: "flex",
-                    justifyContent: "space-around",
-                }}
-            >
-                <Button type="primary" onClick={handleGoBack}>volver atras</Button>
+
+            <div className="botones-container">
+                <Button type="primary" onClick={handleGoBack}>Volver</Button>
                 <Button type="primary" disabled={image === URL_DEFAULT} onClick={handleRegister}>
                     Registrarse
                 </Button>
             </div>
+
+
         </div>
     );
 }

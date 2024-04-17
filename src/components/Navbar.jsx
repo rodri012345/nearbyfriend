@@ -9,7 +9,7 @@ export const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    setRegistroOpen(false); // Siempre que se abra/cierre el menú principal, cerrar el submenú de registro
+    setRegistroOpen(false); 
   };
 
   const toggleRegistro = () => {

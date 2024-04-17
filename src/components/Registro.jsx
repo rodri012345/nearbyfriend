@@ -58,7 +58,6 @@ function Registro() {
         <div className="Registro">
 
             <header className="Registro-header">
-                <h1 className='titulo'>Registrarse</h1>
                 <Form
                     autoComplete="off"
                     labelCol={{ span: 10 }}
