@@ -193,6 +193,7 @@ const PerfilAmi = ({ amigoId }) => {
                    <div>
                        <label htmlFor="hora">Hora:</label>
                        <input type="time" name="hora" value={evento.hora} onChange={handleChange} />
+                       
                    </div>
                    <div>
                        <label htmlFor="duracion">Duración (horas):</label>
@@ -209,7 +210,8 @@ const PerfilAmi = ({ amigoId }) => {
                    </div>
                    
                    <button type="button" onClick={handleCancel}>Cancelar</button>
-                   <button type="submit" >Alquilar</button>
+                   <button type="submit" onclick="return confirm('¿Estás seguro de que deseas alquilar a este amigo?')">Alquilar</button>
+
                </form>
            </div>
        </div>

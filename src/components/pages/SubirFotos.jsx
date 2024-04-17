@@ -1,10 +1,10 @@
 import React from "react";
 import Footer from '../Fotter'
-import Registro from "../Registro";
-export const RegistroAmigo = () => {
+import SubirFoto from "../SubirFoto";
+export const SubirFotos = () => {
     return (
         <>
-        <Registro />
+        <SubirFoto />
         <Footer />
         
         </>
