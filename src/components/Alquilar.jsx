@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
 import './Alquilar.css';
-import { Image, Flex, Rate } from 'antd'
+import { Image, Flex, Rate, notification } from 'antd'
 
 const PerfilAmi = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
@@ -18,6 +18,8 @@ const PerfilAmi = ({ amigoId }) => {
     const [value, setValue] = useState(3);
         
     const today = new Date().toISOString().split('T')[0];
+    const maxDate = new Date(today);
+    maxDate.setFullYear(maxDate.getFullYear() + 1);
     useEffect(() => {
         const obtenerAmigo = async () => {
             try {
@@ -44,7 +46,7 @@ const PerfilAmi = ({ amigoId }) => {
     const { name, value } = e.target;
 
     
-    if (name === 'duracion' && !/^\d*$/.test(value)) {
+    if (name === 'duracion' && !/^\d*$/.test(value) ) {
         return;
     }
 
@@ -77,7 +79,10 @@ const PerfilAmi = ({ amigoId }) => {
                 descripcion: '',
                 lugar: ''
             });
-            
+            notification.success({
+                message: 'Solicitud enviada',
+               // description: 'El evento ha sido agregado correctamente.'
+            });
         } catch (error) {
             console.error("Error al agregar el evento:", error);
         }
@@ -93,6 +98,8 @@ const PerfilAmi = ({ amigoId }) => {
             descripcion: '',
             lugar: ''
         });
+    
+
     };
 
 
@@ -139,34 +146,39 @@ const PerfilAmi = ({ amigoId }) => {
                             
                             </Flex>
                     </div>
+                    <div className="datos-hobbies-descripcion">
+                    <div className="Fila">
 
-                       
-                    <div className="datos-hobbies">
-                        <div className="datos-personales" >
-                            <h4>Datos Personales</h4>
+                    <div className="datos-personales" >
+                        <h4>Datos Personales</h4>
                             <p>Nombre: {amigo.formData.nombre}</p>
                             <p>Apellido: {amigo.formData.apellido}</p>
                             <p>Ciudad: {amigo.formData.departamento}</p>
                             <p>Correo: {amigo.formData.correo}</p>
                             <p>Teléfono: {amigo.formData.telefono}</p>
                             <p>Genero: {amigo.formData.genero}</p>
-                        </div>
-                        <div className="hobbies">
-                            <h4>Hobbies</h4>
-                            <p>Pintar</p>
-                            <p>Cine</p>
-                            <p>Musica</p>
-                            <p>Viajes</p>
-                            <p>{amigo.formData.hobbies}</p>
-                        </div>
-                        <div className="descripcion">
-                            <h4>Descripción</h4>
+                            </div>
+                                <div className="hobbies">
+                                    <h4>Hobbies</h4>
+                                    <p>Pintar</p>
+                                     <p>Cine</p>
+                                     <p>Musica</p>
+                                    <p>Viajes</p>
+                                    <p>{amigo.formData.hobbies}</p>
+                                    </div>
+
+                                    </div>
+
+                            <div className='Fila'>
+                             <div className="descripcion">
+                            <h3 className='DesckTitulo'>Descripción</h3>
                             <p>Ir de paseo en bicicleta, la aventura, los videojuegos
                             </p>
-                            </div>
+                         </div>
                         </div>
-                
-                </div>
+                        </div>
+                       </div>
+                    
             )}
             <button className='mon-n' onClick={toggleModal} style={{ marginTop: '20px' }}>Solicitud de Alquiler</button>
             {modalAbierto &&
@@ -176,7 +188,7 @@ const PerfilAmi = ({ amigoId }) => {
                <form onSubmit={handleSubmit}>
                    <div>
                        <label htmlFor="fecha">Fecha:</label>
-                       <input type="date" name="fecha" value={evento.fecha} min={today} onChange={handleChange} />
+                       <input type="date" name="fecha" value={evento.fecha} min={today} onChange={handleChange} max={maxDate.toISOString().split('T')[0]}/>
                    </div>
                    <div>
                        <label htmlFor="hora">Hora:</label>
@@ -186,6 +198,7 @@ const PerfilAmi = ({ amigoId }) => {
                        <label htmlFor="duracion">Duración (horas):</label>
                        <input type="number" min="1" max="5" name="duracion" value={evento.duracion} onChange={handleChange} />
                    </div>
+                  
                    <div>
                        <label htmlFor="descripcion">Descripción:</label>
                        <textarea rows={4}  maxLength={80} name="descripcion" value={evento.descripcion} onChange={handleChange} />
