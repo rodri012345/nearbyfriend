@@ -17,6 +17,11 @@
     width: 300px;
     margin-right: 40px;
     margin-left: 200px;
+    
+}
+.ImagenSolo{
+    border: 5px;
+    padding :5px;
 }
 
 .foto-amigo img {
@@ -187,6 +192,7 @@ button[type="button"]:hover {
     max-width: 500px;
     border: 2px solid #0056b3;
     grid-gap: 2px; 
+    
 
 }
 
