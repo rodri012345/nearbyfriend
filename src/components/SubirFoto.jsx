@@ -130,4 +130,4 @@ function SubirFoto() {
     );
 }
 
-export default SubirFoto;
+export default SubirFoto
