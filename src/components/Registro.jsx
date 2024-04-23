@@ -192,7 +192,7 @@ function Registro() {
 
                             <Form.Item
                                 name="dob"
-                                label="Feha de Nacimiento"
+                                label="Fecha de Nacimiento"
                                 rules={[
                                     {
                                         required: true,
