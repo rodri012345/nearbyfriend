@@ -255,8 +255,8 @@ function Registro() {
                                                 return Promise.reject(new Error('Ingrese un número de teléfono válido'));
                                             }
                                             const phoneNumber = value.toString();
-                                            if (phoneNumber.length < 7 || phoneNumber.length > 10) {
-                                                return Promise.reject(new Error('El número de teléfono debe tener entre 7 y 10 dígitos'));
+                                            if (phoneNumber.length = 8 ) {
+                                                return Promise.reject(new Error('El número de telefono debe tener 8 digitos'));
                                             }
                                             return Promise.resolve();
                                         },
