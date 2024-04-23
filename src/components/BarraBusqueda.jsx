@@ -16,7 +16,7 @@ function BarraBusqueda() {
   return (
     <div style={{ padding: "50px"}}>
       <div>
-      <h4 style={{fontFamily:'initial', marginLeft:'40px'}}>
+      <h4 style={{fontFamily:'initial', marginLeft:'36px'}}>
         Busca con quién y dónde quieres alquilar un amigo o encontrar una amiga
       </h4>
       </div>
