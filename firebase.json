@@ -1,0 +1,20 @@
+{
+  "database": {
+    "rules": "y"
+  },
+  "firestore": {
+    "rules": "y",
+    "indexes": "n"
+  },
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "storage": {
+    "rules": "y"
+  }
+}

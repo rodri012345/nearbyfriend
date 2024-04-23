@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { useState } from "react";
 export const About = () => {
   const [image,setImage ]=useState("");
@@ -16,3 +17,16 @@ export const About = () => {
     </>
   );
 };
+=======
+import Footer from '../Fotter'
+
+
+export const About = () => {
+  return (
+    <>
+      
+      <Footer />
+    </>
+  );
+};
+>>>>>>> main
