@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Upload, Button } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import avatarDefault from '../img/avatar2.jpg';
+import upload from "../img/subir.png"
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
 import {  message } from "antd";
@@ -86,21 +87,24 @@ function SubirFoto() {
                             height={"320px"}
                             style={{ borderRadius: "30px" }}
                         />
-                        <Upload style={{ marginLeft: "30px" }}>
-                            <UploadOutlined style={{ fontSize: "40px" }} />
-                        </Upload>
-                    </div>
-                    <div>
-                        <input
+                        
+                            <input
                             type="file"
+                            id = 'file-input'
                             accept=".jpg,.jpeg,.png"
                             onChange={handleChange}
-                        ></input>
+                            style={{display:'none'}}
+                            ></input>
+                            <label htmlFor="file-input" className="upload-icon">
+                                <img src={upload} alt="subir archivo" width={'30px'} height={'30px'} />
+                            </label>
+                        
                     </div>
+                    
                 </Col>
 
-                <Col style={{ width: '35%' }}>
-                    <div style={{ marginTop: "110px" }}>
+                <Col className="cuentanos">
+                    <div style={{ marginTop: "10px", }}>
                         <h2>Cuentanos más de ti</h2>
                         <textarea
                             name="text"

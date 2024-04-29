@@ -3,21 +3,8 @@ import Slider from "react-slick";
 import { Card, Button } from "antd";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import BarraBusqueda from "./BarraBusqueda";
-import Enlaces from "./Enlaces"
+import './Carrusel.css'
 
-
-
-function SampleArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
-  );
-}
 function Carrusel() {
   var settings = {
     dots: true,
@@ -26,6 +13,8 @@ function Carrusel() {
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    prevArrow: <div />, // Quitamos la flecha de retroceso
+    nextArrow: <div/>,
     responsive: [
       {
         breakpoint: 1024,
@@ -54,13 +43,15 @@ function Carrusel() {
     ],
   };
   return (
-    <div className="slider-container" style={{padding:'50px', backgroundColor:'#EEEEEE'}}>
-    
+    <div
+      className="slider-container"
+      style={{ padding: "100px", backgroundColor: "#EEEEEE",width: '88%',margin:'0 auto'}}
+    >
       <Slider {...settings}>
-        <div>
+        <div style={{padding:'20px'}}>
           <Card
             hoverable
-            style={{ width: "300px", height: "300px" }}
+            style={{ width: "300px", height: "300px"}}
             cover={
               <img
                 alt="user"
@@ -70,24 +61,23 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ textAlign: "center" }}>
+            <div style={{ textAlign: "center", border:'2px solid black'}}>
               <h2>Carlos Flores</h2>
               <h5>Tarija</h5>
-              <Button type="primary">Ver más info</Button>
+              <Button className="mi-boton" type="primary">Ver más info</Button>
             </div>
           </Card>
         </div>
-        <div style={{border:'2px solid black'}}>
+        <div>
           <Card
             hoverable
-            style={{ width: "300px", height: "300px"}}
+            style={{ width: "300px", height: "300px" }}
             cover={
               <img
                 alt="user"
                 src="https://pymstatic.com/20622/conversions/personas-arrogantes-wide.jpg"
                 width={300}
                 height={350}
-
               />
             }
           >
@@ -104,7 +94,7 @@ function Carrusel() {
             style={{ width: "300px", height: "300px" }}
             cover={
               <img
-                alt="user" 
+                alt="user"
                 src="https://www.alquifriend.com/uplo/uploads/3010924b6245268d511bc64784d40381-avatar.jpg"
                 width={300}
                 height={350}

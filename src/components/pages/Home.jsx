@@ -1,27 +1,30 @@
 import React from "react";
 import Footer from "../Fotter";
 import Carrusel from "../Carrusel";
-import Cartilla from "../Cartilla";
-import BarraBusqueda from "../BarraBusqueda";
-import { Layout } from "antd";
-import Enlaces from "../Enlaces";
-const { Content } = Layout;
 
-export const About = () => {
+import BarraBusqueda from "../BarraBusqueda";
+import { Layout} from "antd";
+import Enlaces from "../Enlaces";
+
+
+const { Content } = Layout;
+export const Home = () => {
   return (
     <>
-      <Content style={{padding:'20px', backgroundColor:'#FBF3D5'}}>
+      <Content style={{backgroundColor:'#DFF5FF'}}>
         <div
           style={{
-            backgroundImage: `url('https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg')` /* Reemplaza 'ruta/a/tu/imagen.jpg' con la ruta de tu imagen */,
-            backgroundSize: "cover",
+            backgroundImage: `url("https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
+            backgroundSize: "100% 100%",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             width: "100%",
             height: "700px",
             
           }}
-        ></div>
+        >
+          <h1 style={{textAlign:'center',fontFamily: "Creepster",fontSize:'100px'}}>NearbyFriend</h1>
+        </div>
         <div style={{backgroundColor:'#DDDDDD'}}>
         <BarraBusqueda/>
         </div>

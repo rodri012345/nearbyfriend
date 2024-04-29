@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Select, Space } from "antd";
+import "./EstilosInicio.css"
 import {
   EnvironmentOutlined,
   TeamOutlined,
@@ -16,20 +17,14 @@ function BarraBusqueda() {
   return (
     <div style={{ padding: "50px"}}>
       <div>
-      <h4 style={{fontFamily:'initial', marginLeft:'36px'}}>
+      <h3 className="estilo-h3 fuente-inicio">
         Busca con quién y dónde quieres alquilar un amigo o encontrar una amiga
-      </h4>
+      </h3>
       </div>
       <br />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          
-        }}
-      >
+      <div className="content-buscador">
         <div>
-          <h6 style={{ fontFamily: "cursive" }}>
+          <h6 className = "fuente-inicio">
             <i>
               <EnvironmentOutlined />
             </i>{" "}
