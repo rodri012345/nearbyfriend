@@ -223,11 +223,11 @@ const PerfilAmi = ({ amigoId }) => {
             </div>
             <div className="reseña">
                 <h4>Reseña</h4>
-                <p>Ir de paseo en bicicleta, la aventura, los videojuegos</p>
+                <p>Ir al gimnacoion a hacer rutina</p>
             </div>
             <div className="reseña">
                 <h4>Reseña</h4>
-                <p>Ir de paseo en bicicleta, la aventura, los videojuegos</p>
+                <p>Ir al cine a ver la pelicula de extreno</p>
             </div>
 
             </div>

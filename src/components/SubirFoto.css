@@ -65,3 +65,11 @@
     background-color: rgb(4, 205, 215);
     border-color: rgb(4, 205, 215);
 }
+
+.upload-icon {
+    cursor: pointer;
+}
+
+#file-input {
+    display: none;
+}

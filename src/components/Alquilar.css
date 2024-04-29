@@ -236,7 +236,7 @@ button[type="button"]:hover {
     max-width: 500px;
     grid-gap: 2px; 
     padding: 8px 10px 20px 10px;
-    border:2px solid #0056b3;
+    
 
 }
 
@@ -246,7 +246,7 @@ button[type="button"]:hover {
     padding: 10px;
     max-width: 300px;
     grid-gap: 3px; 
-    border:2px solid #0056b3;
+    
 }
 
 .hobbies {
@@ -255,7 +255,7 @@ button[type="button"]:hover {
     padding: 10px;
     max-width: 200px;
     grid-gap: 2px; 
-    border:2px solid #0056b3;
+    
 
 
 }

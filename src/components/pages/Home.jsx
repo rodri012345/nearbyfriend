@@ -1,12 +1,20 @@
 import React from "react";
-import Footer from '../Fotter'
+import Footer from "../Fotter";
+import Carrusel from "../Carrusel";
+
+import BarraBusqueda from "../BarraBusqueda";
+import { Layout} from "antd";
+import Enlaces from "../Enlaces";
+
+
+const { Content } = Layout;
 export const Home = () => {
   return (
     <>
-      <Content style={{padding:'20px', backgroundColor:'#FBF3D5'}}>
+      <Content style={{backgroundColor:'#DFF5FF'}}>
         <div
           style={{
-            backgroundImage: `url("https://firebasestorage.googleapis.com/v0/b/nearbyfriend.appspot.com/o/inicio.jpg?alt=media&token=1fd8d284-415f-4546-808d-a85098b00fc7")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
+            backgroundImage: `url("https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
             backgroundSize: "100% 100%",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -14,7 +22,9 @@ export const Home = () => {
             height: "700px",
             
           }}
-        ></div>
+        >
+          <h1 style={{textAlign:'center',fontFamily: "Creepster",fontSize:'100px'}}>NearbyFriend</h1>
+        </div>
         <div style={{backgroundColor:'#DDDDDD'}}>
         <BarraBusqueda/>
         </div>
