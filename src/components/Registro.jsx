@@ -15,36 +15,11 @@ const { TextArea } = Input;
 
 
 function Registro() {
-<<<<<<< HEAD
-  const [foto,setFoto] = useState(null)
-  const handleUpload = (res) => {
-    setFoto(res);
-    console.log('res contiene', res)
-    console.log('el enlace de la foto es:',foto)
-  }
-  const [form] = Form.useForm();
-=======
->>>>>>> main
 
     const [form] = Form.useForm();
 
     const onFinish = async (values) => {
 
-<<<<<<< HEAD
-    const hobbies = values.hobbies || [];
-    console.log(hobbies);
-    console.log(foto)
-    const formData = {
-      fotoCliente: foto,
-      nombre: values.nombre,
-      apellido: values.apellido,
-      correo: values.correo,
-      contraseña: values.contraseña,
-      confirmarContraseña: values.confirmarContraseña,
-      genero: values.genero,
-      dob: values.dob,
-      agreement: values.agreement,
-=======
         const dob = values.dob ? values.dob.toDate() : null;
         delete values.dob;
 
@@ -69,72 +44,11 @@ function Registro() {
         // Redirige a la página "SubirFoto"
         window.location.href = '/SubirFotos';
         console.log({ formData })
->>>>>>> main
     };
 
     return (
         <div className="Registro">
 
-<<<<<<< HEAD
-      message.success("¡Registro exitoso!");
-      form.resetFields();
-      console.log(hobbies);
-    } catch (error) {
-      console.error("Error al agregar documento: ", error);
-      message.error(
-        "Hubo un error al registrar el cliente. Por favor, inténtalo de nuevo."
-      );
-    }
-  };
-
-  return (
-    <div className="registo-contenedor" style={{display: 'flex'}}>
-        <div className="Registro" style={{marginTop:'60px'}}>
-            <h2 className="Registro">foto de perfil</h2>
-            
-            <SubirFoto onUpload={handleUpload} />
-            
-        </div>
-      <div className="Registro" >
-        <h1 className="titulo">Registro Cliente</h1>
-        <header className="Registro-header">
-          <Row gutter={[16, 16]}>
-            <Col span={12}>
-              <Form
-                autoComplete="off"
-                labelCol={{ span: 10 }}
-                wrapperCol={{ span: 14 }}
-                form={form}
-                onFinish={onFinish}
-                onFinishFailed={(error) => {
-                  console.log({ error });
-                }}
-              >
-                <Form.Item
-                  name="nombre"
-                  label="Nombre"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Por favor Ingrese su Nombre",
-                    },
-                    { whitespace: true },
-                    {
-                      min: 3,
-                      message: "El nombre debe tener al menos 3 caracteres",
-                    },
-                    {
-                      max: 30,
-                      message: "El nombre no puede tener más de 30 caracteres",
-                    },
-                    {
-                      pattern: /^[a-zA-Z\s]*$/,
-                      message:
-                        "El nombre solo puede contener letras del alfabeto",
-                    },
-                  ]}
-                  hasFeedback
-=======
             <header className="Registro-header">
                 <h1 className='titulo'>Registrarse</h1>
                 <Form
@@ -146,7 +60,6 @@ function Registro() {
                     onFinishFailed={(error) => {
                         console.log({ error });
                     }}
->>>>>>> main
                 >
                     <Row gutter={[16, 16]}>
                         <Col span={12}>
@@ -284,43 +197,6 @@ function Registro() {
                                 />
                             </Form.Item>
 
-<<<<<<< HEAD
-                <Form.Item
-                  name="telefono"
-                  label="Telefono"
-                  rules={[
-                    {
-                      required: false,
-                      message: "Por favor Ingrese su Telefono",
-                    },
-                    {
-                      max: 15,
-                      message:
-                        "El telefono no puede tener más de 15 caracteres",
-                    },
-                    {
-                      validator: (_, value) => {
-                        if (value && !Number.isInteger(value)) {
-                          return Promise.reject(
-                            new Error("Ingrese un numero de telefono Valido")
-                          );
-                        }
-                        if (value && value <= 0) {
-                          return Promise.reject(
-                            new Error("Ingrese un numero de telefono Valido")
-                          );
-                        }
-                        return Promise.resolve();
-                      },
-                    },
-                  ]}
-                >
-                  <InputNumber
-                    style={{ width: "100%" }}
-                    placeholder="Escriba su Telefono"
-                  />
-                </Form.Item>
-=======
                             <Form.Item
                                 name="correo"
                                 label="Correo"
@@ -341,58 +217,8 @@ function Registro() {
                             >
                                 <Input placeholder="Escriba su Correo" />
                             </Form.Item>
->>>>>>> main
 
 
-<<<<<<< HEAD
-                <Form.Item wrapperCol={{ offset: 10, span: 14 }}>
-                  <Button block type="primary" htmlType="submit">
-                    Registrarse
-                  </Button>
-                </Form.Item>
-              </Form>
-            </Col>
-            <Col span={12}>
-              <div className="hobbies-list-container">
-                <div className="hobbies-list">
-                  <h2>Hobbies</h2>
-                  <Checkbox.Group name="hobbies" defaultValue={[]}>
-                    <Checkbox value="Cantar">Cantar</Checkbox>
-                    <Checkbox value="Bailar">Bailar</Checkbox>
-                    <Checkbox value="Comer">Comer</Checkbox>
-                    <Checkbox value="Ver películas">películas</Checkbox>
-                    <Checkbox value="Cine">Cine</Checkbox>
-                    <Checkbox value="Leer">Leer</Checkbox>
-                    <Checkbox value="Pasear">Pasear</Checkbox>
-                    <Checkbox value="Pintar">Pintar</Checkbox>
-                    <Checkbox value="Arte">Arte</Checkbox>
-                    <Checkbox value="Futbol">Futbol</Checkbox>
-                    <Checkbox value="Viajes">Viajes</Checkbox>
-                    <Checkbox value="Dibujar">Dibujar</Checkbox>
-                    <Checkbox value="Musica">Musica</Checkbox>
-                    <Checkbox value="Mascotas">Mascotas</Checkbox>
-                    <Checkbox value="Escribir">Escribir</Checkbox>
-                    <Checkbox value="Anime">Anime</Checkbox>
-                    <Checkbox value="Estudiar">Estudiar</Checkbox>
-                    <Checkbox value="Autos">Autos</Checkbox>
-                  </Checkbox.Group>
-                </div>
-              </div>
-              <div className="image-gallery">
-                <Form
-                  labelCol={{ span: 5 }}
-                  wrapperCol={{ span: 45 }}
-                  layout="vertical"
-                  style={{ maxWidth: 600 }}
-                >
-                  <Form.Item label="" name="aboutMe">
-                    <h2>Cuentanos Sobre Ti</h2>
-                    <TextArea  rows={5} placeholder="" />
-                  </Form.Item>
-                  
-                    
-                  
-=======
 
                             <Form.Item
                                 name="telefono"
@@ -496,7 +322,6 @@ function Registro() {
                             Siguiente
                         </Button>
                     </Form.Item>
->>>>>>> main
                 </Form>
             </header>
         </div>
