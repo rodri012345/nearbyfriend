@@ -1,0 +1,18 @@
+.slick-prev, .slick-next {
+    display: none !important;
+  }
+
+.mi-boton {
+    padding: auto;
+    border: 2px solid black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.estilo-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
