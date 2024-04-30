@@ -4,13 +4,12 @@ import Alquilar from "../Alquilar";
 import PerfilAmigo from "../PerfilAmigo";
 import PerfilCliente from "../PerfilCliente";
 import App from "../Solicitud";
+import Solicitud from "../Solicitud";
 export const Perfil = () => {
     return (
         <>
-     
         
-        
-        <PerfilCliente clienteId="AW9TuMqYHHJZRKlEF0qa"/>
+        <Solicitud/>
         <Footer />
         
 
