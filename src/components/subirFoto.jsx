@@ -6,6 +6,8 @@ import upload from "../img/subir.png"
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
 import {  message } from "antd";
+import "./SubirFoto.css";
+
 
 
 
