@@ -3,16 +3,16 @@ import {Card, Button} from 'antd'
 import './Carrusel.css'
 
 const {Meta} = Card
-const Targeta = ({nombre , ciudad}) => {
+const Tarjeta = ({nombre , ciudad, urlImage}) => {
   return (
     <div >
       <Card
             hoverable
-            style={{ width: 250, textAlign:'center'}}
+            style={{ width: 250, textAlign:'center', border:'solid 1px black'}}
             cover={
               <img
                 alt="user"
-                src="https://static.vecteezy.com/system/resources/previews/001/131/187/non_2x/serious-man-portrait-real-people-high-definition-grey-background-photo.jpg"
+                src={urlImage}
                 style={{objectFit:'cover',  width:'100%', height:280}}
                 
               />
@@ -28,4 +28,4 @@ const Targeta = ({nombre , ciudad}) => {
   )
 }
 
-export default Targeta
+export default Tarjeta

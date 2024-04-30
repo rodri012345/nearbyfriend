@@ -10,3 +10,9 @@
 .fuente-inicio {
     font-family: cursive;
 }
+
+.estilo-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

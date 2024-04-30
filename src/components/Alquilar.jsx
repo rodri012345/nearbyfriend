@@ -238,11 +238,12 @@ const PerfilAmi = ({ amigoId }) => {
 const Alquilar = () => {
     return (
         <div>
-            <PerfilAmi amigoId="wLuH5ZXjLh4kWltUMTUo" />
+            <PerfilAmi amigoId="q5a3oDISQrCBpjYiexZR" />
         </div>
     );
 };
 
 export default Alquilar;
+
 
 
