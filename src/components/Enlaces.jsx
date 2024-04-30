@@ -5,8 +5,9 @@ function Enlaces() {
     <>
     <div style={{padding:'10px', marginTop:'50px'}}>
         <h1>Hacer Amigos</h1>
-        <h3 style={{textDecoration:'underline'}}>Alquilar un amigo|Alquilar una amiga</h3>
-        <p  style={{fontFamily:'cursive'}}>
+        <h3 >Alquilar un amigo|Alquilar una amiga</h3>
+        <br />
+        <p >
         <strong >NearbyFriend </strong> permite a los usuarios pagar para que alguien te acompañe al cine, o que haga de guía local cuando estas de viaje en una ciudad o incluso para que vaya contigo a realizar la compra y así te ayude. Según el amigo que se esté buscando, puedes elegir a una persona o a otra. Todo se basa en que los clientes "paguen" por hacer nuevos amigos. Si eres nuevo en la ciudad o incluso es de esos días que te sientes un poco solo, puedes entrar en la web, buscar y "pagar", según lo que pactes, y alquilar un amigo en <strong >NearbyFriend </strong>. Lo ideal es que conoscas nueva gente y hagas amigos . Es fácil, ¿te atreves a probarlo?
         
         </p>

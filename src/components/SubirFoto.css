@@ -6,6 +6,14 @@
     border-radius: 10px;
     box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
 }
+.subir-header-amigo {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px 20px 10px;
+    background-color: #d1d1d157;
+    border-radius: 10px;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+}
 
 .cuentanos{
     padding: 20 px;
@@ -46,7 +54,7 @@
     display: flex;
     margin: 25px;
     text-align: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 
@@ -71,5 +79,17 @@
 }
 
 #file-input {
+    display: none;
+}
+
+#file-input1 {
+    display: none;
+}
+
+#file-input2 {
+    display: none;
+}
+
+#file-input3 {
     display: none;
 }

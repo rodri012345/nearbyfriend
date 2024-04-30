@@ -17,26 +17,30 @@ function BarraBusqueda() {
   return (
     <div style={{ padding: "50px"}}>
       <div>
-      <h3 className="estilo-h3 fuente-inicio">
+      <h3 className="estilo-h3 ">
         Busca con quién y dónde quieres alquilar un amigo o encontrar una amiga
       </h3>
       </div>
       <br />
       <div className="content-buscador">
         <div>
-          <h6 className = "fuente-inicio">
+          <h6 >
             <i>
               <EnvironmentOutlined />
             </i>{" "}
             ciudad
           </h6>
           <Select
-            defaultValue="Cochabamba"
+            defaultValue="Cualquiera"
             style={{
               width: 200,
             }}
             onChange={handleChange}
             options={[
+              {
+                value: "Cualquiera",
+                label: "Cualquiera",
+              },
               {
                 value: "Cochabamba",
                 label: "Cochabamba",
@@ -77,7 +81,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
-          <h6 style={{ fontFamily: "cursive" }}>
+          <h6 >
             <TeamOutlined /> genero
           </h6>
           <Select
@@ -103,7 +107,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
-          <h6 style={{ fontFamily: "cursive" }}>
+          <h6 >
             <CarOutlined /> Hobbies/gustos
           </h6>
           <Select
@@ -185,7 +189,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
-          <h6 style={{ fontFamily: "cursive" }}>
+          <h6 >
             <CalendarOutlined /> edad
           </h6>
           <Select
@@ -223,7 +227,7 @@ function BarraBusqueda() {
           />
         </div>
         <Space>
-          <Button type="primary" icon={<SearchOutlined />}>
+          <Button className="estilo-btn" type="primary" icon={<SearchOutlined />}>
             Buscar
           </Button>
         </Space>
