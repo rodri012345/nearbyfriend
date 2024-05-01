@@ -1,17 +1,32 @@
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, query,where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import Tarjeta from "./Tarjeta";
 import "./BuscarAmigo.css"
+import PerfilAmi from "./Alquilar";
+
 
 const BuscarAmigo = () => {
   const [lista, setLista] = useState([]);
   const [amigoSeleccionado, setAmigoSeleccionado] = useState(null);
-
+  const [ciudad, setCiudad] =useState("Cualquiera");
+  const [genero,setGenero]  = useState("Ambos");
+  const [gusto, setGusto]   =useState("Cualquiera") ;
+  
   useEffect(() => {
     const getLista = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "amigos"));
+        let queryRef = collection(db,"amigos")
+        if(ciudad !== 'Cualquiera') {
+          queryRef = query(queryRef,where("departamento","==",ciudad))
+        }
+
+        if(genero !== 'Ambos') {
+          queryRef = query(queryRef,where("genero","==",genero))
+        }
+
+        //query(collection(db, "amigos"),where("departamento","==","Cochabamba"))
+        const querySnapshot = await getDocs(queryRef);
         const docs = [];
         querySnapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id });
@@ -24,13 +39,21 @@ const BuscarAmigo = () => {
     getLista();
   }, [lista]);
 
-  const handleVerMasInfo = (id) => {
-    setAmigoSeleccionado(id);
-    }
+  const handleCiudadChange = value => {
+    setCiudad(value);
+  }
 
-    if (amigoSeleccionado) {
-        return <InfoAmigo amigoId={amigoSeleccionado} />;
-    }
+  const handleGeneroChange = value => {
+    setGenero(value);
+  }
+  // const handleVerMasInfo = (id) => {
+  //   setAmigoSeleccionado(id);
+  //   console.log(amigoSeleccionado)
+  //   }
+
+    // if (amigoSeleccionado) {
+    //     return <PerfilAmi amigoId={amigoSeleccionado} />;
+    // }
 
   return (
     <div style={{ backgroundColor:'#DDDDDD', padding:'40px', display: 'flex', justifyContent: 'center' }}>

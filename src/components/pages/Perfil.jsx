@@ -1,15 +1,12 @@
 import React from "react";
 import Footer from "../Fotter";
 import App2 from "../Alquilar";
-import Alquilar from "../Alquilar";
+import PerfilAmi from "../Alquilar";
 export const Perfil = () => {
     return (
         <>
-        
-        
-        <Alquilar />
-        <Footer />
-
+            <PerfilAmi amigoId="KtYyj86EoIYfzaoszr8K" />
+            <Footer />
         </>
     )
 

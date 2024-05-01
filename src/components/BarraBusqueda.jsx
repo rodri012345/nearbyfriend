@@ -14,6 +14,11 @@ const handleChange = (value) => {
 };
 
 function BarraBusqueda() {
+  const [lista, setLista] = useState([]);
+  const [ciudad, setCiudad] =useState("Cualquiera");
+  const [genero,setGenero]  = useState("Ambos");
+  const [gusto, setGusto]   =useState("Cualquiera") ;
+
   return (
     <div style={{ padding: "50px"}}>
       <div>

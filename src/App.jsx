@@ -5,6 +5,7 @@ import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil
 import SubirFotosA from "./components/pages/SubirFotosA";
 
 
+
 function App() {
   return (
     <div className="App">
