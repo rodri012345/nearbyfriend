@@ -178,15 +178,15 @@ function Registro() {
                                 }]}
                             >
                                 <Select placeholder="Seleccione su Departamento">
-                                    <Select.Option value="la paz">La Paz</Select.Option>
-                                    <Select.Option value="santa cruz">Santa Cruz</Select.Option>
+                                    <Select.Option value="La Paz">La Paz</Select.Option>
+                                    <Select.Option value="Santa Cruz">Santa Cruz</Select.Option>
                                     <Select.Option value="Cochabamba">Cochabamba</Select.Option>
-                                    <Select.Option value="oruro">Oruro</Select.Option>
-                                    <Select.Option value="sucre">Sucre</Select.Option>
-                                    <Select.Option value="tarija">Tarija</Select.Option>
-                                    <Select.Option value="potosi">Potosi</Select.Option>
-                                    <Select.Option value="beni">Beni</Select.Option>
-                                    <Select.Option value="pando">Pando</Select.Option>
+                                    <Select.Option value="Oruro">Oruro</Select.Option>
+                                    <Select.Option value="Sucre">Sucre</Select.Option>
+                                    <Select.Option value="Tarija">Tarija</Select.Option>
+                                    <Select.Option value="Potosi">Potosi</Select.Option>
+                                    <Select.Option value="Beni">Beni</Select.Option>
+                                    <Select.Option value="Pando">Pando</Select.Option>
                                 </Select>
                             </Form.Item>
 

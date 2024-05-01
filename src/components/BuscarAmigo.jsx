@@ -3,41 +3,38 @@ import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import Tarjeta from "./Tarjeta";
 import "./BuscarAmigo.css"
-import PerfilAmi from "./Alquilar";
 
 
-const BuscarAmigo = () => {
-  const [lista, setLista] = useState([]);
-  const [amigoSeleccionado, setAmigoSeleccionado] = useState(null);
-  const [ciudad, setCiudad] =useState("Cualquiera");
-  const [genero,setGenero]  = useState("Ambos");
-  const [gusto, setGusto]   =useState("Cualquiera") ;
+
+const BuscarAmigo = ({seleccion}) => {
+  const lista = seleccion
   
-  useEffect(() => {
-    const getLista = async () => {
-      try {
-        let queryRef = collection(db,"amigos")
-        if(ciudad !== 'Cualquiera') {
-          queryRef = query(queryRef,where("departamento","==",ciudad))
-        }
+  
+  // useEffect(() => {
+  //   const getLista = async () => {
+  //     try {
+  //       let queryRef = collection(db,"amigos")
+  //       if(ciudad !== 'Cualquiera') {
+  //         queryRef = query(queryRef,where("departamento","==",ciudad))
+  //       }
 
-        if(genero !== 'Ambos') {
-          queryRef = query(queryRef,where("genero","==",genero))
-        }
+  //       if(genero !== 'Ambos') {
+  //         queryRef = query(queryRef,where("genero","==",genero))
+  //       }
 
-        //query(collection(db, "amigos"),where("departamento","==","Cochabamba"))
-        const querySnapshot = await getDocs(queryRef);
-        const docs = [];
-        querySnapshot.forEach((doc) => {
-          docs.push({ ...doc.data(), id: doc.id });
-        });
-        setLista(docs);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getLista();
-  }, [lista]);
+  //       //query(collection(db, "amigos"),where("departamento","==","Cochabamba"))
+  //       const querySnapshot = await getDocs(queryRef);
+  //       const docs = [];
+  //       querySnapshot.forEach((doc) => {
+  //         docs.push({ ...doc.data(), id: doc.id });
+  //       });
+  //       setLista(docs);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getLista();
+  // }, [lista]);
 
   const handleCiudadChange = value => {
     setCiudad(value);
