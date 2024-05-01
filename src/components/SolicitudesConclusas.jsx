@@ -1,45 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Button, List, Skeleton } from 'antd';
-const count = 5;
-const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
-const SolicitudesConclusas = () => {
+import SoliModal from './SolicitudModal';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase-conf'; // Asegúrate de importar correctamente la configuración de Firebase
+import SolicitudModalConcluidas from './SolicitudModalConcluidas';
+
+const SolicitudesRecientes = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [list, setList] = useState([]);
+
   useEffect(() => {
-    fetch(fakeDataUrl)
-      .then((res) => res.json())
-      .then((res) => {
+    const fetchEvents = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'eventos'));
+        const events = [];
+        for (const docRef of querySnapshot.docs) {
+          const event = { id: docRef.id, ...docRef.data() };
+          // Fetch client data
+          const clienteDoc = await getDoc(doc(db, 'clientes', event.clienteId));
+          const clienteData = clienteDoc.data();
+          event.cliente = clienteData; // Add client data to the event object
+          if (event.estado === 'completado') { // Filter events with estado "inactivo"
+            events.push(event);
+          }
+        }
+        setData(events);
+        setList(events);
         setInitLoading(false);
-        setData(res.results);
-        setList(res.results);
-      });
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+
+    fetchEvents();
   }, []);
+
   const onLoadMore = () => {
     setLoading(true);
-    setList(
-      data.concat(
-        [...new Array(count)].map(() => ({
-          loading: true,
-          name: {},
-          picture: {},
-        })),
-      ),
-    );
-    fetch(fakeDataUrl)
-      .then((res) => res.json())
-      .then((res) => {
-        const newData = data.concat(res.results);
-        setData(newData);
-        setList(newData);
-        setLoading(false);
-        // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
-        // In real scene, you can using public method of react-virtualized:
-        // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
-        window.dispatchEvent(new Event('resize'));
-      });
+    // Aquí puedes implementar la lógica para cargar más eventos si es necesario
   };
+
   const loadMore =
     !initLoading && !loading ? (
       <div
@@ -50,9 +52,10 @@ const SolicitudesConclusas = () => {
           lineHeight: '32px',
         }}
       >
-        <Button onClick={onLoadMore}>Cargar Mas</Button>
+        <Button onClick={onLoadMore}>Cargar Más</Button>
       </div>
     ) : null;
+
   return (
     <List
       className="demo-loadmore-list"
@@ -62,15 +65,14 @@ const SolicitudesConclusas = () => {
       dataSource={list}
       renderItem={(item) => (
         <List.Item
-          actions={[ <a key="list-loadmore-more">ver Detalle</a>]}
+          actions={[<SolicitudModalConcluidas eventoId={item.id} />]}
         >
           <Skeleton avatar title={false} loading={item.loading} active>
             <List.Item.Meta
-              avatar={<Avatar src={item.picture.large} />}
-              title={<a href="https://ant.design">{item.name?.last}</a>}
-              description="   ."
+              avatar={<Avatar src={item.cliente?.imageURL} />}
+              title={<a href="">{`${item.cliente?.nombre} ${item.cliente?.apellido}`}</a>}
+              description="Solicito una cita"
             />
-            
           </Skeleton>
         </List.Item>
       )}
@@ -78,4 +80,4 @@ const SolicitudesConclusas = () => {
   );
 };
 
-export default SolicitudesConclusas;
+export default SolicitudesRecientes;
