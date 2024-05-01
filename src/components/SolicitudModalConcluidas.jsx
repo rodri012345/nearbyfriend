@@ -69,8 +69,12 @@ const SolicitudModalConcluidas = ({eventoId}) => {
                 Ver
             </Button>
             <Modal title="Solicitud" visible={isModalOpen}  onCancel={handleCancel} width={600} height={600}
-            
-          
+             footer={[
+                <Button key="rechazar" onClick={handleCancel} >
+                    ok
+                </Button>,
+            ]}
+                
             >
                 {isLoading && <p>Cargando...</p>}
                 {cliente && (
