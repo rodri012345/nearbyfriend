@@ -1,32 +1,43 @@
 import React from "react";
-<<<<<<< HEAD
-import { useState } from "react";
-export const About = () => {
-  const [image,setImage ]=useState("");
-  const handleChange=(e)=>{
-    const urlImg = URL.createObjectURL(e.target.files[0]) 
-    console.log(urlImg)
-    console.log(e.target.files[0])
-    setImage(urlImg)
-  }
-  return (
-    <>
-    <input type="file" accept=".jpg,.jpeg,.png" onChange={(e)=>handleChange(e)}></input>
-    <img src={image} alt="cargando imagen"/>
-    
-    </>
-  );
-};
-=======
-import Footer from '../Fotter'
+import Footer from "../Fotter";
+import Carrusel from "../Carrusel";
 
+import BarraBusqueda from "../BarraBusqueda";
+import { Layout} from "antd";
+import Enlaces from "../Enlaces";
+
+
+
+const { Content } = Layout;
 
 export const About = () => {
   return (
     <>
-      
-      <Footer />
+      <Content style={{ backgroundColor:'#DDDDDD'}}>
+        <div
+          style={{
+            backgroundImage: `url("https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            width: "100%",
+            height: "700px",
+            
+          }}
+        >
+          <h1 style={{textAlign:'center',fontFamily: "Creepster",fontSize:'100px'}}>NearbyFriend</h1>
+        </div>
+        <div>
+        <BarraBusqueda/>
+        </div>
+        <div style={{margin:'20px 0'}}>
+        <Enlaces/>
+        </div>
+        
+        <h1>Ultimos Amigos Registrados</h1>
+        <Carrusel />
+      </Content>
+      <Footer/>
     </>
   );
 };
->>>>>>> main

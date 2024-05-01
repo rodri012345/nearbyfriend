@@ -1,0 +1,24 @@
+.tarjetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crea columnas que se ajustan automáticamente al ancho del contenedor */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+/* Esto asegura que cada tarjeta tenga un tamaño máximo */
+.tarjetas-container > * {
+    max-width: 250px; /* Ancho máximo de cada tarjeta */
+}
+
+/* Esto garantiza que solo haya cuatro tarjetas por fila */
+@media (max-width: 1200px) {
+    .tarjetas-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Para tamaños de pantalla más pequeños, solo dos tarjetas por fila */
+@media (max-width: 768px) {
+    .tarjetas-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

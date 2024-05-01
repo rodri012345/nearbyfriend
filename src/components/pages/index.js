@@ -7,3 +7,6 @@ export * from "./RegistroAmigo"
 export * from "./Perfil"
 export * from "./SubirFotos"
 export * from "./Perfil"
+export * from "./SubirFotosA"
+
+
