@@ -4,9 +4,6 @@ import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col,
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
 
-
-
-
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

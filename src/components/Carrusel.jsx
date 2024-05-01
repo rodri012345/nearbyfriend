@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Card, Button } from "antd";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Carrusel.css'
+import './Carrusel.css';
 
 function Carrusel() {
   var settings = {
