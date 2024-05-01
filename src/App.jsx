@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AlquilarAmigo from "./components/AlquilarAmigo";
 import { Navbar } from "./components/Navbar";
-import { About, RegistroCliente, Home, Services,RegistroAmigo } from "./components/pages";
+import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil } from "./components/pages";
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/RegistroCliente" element={<RegistroCliente />} />
         <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
-
       </Routes>
     </div>
   );

@@ -1,10 +1,11 @@
 import React from "react";
 import Footer from '../Fotter'
-import RegistroA from "../RegistroA";
+import Registro from "../Registro";
 export const RegistroAmigo = () => {
     return (
         <>
-        <RegistroA />
+        <h1 style={{textAlign:'center', padding:'15px'}}>Registro Amigo</h1>
+        <Registro />
         <Footer />
         
         </>

@@ -3,18 +3,13 @@ import "./Registro.css";
 import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber } from "antd";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
+
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 const { TextArea } = Input;
 
-const normFile = (e) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e && e.fileList;
-};
+
 
 function Registro() {
 
@@ -61,9 +56,6 @@ function Registro() {
             values.dob = dob;
         }
 
-        const hobbies = values.hobbies || [];
-        console.log(hobbies);
-
         const formData = {
             nombre: values.nombre,
             apellido: values.apellido,
@@ -72,45 +64,41 @@ function Registro() {
             confirmarContraseña: values.confirmarContraseña,
             genero: values.genero,
             dob: values.dob,
+            departamento: values.departamento,
+            telefono: values.telefono,
             agreement: values.agreement,
-            imagenPerfil: imageUploadRef.current.fileList[0] ? imageUploadRef.current.fileList[0].name : "",
+            hobbies: values.hobbies || []
         };
-
-        
-
-        try {
-            { if (hobbies.length < 3) {
-                message.error('Debe seleccionar al menos tres hobbies para registrarse.');
-                return;
-            }
-        }
-            const docRef = await addDoc(collection(db, 'clientes'), { formData, hobbies });
-            console.log('Documento agregado con ID: ', docRef.id);
-            message.success('¡Registro exitoso!');
-            form.resetFields();
-            console.log(hobbies);
-        } catch (error) {
-            console.error('Error al agregar documento: ', error);
-            message.error('Hubo un error al registrar el cliente. Por favor, inténtalo de nuevo.');
-        }
+        localStorage.setItem('formData', JSON.stringify(values));
+      
+        window.location.href = '/SubirFotos';
+        console.log({ formData })
     };
+
+    function disabledDate(current) {
+        
+        const april2006 = new Date('2006-04-19');
+       
+        return current && current > april2006;
+    }
+
 
     return (
         <div className="Registro">
-            <h1 className='titulo'>Registro Cliente</h1>
+
             <header className="Registro-header">
-                <Row gutter={[16, 16]}>
-                    <Col span={12}>
-                        <Form
-                            autoComplete="off"
-                            labelCol={{ span: 10 }}
-                            wrapperCol={{ span: 14 }}
-                            form={form}
-                            onFinish={onFinish}
-                            onFinishFailed={(error) => {
-                                console.log({ error });
-                            }}
-                        >
+                <Form
+                    autoComplete="off"
+                    labelCol={{ span: 10 }}
+                    wrapperCol={{ span: 14 }}
+                    form={form}
+                    onFinish={onFinish}
+                    onFinishFailed={(error) => {
+                        console.log({ error });
+                    }}
+                >
+                    <Row gutter={[16, 16]}>
+                        <Col span={12}>
                             <Form.Item
                                 name="nombre"
                                 label="Nombre"
@@ -133,7 +121,7 @@ function Registro() {
                                 name="apellido"
                                 label="Apellido"
                                 rules={[
-                                    {
+                                    {   
                                         required: true,
                                         message: "Por favor Ingrese su Apellido",
                                     },
@@ -147,25 +135,29 @@ function Registro() {
                                 <Input placeholder="Escriba su Apellido" />
                             </Form.Item>
 
-                            <Form.Item
-                                name="contraseña"
-                                label="Contraseña"
-                                rules={[
-                                    {
-                                        required: true, message: "Por Favor Ingrese su Contraseña"
-                                    },
-                                    { min: 6, message: "Debe de tener mas de 6 caracteres" },
-                                    /*{
-                                        validator: (_, value) =>
-                                            value && value.includes("A")
-                                                ? Promise.resolve()
-                                                : Promise.reject("Contraseña no Valida"),
-                                    },*/
-                                ]}
-                                hasFeedback
-                            >
-                                <Input.Password placeholder="Escriba su Contraseña" />
-                            </Form.Item>
+                                <Form.Item
+                                    name="contraseña"
+                                    label="Contraseña"
+                                    rules={[
+                                        {
+                                            required: true, message: "Por Favor Ingrese su Contraseña"
+                                        },
+                                        { min: 6, message: "Debe de tener mas de 6 caracteres" },
+                                        /*{
+                                            validator: (_, value) =>
+                                                value && value.includes("A")
+                                                    ? Promise.resolve()
+                                                    : Promise.reject("Contraseña no Valida"),
+                                        },*/
+                                        {
+                                            pattern: /^(?=.*[A-Z])(?=.*\d).+$/,
+                                            message: "La contraseña debe contener al menos una letra mayúscula y un número"
+                                        }
+                                    ]}
+                                    hasFeedback
+                                >
+                                    <Input.Password placeholder="Escriba su Contraseña" />
+                                </Form.Item>
 
                             <Form.Item
                                 name="confirmarContraseña"
@@ -235,6 +227,7 @@ function Registro() {
                                         required: true,
                                         message: "Por favor Ingrese su fecha de nacimiento",
                                     },
+                                    
                                 ]}
                                 hasFeedback
                             >
@@ -242,6 +235,8 @@ function Registro() {
                                     style={{ width: "100%" }}
                                     picker="date"
                                     placeholder="Seleccione una fecha"
+                                    disabledDate={disabledDate}
+                                    format="DD/MM/YYYY"
                                 />
                             </Form.Item>
 
@@ -276,14 +271,21 @@ function Registro() {
                                         required: true,
                                         message: 'Por favor Ingrese su Telefono',
                                     },
-                                    {max: 8, message: "El telefono no puede tener más de 8 caracteres" },
+                                    
                                     {
                                         validator: (_, value) => {
-                                            if (value && !Number.isInteger(value)) {
-                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            if (!value) {
+                                                return Promise.resolve();
                                             }
-                                            if (value && value <= 0) {
-                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            if (!Number.isInteger(value)) {
+                                                return Promise.reject(new Error('Ingrese un número de teléfono válido'));
+                                            }
+                                            if (value < 0) {
+                                                return Promise.reject(new Error('Ingrese un número de teléfono válido'));
+                                            }
+                                            const phoneNumber = value.toString();
+                                            if (phoneNumber.length < 7 || phoneNumber.length > 10) {
+                                                return Promise.reject(new Error('El número de teléfono debe tener entre 7 y 10 dígitos'));
                                             }
                                             return Promise.resolve();
                                         },
@@ -295,9 +297,61 @@ function Registro() {
 
 
 
+                            
+                        </Col>
+                        <Col span={12}>
+
+                            <h2>Hobbies</h2>
                             <Form.Item
+                                name="hobbies"
+                                label=""
+                                wrapperCol={{ offset: 2, span: 24 }}
+                                className="hobbies-container"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Por favor seleccione al menos un hobby",
+                                    },
+                                ]}
+                            >
+                                <Checkbox.Group style={{ width: '100%' }} >
+                                    <div style={{ textAlign: 'center' }}>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Cantar">Cantar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Bailar">Bailar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Comer">Comer</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Ver películas">películas</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Cine">Cine</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Leer">Leer</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Pasear">Pasear</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Pintar">Pintar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Arte">Arte</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Futbol">Futbol</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Viajes">Viajes</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Dibujar">Dibujar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Musica">Musica</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Mascotas">Mascotas</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Escribir">Escribir</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Anime">Anime</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Autos">Autos</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Futbol">Futbol</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Actuar">Actuar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Conciertos">Conciertos</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Nadar">Nadar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Fiestas">Fiestas</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Coleccionar">Coleccionar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Negocios">Negocios</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Trabajo">Trabajo</Checkbox>
+                                    </div>
+                                </Checkbox.Group>
+                            </Form.Item>
+
+                        </Col>
+                    </Row>
+                    <Form.Item
                                 name="agreement"
-                                wrapperCol={{ span: 24 }}
+                                wrapperCol={{ offset: 7, span: 24 }}
                                 valuePropName="checked"
                                 rules={[
                                     {
@@ -309,93 +363,22 @@ function Registro() {
                                                 ),
                                     },
                                 ]}
+                                
                             >
-                                <Checkbox>
+                                <Checkbox  >
                                     {" "}
                                     Aceptar nuestros, <a href="#">Terminos y condiciones</a>
                                 </Checkbox>
                             </Form.Item>
-
-                            <Form.Item wrapperCol={{ offset: 10, span: 14 }}>
-                                <Button block type="primary" htmlType="submit">
-                                    Registrarse
-                                </Button>
-                            </Form.Item>
-                        </Form>
-                    </Col>
-                    <Col span={12}>
-
-                        <div className="hobbies-list-container">
-                            <div className="hobbies-list">
-                                <h2>Hobbies</h2>
-                                <Checkbox.Group name="hobbies" defaultValue={[]}>
-                                    <Checkbox value="Cantar">Cantar</Checkbox>
-                                    <Checkbox value="Bailar">Bailar</Checkbox>
-                                    <Checkbox value="Comer">Comer</Checkbox>
-                                    <Checkbox value="Ver películas">películas</Checkbox>
-                                    <Checkbox value="Cine">Cine</Checkbox>
-                                    <Checkbox value="Leer">Leer</Checkbox>
-                                    <Checkbox value="Pasear">Pasear</Checkbox>
-                                    <Checkbox value="Pintar">Pintar</Checkbox>
-                                    <Checkbox value="Arte">Arte</Checkbox>
-                                    <Checkbox value="Futbol">Futbol</Checkbox>
-                                    <Checkbox value="Viajes">Viajes</Checkbox>
-                                    <Checkbox value="Dibujar">Dibujar</Checkbox>
-                                    <Checkbox value="Musica">Musica</Checkbox>
-                                    <Checkbox value="Mascotas">Mascotas</Checkbox>
-                                    <Checkbox value="Escribir">Escribir</Checkbox>
-                                    <Checkbox value="Anime">Anime</Checkbox>
-                                    <Checkbox value="Estudiar">Estudiar</Checkbox>
-                                    <Checkbox value="Autos">Autos</Checkbox>
-                                </Checkbox.Group>
-                            </div>
-                        </div>
-                        <div className="image-gallery">
-                            <Form
-                                labelCol={{ span: 5 }}
-                                wrapperCol={{ span: 45 }}
-                                layout="vertical"
-                                style={{ maxWidth: 600 }}
-                                
-                            >
-                                <Form.Item label="" name="aboutMe">
-                                    <h2>Cuentanos Sobre Ti</h2>
-                                    <TextArea rows={5} placeholder="Escribe sobre ti" />
-                                    
-                                </Form.Item>
-                                <h2>Sube tu foto de perfil</h2>
-                                
-                                <Form.Item label="" valuePropName="fileList" getValueFromEvent={normFile}>
-                                <Upload 
-                                  action="src\components\amigo-img" 
-                                  listType="picture-card"
-                                  beforeUpload={(file) => {
-                                  const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-                                  if (!isJpgOrPng) {
-                                  message.error('Solo se permiten archivos JPG o PNG');
-                                  return Upload.LIST_IGNORE;
-                                  }
-                                  return true; // continue upload
-                                  }}
-                                >
-                            <button style={{ border: 0, background: 'none' }} type="button">
-                            <PlusOutlined />
-                            <div style={{ marginTop: 8 }}>Subir Foto</div>
-                            </button>
-                            </Upload>
-                            </Form.Item>
-
-                                    
-
-                            </Form >
-
-                        </div>
-                    </Col>
-                </Row>
+                    <Form.Item wrapperCol={{ offset: 8, span: 8 }} >
+                        <Button block type="primary" htmlType="submit">
+                            Siguiente
+                        </Button>
+                    </Form.Item>
+                </Form>
             </header>
         </div>
     );
 }
-
 
 export default Registro;
