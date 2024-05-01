@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Button, List, Skeleton } from 'antd';
-
-
-const count = 3;
+const count = 5;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
-const ListaSolicitudes = () => {
+const SolicitudesEnCurso = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -42,7 +40,6 @@ const ListaSolicitudes = () => {
         window.dispatchEvent(new Event('resize'));
       });
   };
-  
   const loadMore =
     !initLoading && !loading ? (
       <div
@@ -53,10 +50,9 @@ const ListaSolicitudes = () => {
           lineHeight: '32px',
         }}
       >
-        <Button onClick={onLoadMore}>Ver mas</Button>
+        <Button onClick={onLoadMore}>Cargar Mas</Button>
       </div>
     ) : null;
-    
   return (
     <List
       className="demo-loadmore-list"
@@ -66,23 +62,20 @@ const ListaSolicitudes = () => {
       dataSource={list}
       renderItem={(item) => (
         <List.Item
-        actions={[<a key="list-loadmore-edit">Solicitud</a>]}
+          actions={[ <a key="list-loadmore-more">Ver Mas</a>]}
         >
           <Skeleton avatar title={false} loading={item.loading} active>
             <List.Item.Meta
               avatar={<Avatar src={item.picture.large} />}
               title={<a href="https://ant.design">{item.name?.last}</a>}
-              description="quiere solicitar tus servicios"
+              description="cita proxima"
             />
             
           </Skeleton>
-            
         </List.Item>
       )}
-      
     />
-    
-
-);
+  );
 };
-export default ListaSolicitudes;
+
+export default SolicitudesEnCurso;
