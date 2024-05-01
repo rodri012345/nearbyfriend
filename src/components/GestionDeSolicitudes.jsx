@@ -5,7 +5,7 @@ import './GestionDeSolicitudes.css';
 import SolicitudesRecientes from './SolicitudesRecientes';
 import SolicitudesEnCurso from './SolicitudesEnCurso';
 import SolicitudesConclusas from './SolicitudesConclusas';
-const PerfilAmi = ({ amigoId }) => {
+const GestionDeSolicitudes = () => {
 
     return (
         <div className='NotificaionesContainer'>
@@ -27,14 +27,14 @@ const PerfilAmi = ({ amigoId }) => {
                     <h3 className='Solicitud'>Solicitudes en Curso </h3>
                         <div className="SolicitudesAceptadas">
                         
-                            <SolicitudesEnCurso/>
+                           <SolicitudesEnCurso /> 
                         </div>
                     </div>
                     <div className="Columna">
                     <h3 className='Solicitud'>Solicitudes Conclusas</h3>
                         <div className="SolicitudesConcluidas ">
                         
-                            <SolicitudesConclusas/>
+                        <SolicitudesConclusas />
             
                         </div>
                     </div>
@@ -44,14 +44,6 @@ const PerfilAmi = ({ amigoId }) => {
         );
 };
 
-const GestionDeSolicitudes = () => {
-    return (
-        <div>
-            <PerfilAmi amigoId="wLuH5ZXjLh4kWltUMTUo" />
-        </div>
-    );
-};
+
 
 export default GestionDeSolicitudes;
-
-

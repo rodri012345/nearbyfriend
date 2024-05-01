@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Button, List, Skeleton } from 'antd';
+import SoliModal from './SolicitudModal';
 const count = 5;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 const SolicitudesRecientes = () => {
@@ -62,7 +63,7 @@ const SolicitudesRecientes = () => {
       dataSource={list}
       renderItem={(item) => (
         <List.Item
-          actions={[ <a key="list-loadmore-more">Ver Mas</a>]}
+          actions={[ <SoliModal eventoId="kUpZbbFJDLxwQc4juvnL"/>]}
         >
           <Skeleton avatar title={false} loading={item.loading} active>
             <List.Item.Meta
