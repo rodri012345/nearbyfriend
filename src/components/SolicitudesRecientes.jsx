@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Button, List, Skeleton } from 'antd';
 import SoliModal from './SolicitudModal';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase-conf'; // Asegúrate de importar correctamente la configuración de Firebase
+import { db } from '../firebase/firebase-conf'; 
 
 const SolicitudesRecientes = () => {
   const [initLoading, setInitLoading] = useState(true);
@@ -18,7 +18,7 @@ const SolicitudesRecientes = () => {
         for (const docRef of querySnapshot.docs) {
           const event = { id: docRef.id, ...docRef.data() };
           // Fetch client data
-          const clienteDoc = await getDoc(doc(db, 'clientes', event.clienteId));
+          const clienteDoc = await getDoc(doc(db, 'clientes', event.clienteId.clienteId));
           const clienteData = clienteDoc.data();
           event.cliente = clienteData; // Add client data to the event object
           if (event.estado === 'inactivo') { // Filter events with estado "inactivo"

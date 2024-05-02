@@ -31,7 +31,7 @@ export const Navbar = () => {
           <NavLink to="/about">Inicio</NavLink>
         </li>
         <li>
-          <NavLink to="/services">Quienes Somos</NavLink>
+          <NavLink to="/services">Solicitud</NavLink>
         </li>
         <li>
           <NavLink to="/Perfil">Cuenta</NavLink>
@@ -46,10 +46,15 @@ export const Navbar = () => {
               <li>
                 <NavLink to="/RegistroAmigo">Amigo</NavLink>
               </li>
+              
             </ul>
           )}
         </li>
+        <li>
+                <NavLink to="/Solicitud">Ver Solicitudes</NavLink>
+              </li>
       </ul>
+
     </nav>
   );
 };

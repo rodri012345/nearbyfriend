@@ -6,9 +6,7 @@ import GestionDeSolicitudes from "../GestionDeSolicitudes";
 export const Solicitud = () => {
   return (
 <>
-    
-    
-   
+    <GestionDeSolicitudes />
     <Footer />
 
 </>

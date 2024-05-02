@@ -30,7 +30,7 @@ const SolicitudModalConcluidas = ({eventoId}) => {
 
     const showModal = async () => {
         try {
-            const clienteRef = doc(db, "clientes", evento.clienteId);
+            const clienteRef = doc(db, "clientes", evento.clienteId.clienteId);
             const docSnap = await getDoc(clienteRef);
             if (docSnap.exists()) {
                 setCliente({ id: docSnap.id, ...docSnap.data() });
