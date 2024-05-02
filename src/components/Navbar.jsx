@@ -31,7 +31,7 @@ export const Navbar = () => {
           <NavLink to="/about">Inicio</NavLink>
         </li>
         <li>
-          <NavLink to="/services">Quienes Somos</NavLink>
+          <NavLink to="/MenuPerfil">Quienes Somos</NavLink>
         </li>
         <li>
           <NavLink to="/Perfil">Cuenta</NavLink>
