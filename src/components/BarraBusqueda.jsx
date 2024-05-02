@@ -18,13 +18,20 @@ function BarraBusqueda() {
   const [genero, setGenero] = useState("Ambos");
   const [gusto, setGusto] = useState("Cualquiera");
 
-  useEffect(() => {
+  /* useEffect(() => {
     const getLista = async () => {
       try {
         let queryRef = collection(db, "amigos");
         if (ciudad !== "Cualquiera") {
           queryRef = query(queryRef, where("departamento", "==", ciudad));
-        }
+        }const firebaseConfig = {
+  apiKey: "AIzaSyCtHYCYdUN17vIwhPPvLADefPFEbKk9Cg8",
+  authDomain: "hospedaje-react-dd174.firebaseapp.com",
+  projectId: "hospedaje-react-dd174",
+  storageBucket: "hospedaje-react-dd174.appspot.com",
+  messagingSenderId: "1066849059054",
+  appId: "1:1066849059054:web:7da379cd92ff175e52f3ff"
+};
 
         if (genero !== "Ambos") {
           queryRef = query(queryRef, where("genero", "==", genero));
@@ -42,7 +49,7 @@ function BarraBusqueda() {
       }
     };
     getLista();
-  }, [lista]);
+  }, [lista]); */
 
   const handleChangeCiudad = (value) => {
     setCiudad(value);
@@ -288,7 +295,7 @@ function BarraBusqueda() {
         </Space>
       </div>
       <div>
-        <BuscarAmigo seleccion={lista} />
+        {/* <BuscarAmigo seleccion={lista} /> */}
       </div>
     </div>
   );

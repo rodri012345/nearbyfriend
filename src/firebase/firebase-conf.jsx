@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
+{/*const firebaseConfig = {
   apiKey: "AIzaSyD3YIyAIGmwyRz4fLmZVpQbnYJInQiOD4Y",
   authDomain: "nearbyfriend.firebaseapp.com",
   projectId: "nearbyfriend",
@@ -10,7 +10,16 @@ const firebaseConfig = {
   messagingSenderId: "543664631711",
   appId: "1:543664631711:web:cf2588ed5ddfb4c4e657aa",
   measurementId: "G-PNRXJRYRTG"
+};*/}
+const firebaseConfig = {
+  apiKey: "AIzaSyCtHYCYdUN17vIwhPPvLADefPFEbKk9Cg8",
+  authDomain: "hospedaje-react-dd174.firebaseapp.com",
+  projectId: "hospedaje-react-dd174",
+  storageBucket: "hospedaje-react-dd174.appspot.com",
+  messagingSenderId: "1066849059054",
+  appId: "1:1066849059054:web:7da379cd92ff175e52f3ff"
 };
+
 
 
 const app = initializeApp(firebaseConfig);
