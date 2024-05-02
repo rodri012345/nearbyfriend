@@ -52,8 +52,8 @@ const Alquilar = ({ clienteId, amigoId }) => {
             }
             
             // Agregar los IDs de cliente y amigo al objeto evento
-            evento.clienteId = '7PB1ZTVstUnHZYcQ3WAG';
-            evento.amigoId = 'KtYyj86EoIYfzaoszr8K';
+            evento.clienteId = 'mCXJF71g1MCATJjZf35O';
+            evento.amigoId = '2OD9yIDoUoyiLfnR6JZZ';
             evento.estado = 'inactivo';
             
             const eventosRef = collection(db, "eventos");

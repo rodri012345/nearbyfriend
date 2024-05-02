@@ -9,7 +9,8 @@ export const Perfil = () => {
     return (
         <>
        
-      <GestionDeSolicitudes />
+        <GestionDeSolicitudes/>
+        <Alquilar/>
         <Footer />
         
 
