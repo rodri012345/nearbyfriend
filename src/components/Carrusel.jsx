@@ -45,7 +45,7 @@ function Carrusel() {
   return (
     <div
       className="slider-container"
-      style={{ padding: "100px", backgroundColor: "#DDDDDD",width: '88%',margin:'0 auto'}}
+      style={{ padding: "100px", backgroundColor: "red",width: '88%',margin:'0 auto'}}
     >
       <Slider {...settings}>
         <div style={{padding:'20px'}}>
