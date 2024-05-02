@@ -19,6 +19,8 @@ function BarraBusqueda() {
   const [gusto, setGusto] = useState("Cualquiera");
   const [edad, setEdad] = useState("Cualquiera");
   const [buscado, setBuscado] = useState(false);
+  const [edadMinima, setEdadMinima] = useState(0);
+  const [edadMaxima, setEdadMaxima] = useState(0);
 
   const handleBuscar = () => {
     setBuscado(true);
@@ -42,11 +44,21 @@ function BarraBusqueda() {
           queryRef = query(queryRef, where("hobbies", "array-contains", gusto));
         }
 
-        //query(collection(db, "amigos"),where("departamento","==","Cochabamba"))
         const querySnapshot = await getDocs(queryRef);
         const docs = [];
         querySnapshot.forEach((doc) => {
-          docs.push({ ...doc.data(), id: doc.id });
+          
+          if (edad !== "Cualquiera") {
+            setEdad("Cualquiera");
+            const amigoData = doc.data();
+            const edadAmg = calcularEdad(amigoData.dob);
+            
+            if (edadAmg >= edadMinima && edadAmg <= edadMaxima) {
+              docs.push({ ...doc.data(), id: doc.id });
+            }
+          } else {
+            docs.push({ ...doc.data(), id: doc.id });
+          }
         });
         setLista(docs);
         setBuscado(false);
@@ -82,21 +94,33 @@ function BarraBusqueda() {
   };
 
   const handleChangeEdad = (value) => {
+    console.log(value);
     if (value === "entre 18 y 25") {
-      setEdad("18");
+      setEdadMinima(18);
+      setEdadMaxima(25);
+      setEdad("tiene edad");
     }
     if (value === "entre 25 y 35") {
-      setEdad("25");
+      setEdadMinima(25);
+      setEdadMaxima(35);
+      setEdad("tiene edad");
     }
     if (value === "entre 35 y 45") {
-      setEdad("35");
+      setEdadMinima(35);
+      setEdadMaxima(45);
+      setEdad("tiene edad");
     }
     if (value === "entre 45 y 65") {
-      setEdad("45");
+      setEdadMinima(45);
+      setEdadMaxima(65);
+      setEdad("tiene edad");
     }
     if (value === "mas de 65") {
-      setEdad("65");
+      setEdadMinima(65);
+      setEdadMaxima(80)
+      setEdad("tiene edad");
     }
+    
   };
 
   return (
@@ -367,7 +391,9 @@ function BarraBusqueda() {
           </Button>
         </Space>
       </div>
-      <div><BuscarAmigo seleccion={lista} /></div>
+      <div>
+        <BuscarAmigo seleccion={lista} />
+      </div>
     </div>
   );
 }
