@@ -283,7 +283,7 @@ function Registro() {
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Cantar">Cantar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Bailar">Bailar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Comer">Comer</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Ver películas">películas</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Ver peliculas">películas</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Cine">Cine</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Leer">Leer</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Pasear">Pasear</Checkbox>
@@ -298,15 +298,15 @@ function Registro() {
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Anime">Anime</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Autos">Autos</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Futbol">Futbol</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Viajes">Viajes</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Dibujar">Dibujar</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Musica">Musica</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Mascotas">Mascotas</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Escribir">Escribir</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Anime">Anime</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Autos">Autos</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Gym">Gim</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Actuar">Actuar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Cocinar">Cocinar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Conciertos">Conciertos</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Nadar">Nadar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Fiestas">Fiestas</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Coleccionar">Coleccionar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Negocios">Negocios</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Trabajo">Trabajo</Checkbox>
                                     </div>
                                 </Checkbox.Group>
                             </Form.Item>
