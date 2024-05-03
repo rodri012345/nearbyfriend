@@ -1,0 +1,80 @@
+.trabajo-info{
+    margin: 80px auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.info{
+    flex-basis: 31%;
+    position: relative;
+}
+.info img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-tra{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.btn-down{
+    background: #212EA0;
+    color: #fff;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-down img{
+    width: 20px;
+    margin-left: 10px;
+}
+.bar {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+.captura{
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 15, 152, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: aliceblue;
+    cursor: pointer;
+    opacity: 0;
+    padding-top: 70%;
+    transition: 0.4s;
+}
+
+.captura img{
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.info:hover .captura{
+    opacity: 1;
+    padding-top: 0;
+}
+
+.captura p{
+    color: aliceblue;
+}
