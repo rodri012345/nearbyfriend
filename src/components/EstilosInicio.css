@@ -6,7 +6,15 @@
 .content-buscador {
     display: flex;
     justify-content: space-around;
+    background-color: #DDDDDA;
+    margin-bottom: '20px';
 }
 .fuente-inicio {
     font-family: cursive;
 }
+
+.estilo-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

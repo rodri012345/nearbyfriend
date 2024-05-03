@@ -5,7 +5,7 @@ import Carrusel from "../Carrusel";
 import BarraBusqueda from "../BarraBusqueda";
 import { Layout} from "antd";
 import Enlaces from "../Enlaces";
-import Targeta from "../Targeta";
+import Tarjeta from "../Tarjeta";
 
 
 const { Content } = Layout;
@@ -31,7 +31,7 @@ export const About = () => {
         <BarraBusqueda/>
         </div>
         <div style={{backgroundColor:'blue'}}>
-        <Targeta
+        <Tarjeta
         nombre= 'Jose Perez'
         ciudad= 'Cochabamba'/>
         </div>

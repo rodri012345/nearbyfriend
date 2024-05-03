@@ -1,0 +1,30 @@
+.SolicitudNueva{
+    padding: 2px;
+}
+.Titulo{
+    align-items: center;
+    padding: 10px;
+}
+/*desde aqui para las solicitudes*/
+.todo{
+    display:flex;
+    padding: 20px;
+    align-items: center;
+
+}
+.Fila{
+    display: flex;
+    flex-wrap: wrap;
+    /*align-items: center;                        esto lleva todo hacia el centro*/
+    justify-content: center;/* alinear  divs al centro*/
+}
+.Columna{
+    flex: 1;
+    margin-right: 30px;
+    padding: 10px;
+    max-width: 300px;
+    grid-gap: 3px; 
+
+    align-items: center;
+
+}

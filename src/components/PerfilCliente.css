@@ -1,3 +1,4 @@
+/* Estilos base para pantalla grande */
 .perfil-ami-container {
     margin: 20px;
     padding: 20px;
@@ -16,6 +17,11 @@
     width: 300px;
     margin-right: 40px;
     margin-left: 200px;
+    
+}
+.ImagenSolo{
+    border: 5px;
+    padding :5px;
 }
 
 .foto-amigo img {
@@ -35,6 +41,7 @@
     padding: 10px;
     max-width: 300px;
     grid-gap: 3px; 
+    flex: 1;
 }
 
 .hobbies {
@@ -118,7 +125,7 @@ input[type="number"],
 textarea {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -185,6 +192,7 @@ button[type="button"]:hover {
     max-width: 500px;
     border: 2px solid #0056b3;
     grid-gap: 2px; 
+    
 
 }
 
@@ -254,6 +262,5 @@ button[type="button"]:hover {
     max-width: 200px;
     grid-gap: 2px; 
     
-
 
 }
