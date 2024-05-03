@@ -10,3 +10,4 @@ export * from "./Perfil"
 export * from "./SubirFotosA"
 
 
+export * from "./Solicitud"

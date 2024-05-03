@@ -1,12 +1,14 @@
 import React from "react";
 import Footer from "../Fotter";
-import App2 from "../Alquilar";
-import PerfilAmi from "../Alquilar";
+import Alquilar from "../Alquilar";
+import PerfilAmigo from "../PerfilAmigo";
+import PerfilCliente from "../PerfilCliente";
+import SoliModal from "../SolicitudModal";
+import GestionDeSolicitudes from "../GestionDeSolicitudes";
 export const Perfil = () => {
     return (
         <>
-            <PerfilAmi amigoId="AwSvokhF6wQOUdOvU1wn" />
-            <Footer />
+        <PerfilAmigo amigoId="2OD9yIDoUoyiLfnR6JZZ"/>
         </>
     )
 
