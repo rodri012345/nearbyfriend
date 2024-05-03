@@ -29,7 +29,10 @@ export const Home = () => {
         <BarraBusqueda/>
         </div>
         <Enlaces/>
-        <h1>Ultimos Amigos Registrados</h1>
+        <h1>
+          Ultimos Amigos Registrados 
+        </h1>
+        
         <Carrusel />
       </Content>
       <Footer/>
