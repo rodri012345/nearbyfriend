@@ -50,9 +50,7 @@ export const Navbar = () => {
             </ul>
           )}
         </li>
-        <li>
-                <NavLink to="/Solicitud">Ver Solicitudes</NavLink>
-              </li>
+        
       </ul>
 
     </nav>

@@ -16,7 +16,8 @@ const BuscarAmigo = ({seleccion}) => {
                             nombre={list.nombre + " " + list.apellido}
                             ciudad={list.departamento}
                             urlImage={list.imageURL}
-                            onVerMasInfo={() => handleVerMasInfo(list.id)}
+                            idAmigo={list.id}
+                            
                         />
                     </div>
                 ))}

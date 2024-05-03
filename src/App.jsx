@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil} from "./components/pages";
-import SubirFotosA from "./components/pages/SubirFotosA";
+//import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil} from "./components/pages";
 import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil, Solicitud } from "./components/pages";
+import SubirFotosA from "./components/pages/SubirFotosA";
+
 
 function App() {
   return (

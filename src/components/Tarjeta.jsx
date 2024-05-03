@@ -3,12 +3,16 @@ import {Card, Button} from 'antd'
 import './Carrusel.css'
 
 const {Meta} = Card
-const Tarjeta = ({nombre , ciudad, urlImage,onVerMasInfo}) => {
+const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
+
+  const onVerMasInfo = () => {
+    console.log("presionaste el boton de: ",nombre, "con id: ",idAmigo);
+  }
   return (
-    <div style={{margin:'10px'}}>
+    <div style={{margin:'20px'}}>
       <Card
             hoverable
-            style={{ width: 250, textAlign:'center', border:'solid 1px black'}}
+            style={{ width: 250, textAlign:'center', border:'solid 1px black',boxShadow: '2px 4px 8px rgba(0, 0, 0, 0.6)'}}
             cover={
               <img
                 alt="user"
