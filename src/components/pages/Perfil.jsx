@@ -5,7 +5,7 @@ import PerfilAmi from "../Alquilar";
 export const Perfil = () => {
     return (
         <>
-            <PerfilAmi amigoId="KtYyj86EoIYfzaoszr8K" />
+            <PerfilAmi amigoId="AwSvokhF6wQOUdOvU1wn" />
             <Footer />
         </>
     )
