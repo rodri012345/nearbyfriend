@@ -18,9 +18,9 @@ function SubirFoto() {
     const [aboutText, setAboutText] = useState('');
 
     useEffect(() => {
-        // Recupera los datos del almacenamiento local
+        
         const formData = JSON.parse(localStorage.getItem('formData'));
-        // Guarda los datos en Firebase solo si ya existe el aboutText
+        
         if (aboutText.trim() !== '') {
             guardarDatosEnFirebase(formData);
         }
@@ -53,25 +53,25 @@ function SubirFoto() {
             console.error("Error: formData es nulo.");
             return;
         }
-        formData.imageURL = image; // Agrega la URL de la imagen a los datos
+        formData.imageURL = image; 
         guardarDatosEnFirebase(formData);
     };
     
 
     const guardarDatosEnFirebase = async (formData) => {
         try {
-            // Agregar el aboutText al formData
+            
             formData.aboutText = aboutText;
             const docRef = await addDoc(collection(db, "clientes"), formData);
             console.log("Documento guardado con ID: ", docRef.id);
-            // Limpiar el localStorage después de guardar en Firebase
+            
             localStorage.removeItem('formData');
         } catch (e) {
             console.error("Error al agregar documento: ", e);
         }
     };
     const handleGoBack = () => {
-        // Redirige a la página de registro
+        
         window.location.href = '/RegistroCliente';
     };
 
