@@ -93,11 +93,8 @@
   .footer-input::placeholder {
     color: #b1b1b1;
   }
-.redes-sociales{
-  color: #fff;
-
-}
-
+  
+  /* Social Icons */
   .social-icon-link {
     color: #fff;
     font-size: 24px;

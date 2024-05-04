@@ -1,7 +1,11 @@
+/* Registro.css */
+
 .Registro {
-  text-align: center;
-  padding: 20px;
-}
+    text-align: center;
+    padding: 20px;
+  }
+  .Registro h1{
+    margin-bottom: 1rem;
 
 .Registro h1 {
   margin-bottom: 1rem;
@@ -53,18 +57,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
-}
-
-.Registro .ant-btn:hover {
-  background-color: #75d606bf;
-}
-
-.hobbies-container {
-  border: 2px solid #343739;
-  border-radius: 5px;
-  padding: 20px 5px;
-  padding-bottom: px;
-  box-shadow: 15px 5px 15px 15px rgba(0, 0, 0, 0.1);
-
-}
+  }
+  
+  .Registro .ant-btn:hover {
+    background-color: #40a9ff; /* Color de fondo al pasar el ratón */
+  }
