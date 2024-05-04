@@ -104,7 +104,7 @@ return (
                    </div>
                 
         )}
-            <Alquilar amigoId={"BM52V0YevPDCB68c6yz4"} clienteId={"CWSstJixWZwlHQ0581h1"} />
+            <Alquilar amigoId={"BM52V0YevPDCB68c6yz4"} clienteId={"LzRANOs8RkdoQMworsYB"} />
     <div className='contenedor-reseña'>
         <div className="reseña">
             <h4>Reseña</h4>
