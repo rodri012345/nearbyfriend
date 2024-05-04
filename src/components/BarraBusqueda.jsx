@@ -276,8 +276,8 @@ function BarraBusqueda() {
                 label: "Viajes",
               },
               {
-                value: "Dibujar",
-                label: "Dibujar",
+                value: "Juegos",
+                label: "Juegos",
               },
               {
                 value: "Musica",

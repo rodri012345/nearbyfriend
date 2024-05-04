@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
+
 import './PerfilAmigo.css';
 import { Image, Flex, Rate, notification } from 'antd';
 import Alquilar from './Alquilar';
 import imagen from '../img/image1.png'
-const PerfilAmigo = ({ amigoId }) => {
+
+const PerfilAmigo = ({amigoId}) => {
+    
     const [amigo, setAmigo] = useState(null);
     useEffect(() => {
     const obtenerAmigo = async () => {
@@ -34,7 +37,7 @@ return (
                 <div className="foto-amigo">
                     <Image
                          width={300}
-                         height={200}
+                         height={350}
                         src={amigo.imageURL}
                         alt="Foto del amigo"
                         fallback={imagen}

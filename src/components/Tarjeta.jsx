@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card, Button} from 'antd'
 import './Carrusel.css'
+import { Link } from 'react-router-dom';
 
 const {Meta} = Card
 const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
@@ -24,7 +25,10 @@ const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
           >
             <Meta title = {nombre} description= {ciudad} className='text-center'/>
             <div style={{display:'flex',justifyContent:'center', alignItems:'center'}}>
-            <Button type="primary" className='estilo-btn' onClick={onVerMasInfo}>Ver mas info</Button>
+            {/* <Button type="primary" className='estilo-btn' onClick={onVerMasInfo}>Ver mas info</Button> */}
+            <Link to={`/perfil/${idAmigo}`}>
+            <Button type="primary" className='estilo-btn'>Ver más info</Button>
+            </Link>
             </div>
 
           </Card>

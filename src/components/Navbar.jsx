@@ -34,7 +34,7 @@ export const Navbar = () => {
           <NavLink to="/services">Solicitud</NavLink>
         </li>
         <li>
-          <NavLink to="/Perfil">Cuenta</NavLink>
+          <NavLink to="/Perfil/BM52V0YevPDCB68c6yz4">Cuenta</NavLink>
         </li>
         <li className="registro-item">
           <span onClick={toggleRegistro}>Registro</span>

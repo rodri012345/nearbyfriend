@@ -17,7 +17,7 @@ function App() {
         <Route path="/RegistroCliente" element={<RegistroCliente />} />
         <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
         <Route path="/SubirFotos" element={<SubirFotos />} />
-        <Route path="/Perfil" element={<Perfil />} />
+        <Route path="/Perfil/:amigoId" element={<Perfil />} />
         <Route path="/SubirFotosA" element={<SubirFotosA/>}/>
         
         <Route path="/Solicitud " element={<Solicitud />} />
