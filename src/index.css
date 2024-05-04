@@ -33,3 +33,8 @@ a{
   width: 20px;
   margin-left: 10px;
 }
+
+.bar {
+  padding-left: 10%;
+  padding-right: 10%;
+}
