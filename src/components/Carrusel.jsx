@@ -43,12 +43,9 @@ function Carrusel() {
     ],
   };
   return (
-    <div
-      className="slider-container"
-      style={{ padding: "100px", backgroundColor: "red",width: '88%',margin:'0 auto'}}
-    >
+    <div className="slider-container">
       <Slider {...settings}>
-        <div style={{padding:'20px'}}>
+        <div style={{padding:'80px'}}>
           <Card
             className="image-style"
             hoverable
@@ -60,11 +57,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Carlos Flores</h2>
               <h5>Tarija</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
 
             </div>
@@ -83,11 +80,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Paola Valdivia</h2>
               <h5>Cochabamba</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -103,11 +100,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h3>Maria Lopez Fernandez</h3>
               <h5>La Paz</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -123,11 +120,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Alison Gonzales</h2>
               <h5>Sucre</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -143,11 +140,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Fernando Vidal</h2>
               <h5>Santa Cruz</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -163,11 +160,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Mauricio Cabrera</h2>
               <h5>Cochabamba</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -183,11 +180,11 @@ function Carrusel() {
                />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Leidy Garcia</h2>
               <h5>La Paz</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -205,11 +202,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Maite Gutierrez</h2>
               <h5>Cochabamba</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -226,11 +223,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Carolina Suarez </h2>
               <h5>Sucre</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -247,11 +244,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Edgar Rollano</h2>
               <h5>Pando</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>
@@ -269,11 +266,11 @@ function Carrusel() {
               />
             }
           >
-            <div style={{ display:'block', textAlign:'center', height:'80px'}}>
+            <div className="perfil">
               <h2>Karen Paco</h2>
               <h5>Potosi</h5>
-              <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <Button className=" estilo-btn" type="primary">Ver más info</Button>
+              <div className="perfil-btn">
+                <Button className=" estilo-btn" type="primary">Ver Más</Button>
               </div>
             </div>
           </Card>

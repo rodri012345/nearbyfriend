@@ -28,6 +28,11 @@
     padding-right: 10%;
   }
   
+  .barra ul li:hover { 
+    border-bottom: 2px solid #fff;
+    color: #fff;
+  }
+  
   /*
   .title {
     font-size: 1.5rem;

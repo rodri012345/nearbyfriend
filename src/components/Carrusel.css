@@ -1,4 +1,23 @@
-.slick-prev, .slick-next {
+.slider-container {
+  padding: 25px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.perfil{
+  display: block;
+  text-align: center;
+  height: 80px;
+}
+
+.perfil-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-prev,
+.slick-next {
   display: none !important;
 }
 
@@ -8,24 +27,24 @@
 }
 
 .text-center {
-text-align: center;
+  text-align: center;
 }
 
 .estilo-btn {
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-style {
-width: 270px;
+  width: 270px;
 
-overflow: hidden;
+  overflow: hidden;
 }
 
 .image-style img {
-width: 100%;
-height: 300px; 
-object-fit: content; 
-object-position: center; 
+  width: 100%;
+  height: 300px;
+  object-fit: content;
+  object-position: center;
 }

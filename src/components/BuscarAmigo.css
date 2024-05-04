@@ -1,22 +1,40 @@
+.busqueda{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+}
+.buscar{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
 .tarjetas-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crea columnas que se ajustan automáticamente al ancho del contenedor */
-    gap: 20px; /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    
 }
 
-/* Esto asegura que cada tarjeta tenga un tamaño máximo */
-.tarjetas-container > * {
-    max-width: 250px; /* Ancho máximo de cada tarjeta */
+/*style={{ backgroundColor:'#DDDDDD', padding:'40px', display: 'flex', justifyContent: 'center' }}
+
+style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '1200px' }}
+
+*/
+
+.tarjetas-container>* {
+    max-width: 250px;
 }
 
-/* Esto garantiza que solo haya cuatro tarjetas por fila */
 @media (max-width: 1200px) {
     .tarjetas-container {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Para tamaños de pantalla más pequeños, solo dos tarjetas por fila */
 @media (max-width: 768px) {
     .tarjetas-container {
         grid-template-columns: repeat(2, 1fr);

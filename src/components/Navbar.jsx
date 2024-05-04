@@ -19,9 +19,9 @@ export const Navbar = () => {
         <img src= {logo} alt="" className="logo"/>
       </Link>
       <ul>
-        <li><NavLink to = '/RegistroCliente'>Inicio</NavLink></li>
-        <li>Conoce Mas</li>
-        <li>Se un Amigo</li>
+        <li><NavLink to = '/'>Inicio</NavLink></li>
+        <li><NavLink to = '/ConoceMas'>Conoce Mas</NavLink></li>
+        <li><NavLink to = '/'>Se un Amigo</NavLink></li>
         <li><button className="btn">Inicia Sesion</button></li>
       </ul>
     </nav>

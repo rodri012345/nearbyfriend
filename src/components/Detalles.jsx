@@ -2,6 +2,7 @@ import React from 'react'
 import './Detalles.css'
 import detalle_img from '../img/detalle-icono.png'
 import flecha from '../img/light-arrow.png'
+import { Link, NavLink } from "react-router-dom";
 
 const Detalles = () => {
   return (
@@ -19,7 +20,7 @@ const Detalles = () => {
             te sientes un poco solo, puedes entrar en la web, buscar y "pagar", según lo que pactes, y alquilar un amigo 
             en <strong >NearbyFriend </strong>. Lo ideal es que conoscas nueva gente y hagas amigos . Es fácil, ¿te atreves a probarlo?
         </p>
-        <button className='btn-blue'>Comienza Ahora <img src={flecha} alt="" /></button>
+        <button className='btn-blue'> <NavLink to = '/RegistroCliente'>Comienza Ahora </NavLink><img src={flecha} alt="" /></button>
         </div>
     </div>
   )
