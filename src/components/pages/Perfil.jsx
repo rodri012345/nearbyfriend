@@ -8,11 +8,7 @@ import GestionDeSolicitudes from "../GestionDeSolicitudes";
 export const Perfil = () => {
     return (
         <>
-       
-       <GestionDeSolicitudes />
-        <Footer />
-        
-
+        <PerfilAmigo amigoId="2OD9yIDoUoyiLfnR6JZZ"/>
         </>
     )
 

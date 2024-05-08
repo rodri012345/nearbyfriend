@@ -15,7 +15,7 @@ const Alquilar = ({ clienteId, amigoId }) => {
         lugar: '',
         clienteId: '',
         amigoId: '', 
-        estado: false
+        estado: ''
     });
    
     const [value, setValue] = useState(3);
@@ -52,9 +52,9 @@ const Alquilar = ({ clienteId, amigoId }) => {
             }
             
             // Agregar los IDs de cliente y amigo al objeto evento
-            evento.clienteId = '7PB1ZTVstUnHZYcQ3WAG';
-            evento.amigoId = 'KtYyj86EoIYfzaoszr8K';
-            evento.estado = false;
+            evento.clienteId = {clienteId}
+            evento.amigoId = {amigoId}
+            evento.estado = 'inactivo';
             
             const eventosRef = collection(db, "eventos");
             await addDoc(eventosRef, evento);

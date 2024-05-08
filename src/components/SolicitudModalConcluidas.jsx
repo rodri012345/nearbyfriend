@@ -3,7 +3,7 @@ import { Button, Modal, Image, message } from 'antd';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
 
-const SoliModal = ({eventoId}) => {
+const SolicitudModalConcluidas = ({eventoId}) => {
     
     const [evento, setEvento] = useState(null);
     const [cliente, setCliente] = useState(null);
@@ -48,60 +48,33 @@ const SoliModal = ({eventoId}) => {
     const handleOk = async () => {
       try {
           await updateDoc(doc(db, "eventos", eventoId), {
-              estado: 'activo'
+              estado: 'completado'
           });
 
-          setEvento({ ...evento, estado: 'activo' });
-          message.success('Solicitud aceptada');
-          setTimeout(() => {
-            window.location.reload();
-        }, 1000);
-
+          setEvento({ ...evento, estado: 'completado' });
+          message.success('Cita concluida');
       } catch (error) {
           console.error("Error al actualizar el estado del evento:", error);
       }
       setIsModalOpen(false);
   };
 
-    const handleCancel = async() => {
-      try {
-        await updateDoc(doc(db, "eventos", eventoId), {
-            estado: 'rechazado'
-        });
-
-        setEvento({ ...evento, estado: 'rechazado' });
-        message.success('Solicitud rechazada');
-        
-        setTimeout(() => {
-          window.location.reload();
-      }, 1000);
-
-    } catch (error) {
-        console.error("Error al actualizar el estado del evento:", error);
-          
-      
+    const handleCancel = () => {
+        setIsModalOpen(false);
     };
 
-    setIsModalOpen(false);
-  }
-    const handleCan = () =>{
-
-      setIsModalOpen(false);
-    }
     return (
         <>
             <Button type='primary' onClick={showModal}>
-                Ver más
+                Ver
             </Button>
-            <Modal title="Solicitud" visible={isModalOpen} onOk={handleOk} onCancel={handleCan} width={600} height={600}
+            <Modal title="Solicitud" visible={isModalOpen}  onCancel={handleCancel} width={600} height={600}
              footer={[
-              <Button key="rechazar" onClick={handleCancel} >
-                  Rechazar
-              </Button>,
-              <Button key="aceptar" type="primary" onClick={handleOk }>
-                  Aceptar
-              </Button>,
-          ]}
+                <Button key="rechazar" onClick={handleCancel} >
+                    ok
+                </Button>,
+            ]}
+                
             >
                 {isLoading && <p>Cargando...</p>}
                 {cliente && (
@@ -125,6 +98,7 @@ const SoliModal = ({eventoId}) => {
                         <div className='hobbies' style={{ marginLeft: '20px' }}>
                             <p>{cliente.hobbies[0]}</p>
                             <p>{cliente.hobbies[1]}</p>
+                            <p>{cliente.hobbies[2]}</p>
                         </div>
                     </div>
                 )}
@@ -143,4 +117,4 @@ const SoliModal = ({eventoId}) => {
     );
 };
 
-export default SoliModal;
+export default SolicitudModalConcluidas;
