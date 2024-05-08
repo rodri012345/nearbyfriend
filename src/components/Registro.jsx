@@ -4,6 +4,9 @@ import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col,
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
 
+
+
+
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -38,16 +41,23 @@ function Registro() {
             hobbies: values.hobbies || []
         };
         localStorage.setItem('formData', JSON.stringify(values));
-        // Redirige a la página "SubirFoto"
+      
         window.location.href = '/SubirFotos';
         console.log({ formData })
     };
+
+    function disabledDate(current) {
+        
+        const april2006 = new Date('2006-04-19');
+       
+        return current && current > april2006;
+    }
+
 
     return (
         <div className="Registro">
 
             <header className="Registro-header">
-                <h1 className='titulo'>Registrarse</h1>
                 <Form
                     autoComplete="off"
                     labelCol={{ span: 10 }}
@@ -96,25 +106,29 @@ function Registro() {
                                 <Input placeholder="Escriba su Apellido" />
                             </Form.Item>
 
-                            <Form.Item
-                                name="contraseña"
-                                label="Contraseña"
-                                rules={[
-                                    {
-                                        required: true, message: "Por Favor Ingrese su Contraseña"
-                                    },
-                                    { min: 6, message: "Debe de tener mas de 6 caracteres" },
-                                    /*{
-                                        validator: (_, value) =>
-                                            value && value.includes("A")
-                                                ? Promise.resolve()
-                                                : Promise.reject("Contraseña no Valida"),
-                                    },*/
-                                ]}
-                                hasFeedback
-                            >
-                                <Input.Password placeholder="Escriba su Contraseña" />
-                            </Form.Item>
+                                <Form.Item
+                                    name="contraseña"
+                                    label="Contraseña"
+                                    rules={[
+                                        {
+                                            required: true, message: "Por Favor Ingrese su Contraseña"
+                                        },
+                                        { min: 6, message: "Debe de tener mas de 6 caracteres" },
+                                        /*{
+                                            validator: (_, value) =>
+                                                value && value.includes("A")
+                                                    ? Promise.resolve()
+                                                    : Promise.reject("Contraseña no Valida"),
+                                        },*/
+                                        {
+                                            pattern: /^(?=.*[A-Z])(?=.*\d).+$/,
+                                            message: "La contraseña debe contener al menos una letra mayúscula y un número"
+                                        }
+                                    ]}
+                                    hasFeedback
+                                >
+                                    <Input.Password placeholder="Escriba su Contraseña" />
+                                </Form.Item>
 
                             <Form.Item
                                 name="confirmarContraseña"
@@ -164,15 +178,15 @@ function Registro() {
                                 }]}
                             >
                                 <Select placeholder="Seleccione su Departamento">
-                                    <Select.Option value="La Paz">La Paz</Select.Option>
-                                    <Select.Option value="Santa Cruz">Santa Cruz</Select.Option>
+                                    <Select.Option value="la paz">La Paz</Select.Option>
+                                    <Select.Option value="santa cruz">Santa Cruz</Select.Option>
                                     <Select.Option value="Cochabamba">Cochabamba</Select.Option>
-                                    <Select.Option value="Oruro">Oruro</Select.Option>
-                                    <Select.Option value="Sucre">Sucre</Select.Option>
-                                    <Select.Option value="Tarija">Tarija</Select.Option>
-                                    <Select.Option value="Potosi">Potosi</Select.Option>
-                                    <Select.Option value="Beni">Beni</Select.Option>
-                                    <Select.Option value="Pando">Pando</Select.Option>
+                                    <Select.Option value="oruro">Oruro</Select.Option>
+                                    <Select.Option value="sucre">Sucre</Select.Option>
+                                    <Select.Option value="tarija">Tarija</Select.Option>
+                                    <Select.Option value="potosi">Potosi</Select.Option>
+                                    <Select.Option value="beni">Beni</Select.Option>
+                                    <Select.Option value="pando">Pando</Select.Option>
                                 </Select>
                             </Form.Item>
 
@@ -184,6 +198,7 @@ function Registro() {
                                         required: true,
                                         message: "Por favor Ingrese su fecha de nacimiento",
                                     },
+                                    
                                 ]}
                                 hasFeedback
                             >
@@ -191,6 +206,8 @@ function Registro() {
                                     style={{ width: "100%" }}
                                     picker="date"
                                     placeholder="Seleccione una fecha"
+                                    disabledDate={disabledDate}
+                                    format="DD/MM/YYYY"
                                 />
                             </Form.Item>
 
@@ -228,11 +245,18 @@ function Registro() {
                                     
                                     {
                                         validator: (_, value) => {
-                                            if (value && !Number.isInteger(value)) {
-                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            if (!value) {
+                                                return Promise.resolve();
                                             }
-                                            if (value && value <= 0) {
-                                                return Promise.reject(new Error('Ingrese un numero de telefono Valido'));
+                                            if (!Number.isInteger(value)) {
+                                                return Promise.reject(new Error('Ingrese un número de teléfono válido'));
+                                            }
+                                            if (value < 0) {
+                                                return Promise.reject(new Error('Ingrese un número de teléfono válido'));
+                                            }
+                                            const phoneNumber = value.toString();
+                                            if (phoneNumber.length < 7 || phoneNumber.length > 10) {
+                                                return Promise.reject(new Error('El número de teléfono debe tener entre 7 y 10 dígitos'));
                                             }
                                             return Promise.resolve();
                                         },
@@ -244,26 +268,7 @@ function Registro() {
 
 
 
-                            <Form.Item
-                                name="agreement"
-                                wrapperCol={{ span: 24 }}
-                                valuePropName="checked"
-                                rules={[
-                                    {
-                                        validator: (_, value) =>
-                                            value
-                                                ? Promise.resolve()
-                                                : Promise.reject(
-                                                    "Para continuar, debe de aceptar los terminos y condiciones"
-                                                ),
-                                    },
-                                ]}
-                            >
-                                <Checkbox>
-                                    {" "}
-                                    Aceptar nuestros, <a href="#">Terminos y condiciones</a>
-                                </Checkbox>
-                            </Form.Item>
+                            
                         </Col>
                         <Col span={12}>
 
@@ -271,6 +276,8 @@ function Registro() {
                             <Form.Item
                                 name="hobbies"
                                 label=""
+                                wrapperCol={{ offset: 2, span: 24 }}
+                                className="hobbies-container"
                                 rules={[
                                     {
                                         required: true,
@@ -299,22 +306,42 @@ function Registro() {
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Autos">Autos</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Futbol">Futbol</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Viajes">Viajes</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Dibujar">Dibujar</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Musica">Musica</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Mascotas">Mascotas</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Escribir">Escribir</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Anime">Anime</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Actuar">Actuar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Autos">Autos</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Conciertos">Conciertos</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Nadar">Nadar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Fiestas">Fiestas</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Coleccionar">Coleccionar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Negocios">Negocios</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Trabajo">Trabajo</Checkbox>
                                     </div>
                                 </Checkbox.Group>
                             </Form.Item>
 
                         </Col>
                     </Row>
-
-                    <Form.Item wrapperCol={{ offset: 5, span: 8 }} >
+                    <Form.Item
+                                name="agreement"
+                                wrapperCol={{ offset: 7, span: 24 }}
+                                valuePropName="checked"
+                                rules={[
+                                    {
+                                        validator: (_, value) =>
+                                            value
+                                                ? Promise.resolve()
+                                                : Promise.reject(
+                                                    "Para continuar, debe de aceptar los terminos y condiciones"
+                                                ),
+                                    },
+                                ]}
+                                
+                            >
+                                <Checkbox  >
+                                    {" "}
+                                    Aceptar nuestros, <a href="#">Terminos y condiciones</a>
+                                </Checkbox>
+                            </Form.Item>
+                    <Form.Item wrapperCol={{ offset: 8, span: 8 }} >
                         <Button block type="primary" htmlType="submit">
                             Siguiente
                         </Button>

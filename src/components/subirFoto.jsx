@@ -5,7 +5,7 @@ import avatarDefault from '../img/avatar2.jpg';
 import upload from "../img/subir.png"
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
-import {  message } from "antd";
+import { message } from "antd";
 import "./SubirFoto.css";
 
 
@@ -41,8 +41,8 @@ function SubirFoto() {
     const handleAboutChange = (e) => {
         setAboutText(e.target.value);
     };
-    
-    
+
+
     const handleRegister = () => {
         if (!aboutText.trim()) {
             message.error("Por favor, completa la sección 'Cuentanos más de ti'");
@@ -53,80 +53,56 @@ function SubirFoto() {
             console.error("Error: formData es nulo.");
             return;
         }
-        formData.imageURL = image; // Agrega la URL de la imagen a los datos
+        formData.imageURL = image;
         guardarDatosEnFirebase(formData);
     };
-    
+
 
     const guardarDatosEnFirebase = async (formData) => {
         try {
-            // Agregar el aboutText al formData
+
             formData.aboutText = aboutText;
             const docRef = await addDoc(collection(db, "clientes"), formData);
             console.log("Documento guardado con ID: ", docRef.id);
-            // Limpiar el localStorage después de guardar en Firebase
+
             localStorage.removeItem('formData');
         } catch (e) {
             console.error("Error al agregar documento: ", e);
         }
     };
     const handleGoBack = () => {
-        // Redirige a la página de registro
         window.location.href = '/RegistroCliente';
     };
 
     return (
-        <div>
-            <h1 style={{ textAlign: "center" }}>Registrarse</h1>
-            <Row gutter={[110, 10]} style={{ justifyContent: "center" }}>
-                <Col>
+        <div className="subir">
+            <div className="subir-izquierda"></div>
+            
+                
                     <div>
-                        <h2 style={{ textAlign: 'center' }}>Añadir foto de perfil </h2>
-                        <img
-                            src={image}
-                            alt="cargando imagen"
-                            width={"300px"}
-                            height={"320px"}
-                            style={{ borderRadius: "30px" }}
-                        />
-                        
-                            <input
-                            type="file"
-                            id = 'file-input'
-                            accept=".jpg,.jpeg,.png"
-                            onChange={handleChange}
-                            style={{display:'none'}}
-                            ></input>
-                            <label htmlFor="file-input" className="upload-icon">
-                                <img src={upload} alt="subir archivo" width={'30px'} height={'30px'} />
-                            </label>
-                        
-                    </div>
-                    
-                </Col>
+                        <img src={image} alt="cargando imagen" />
 
-                <Col className="cuentanos">
-                    <div style={{ marginTop: "10px", }}>
+                        <input type="file" id='file-input' accept=".jpg,.jpeg,.png" onChange={handleChange}></input>
+                        <label htmlFor="file-input" className="upload-icon">
+                            <img src={upload} alt="subir archivo" width={'30px'} height={'30px'} />
+                        </label>
+
+                    </div>
+
+                    <div >
                         <h2>Cuentanos más de ti</h2>
                         <textarea
                             name="text"
                             id="tex1"
                             cols="30"
                             rows="10"
-                            style={{ width: "100%" }}
+
                             onChange={handleAboutChange}
                         ></textarea>
                     </div>
-                </Col>
-            </Row>
+            
 
-            <div
-                style={{
-                    marginTop: "50px",
-                    display: "flex",
-                    justifyContent: "space-around",
-                }}
-            >
+            <div>
                 <Button type="primary" onClick={handleGoBack}>volver atras</Button>
                 <Button type="primary" disabled={image === URL_DEFAULT} onClick={handleRegister}>
                     Registrarse
