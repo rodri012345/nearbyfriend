@@ -1,38 +1,30 @@
 import React from "react";
-import Footer from "../Fotter";
-import Carrusel from "../Carrusel";
-
-import BarraBusqueda from "../BarraBusqueda";
+import Fondo from '../Fondo';
 import { Layout} from "antd";
-import Enlaces from "../Enlaces";
-
+import Informacion from "../Informacion";
+import Titulo from "../Titulo";
+import Detalles from "../Detalles";
+import Trabajo from "../Trabajo";
+import Testimonios from "../Testimonios";
+import Navbar from "../Navbar";
 
 const { Content } = Layout;
 export const Home = () => {
   return (
     <>
-      <Content style={{backgroundColor:'#DFF5FF'}}>
-        <div
-          style={{
-            backgroundImage: `url("https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            width: "100%",
-            height: "700px",
-            
-          }}
-        >
-          <h1 style={{textAlign:'center',fontFamily: "Creepster",fontSize:'100px'}}>NearbyFriend</h1>
+      <Content >
+        <Navbar />
+        <Fondo />
+        <Titulo subTitulo="Aqui encontraras" titulo="Amigos para toda ocacion"/>
+        <Informacion/>
+        <Detalles />
+        <Titulo subTitulo="Trabaja con nosotros" titulo="Tu tambien puedes ser un amigo"/>
+        <Trabajo />
+        <Titulo subTitulo="Las experiencias hablan por si mismas" titulo="Personas que comparten sus experiencias"/>
+        <div className="bar">
+        <Testimonios />
         </div>
-        <div style={{backgroundColor:'#DDDDDD'}}>
-        <BarraBusqueda/>
-        </div>
-        <Enlaces/>
-        <h1>Ultimos Amigos Registrados</h1>
-        <Carrusel />
       </Content>
-      <Footer/>
     </>
   );
 };

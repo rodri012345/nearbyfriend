@@ -5,7 +5,7 @@ import Carrusel from "../Carrusel";
 import BarraBusqueda from "../BarraBusqueda";
 import { Layout} from "antd";
 import Enlaces from "../Enlaces";
-
+import Tarjeta from "../Tarjeta";
 
 
 const { Content } = Layout;
@@ -30,6 +30,12 @@ export const About = () => {
         <div>
         <BarraBusqueda/>
         </div>
+        <div style={{backgroundColor:'blue'}}>
+        <Tarjeta
+        nombre= 'Jose Perez'
+        ciudad= 'Cochabamba'/>
+        </div>
+        
         <div style={{margin:'20px 0'}}>
         <Enlaces/>
         </div>

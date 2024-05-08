@@ -148,7 +148,3 @@ const Alquilar = ({ clienteId, amigoId }) => {
 };
 
 export default Alquilar;
-
-
-
-

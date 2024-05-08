@@ -1,16 +1,13 @@
 import React from "react";
-import Footer from '../Fotter'
+import Navbar1 from '../Navbar1'
 import Registro from "../Registro";
-import FotoCliente from "../registroFotoCliente";
-import SubirArchivo from "../SubirArchivo";
-
-
+import Titulo from "../Titulo";
 export const RegistroCliente = () => {
     return (
         <>
+        <Navbar1 />
+        <Titulo subTitulo="Registro Cliente" titulo="Comienza una Nueva Experiencia"/>
         <Registro />
-        <SubirArchivo/>
-        <Footer />
         
         </>
     );
