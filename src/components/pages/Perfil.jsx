@@ -1,18 +1,13 @@
-import React from "react";
-import Footer from "../Fotter";
-import App2 from "../Alquilar";
-import Alquilar from "../Alquilar";
+import React from 'react'
+import { useParams } from "react-router-dom";
+import PerfilAmigo from "../PerfilAmigo";
+
 export const Perfil = () => {
+    const {amigoId} = useParams();
     return (
         <>
-        
-        
-        <Alquilar />
-        <Footer />
-
+        <PerfilAmigo amigoId={amigoId}/>
         </>
     )
 
 }
-
-

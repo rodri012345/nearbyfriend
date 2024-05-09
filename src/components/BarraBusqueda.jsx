@@ -127,7 +127,7 @@ function BarraBusqueda() {
     <div className="content">
       <div>
         <h3 className="estilo-h3 ">
-          Busca con Quién y Dónde Quieres Alquilar y/o un Amigo o Amiga
+          Busca con Quién y Dónde Quieres Alquilar a un Amigo o Amiga
         </h3>
       </div>
       <br />

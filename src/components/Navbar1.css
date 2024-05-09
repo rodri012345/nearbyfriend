@@ -28,7 +28,7 @@
     padding-right: 10%;
   }
   
-  .barra ul li:hover { 
+  .barra ul li:nth-child(-n+3):hover { 
     border-bottom: 2px solid #fff;
     color: #fff;
   }
