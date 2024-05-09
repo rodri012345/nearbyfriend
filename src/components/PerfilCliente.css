@@ -1,5 +1,5 @@
 /* Estilos base para pantalla grande */
-.perfil-ami-container {
+/*.perfil-ami-container {
     margin: 20px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -197,6 +197,7 @@ button[type="button"]:hover {
 }
 
 /* Media query para pantallas de tamaño medio */
+/*
 @media screen and (max-width: 992px) {
     .foto-amigo {
         width: 100%;
@@ -219,7 +220,7 @@ button[type="button"]:hover {
     }
 }
 
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas pequeñas 
 @media screen and (max-width: 576px) {
     .perfil-ami-container {
         margin: 10px;
@@ -262,4 +263,4 @@ button[type="button"]:hover {
     max-width: 200px;
     grid-gap: 2px; 
     
-}
+}*/

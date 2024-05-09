@@ -27,7 +27,7 @@ const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
             <div style={{display:'flex',justifyContent:'center', alignItems:'center'}}>
             {/* <Button type="primary" className='estilo-btn' onClick={onVerMasInfo}>Ver mas info</Button> */}
             <Link to={`/Perfil/${idAmigo}`}>
-            <Button type="primary" className='estilo-btn'>Ver más info</Button>
+            <Button type="primary" className='estilo-btn'>Ver Más</Button>
             </Link>
             </div>
 

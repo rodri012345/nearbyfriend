@@ -6,14 +6,14 @@ import Titulo from "../Titulo";
 import Detalles from "../Detalles";
 import Trabajo from "../Trabajo";
 import Testimonios from "../Testimonios";
-import NavbarRegistro from "../NavbarRegistro";
+import Navbar from "../Navbar";
 
 const { Content } = Layout;
 export const Home = () => {
   return (
     <>
       <Content >
-        <NavbarRegistro />
+        <Navbar />
         <Fondo />
         <Titulo subTitulo="Aqui encontraras" titulo="Amigos para toda ocacion"/>
         <Informacion/>

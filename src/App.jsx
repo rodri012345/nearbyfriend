@@ -7,7 +7,6 @@ import {
   SeAmigo
 } from "./components/pages";
 
-
 function App() {
   return (
     <div className="App">
@@ -19,7 +18,7 @@ function App() {
           <Route path="/RegistroCliente" element={<RegistroCliente />} />
           <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
           <Route path="/SubirFotos" element={<SubirFotos />} />
-          <Route path="/Perfil" element={<Perfil />} />
+          <Route path="/Perfil/:amigoId" element={<Perfil />} />
           <Route path="/Inicio" element={<Inicio />} />
           <Route path="/Solicitudes" element={<Solicitudes />} />
           <Route path="/Modificar" element={<Modificar />} />
@@ -30,6 +29,8 @@ function App() {
           <Route path="/SeAmigo" element={<SeAmigo />} />
         </Routes>
       </div>
+
+      
       <Footer />
     </div>
   );
