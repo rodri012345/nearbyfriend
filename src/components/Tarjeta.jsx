@@ -13,7 +13,7 @@ const Tarjeta = ({ nombre, ciudad, urlImage, idAmigo }) => {
     <div style={{ margin: '20px' }}>
       <Card
         hoverable
-        style={{ width: 250, textAlign: 'center', boxShadow: '2px 4px 8px rgba(0, 0, 0, 0.6)' }}
+        style={{ width: 250, textAlign: 'center', boxshadow: '0 0 20px rgba(0, 0, 0, 0.100)'}}
         cover={
           <img
             alt="user"

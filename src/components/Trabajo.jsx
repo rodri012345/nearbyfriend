@@ -1,13 +1,12 @@
 import React from 'react'
+import { Link, NavLink } from "react-router-dom";
 import './Trabajo.css'
 import dinero from '../img/gana-dinero.png'
 import horario from '../img/horarios.png'
 import seguro from '../img/seguro.png'
-import experiencia from '../img/experiencias.png'
 import dinero_icono from '../img/dinero-icono.png'
 import reloj from '../img/reloj-icono.png'
 import seguro_icono from '../img/seguro-icono.png'
-import sol_icono from '../img/sol-icono.png'
 import flecha from '../img/light-arrow.png'
 
 const Trabajo = () => {
@@ -38,7 +37,7 @@ const Trabajo = () => {
 
                 </div>
             </div>
-            <button className='btn-down'>Comienza Ahora <img src={flecha} alt="" /></button>
+            <button className='btn-down'><NavLink to='/SeAmigo'>Comienza Ahora</NavLink><img src={flecha} alt="" /></button>
         </div>
 
     )
