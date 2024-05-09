@@ -4,7 +4,8 @@ import { Navbar } from "./components/Navbar";
 import Footer from './components/Fotter'
 import {
   About, RegistroCliente, Home, MenuPerfil, RegistroAmigo, SubirFotos, Perfil, Inicio,
-  Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas
+  Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas,
+  SeAmigo
 } from "./components/pages";
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/SeePerfil" element={<SeePerfil />} />
           <Route path="/Ayuda" element={<Ayuda />} />
           <Route path="/ConoceMas" element={<ConoceMas />} />
+          <Route path="/SeAmigo" element={<SeAmigo />} />
         </Routes>
       </div>
       <Footer />

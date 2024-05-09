@@ -60,11 +60,11 @@ function SubirFoto() {
 
     return (
         <div className="subir-header">
-            <h1 style={{ textAlign: "center" }}>Registrarse</h1>
+            
             <Row gutter={[110, 10]} style={{ justifyContent: "center" }}>
                 <Col>
                     <div>
-                        <h2 style={{ textAlign: 'center' }}>Añadir foto de perfil </h2>
+                        <h2 style={{ textAlign: 'center', padding: '5px' }}>Añadir Foto de Perfil </h2>
                         <img
                             src={image}
                             alt="cargando imagen"
@@ -90,7 +90,7 @@ function SubirFoto() {
 
                 <Col className="cuentanos">
                     <div style={{ marginTop: "10px", }}>
-                        <h2>Cuentanos más de ti</h2>
+                        <h2>Que quiero que sepan de mi</h2>
                         <textarea
                              name="text"
                              id="tex1"
@@ -109,9 +109,7 @@ function SubirFoto() {
                         title="Felicidades! Tu registro fue exitoso!"
                         subTitle="Ahora podras comensar a disfrutar de lo mejor de nuestra comunidad."
                         extra={[
-                            <Button type="primary" key="console">
-                                Cerrar
-                            </Button>
+                            <Button type="primary" key="console"><NavLink to = '/ConoceMas'>Comenzar</NavLink></Button>
                             
                         ]}
                     />

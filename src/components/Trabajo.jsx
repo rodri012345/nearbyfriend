@@ -19,21 +19,21 @@ const Trabajo = () => {
                     <img src={dinero} alt="" />
                     <div className="captura">
                         <img src={dinero_icono} alt="" />
-                        <p>Genera</p>
+                        <p>Genera Buenos Ingresos</p>
                     </div>
                 </div>
                 <div className="info">
                     <img src={horario} alt="" />
                     <div className="captura">
                         <img src={reloj} alt="" />
-                        <p>Trabaja en tu tiempo libre</p>
+                        <p>Trabaja en tu Tiempo Libre</p>
                     </div>
                 </div>
                 <div className="info">
                     <img src={seguro} alt="" />
                     <div className="captura">
                         <img src={seguro_icono} alt="" />
-                        <p>Seguridad en todo momento</p>
+                        <p>Seguridad en Todo Momento</p>
                     </div>
 
                 </div>
