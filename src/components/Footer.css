@@ -6,6 +6,8 @@
     justify-content: space-between;
     align-items: center;
     border: #e9e9e9;
+    position: relative;
+    z-index: 3;
   }
   
   .footer-subscription {
@@ -93,11 +95,8 @@
   .footer-input::placeholder {
     color: #b1b1b1;
   }
-.redes-sociales{
-  color: #fff;
-
-}
-
+  
+  /* Social Icons */
   .social-icon-link {
     color: #fff;
     font-size: 24px;

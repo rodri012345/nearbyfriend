@@ -3,6 +3,7 @@ import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
 import './Alquilar.css';
 import { Image, Flex, Rate, notification } from 'antd'
+import imagen1 from '../img/image1.png'
 
 const Alquilar = ({ clienteId, amigoId }) => { 
 
@@ -23,6 +24,26 @@ const Alquilar = ({ clienteId, amigoId }) => {
     const today = new Date().toISOString().split('T')[0];
     const maxDate = new Date(today);
     maxDate.setFullYear(maxDate.getFullYear() + 1);
+    useEffect(() => {
+        const obtenerAmigo = async () => {
+            try {
+                const amigoRef = doc(db, "amigos", amigoId);
+                console.log(amigoId)
+                const docSnap = await getDoc(amigoRef);
+                if (docSnap.exists()) {
+                    // console.log("datos: ",{ ...docSnap.data(), id: docSnap.id  })
+                    setAmigo({ ...docSnap.data(), id: docSnap.id  });
+                } else {
+                    console.log("No se encontró el amigo.");
+                }
+            } catch (error) {
+                console.error("Error al obtener el amigo:", error);
+            }
+        };
+
+        obtenerAmigo();
+    }, [amigoId]);
+
     const toggleModal = () => {
         setModalAbierto(!modalAbierto);
     };
@@ -127,7 +148,3 @@ const Alquilar = ({ clienteId, amigoId }) => {
 };
 
 export default Alquilar;
-
-
-
-

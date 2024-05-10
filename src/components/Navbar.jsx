@@ -1,58 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import logo from '../img/logo.png'
 import "./Navbar.css";
 
 export const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [registroOpen, setRegistroOpen] = useState(false);
+  
+  const [fijar, setFijar] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    setRegistroOpen(false); 
-  };
-
-  const toggleRegistro = () => {
-    setRegistroOpen(!registroOpen);
-  };
-
-  return (
-    <nav>
+  useEffect(()=>{
+    window.addEventListener('scroll', ()=>{
+        window.scrollY > 50 ? setFijar(true) : setFijar(false);
+    })
+  },[])
+  
+    return (
+      <nav className={`bar ${fijar? 'dark-bar' : ''}`}>
       <Link to="/" className="title">
-        NearbyFriend
+        <img src= {logo} alt="" className="logo"/>
       </Link>
-      <div className="menu" onClick={toggleMenu}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul className={`menu-items ${menuOpen ? "open" : ""}`}>
-        <li>
-          <NavLink to="/about">Inicio</NavLink>
-        </li>
-        <li>
-          <NavLink to="/services">Solicitud</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Perfil">Cuenta</NavLink>
-        </li>
-        <li className="registro-item">
-          <span onClick={toggleRegistro}>Registro</span>
-          {registroOpen && (
-            <ul className="sub-menu">
-              <li>
-                <NavLink to="/RegistroCliente">Cliente</NavLink>
-              </li>
-              <li>
-                <NavLink to="/RegistroAmigo">Amigo</NavLink>
-              </li>
-              
-            </ul>
-          )}
-        </li>
-        <li>
-                <NavLink to="/Solicitud">Ver Solicitudes</NavLink>
-              </li>
+      <ul>
+        <li><NavLink to = '/'>Inicio</NavLink></li>
+        <li><NavLink to = '/ConoceMas'>Conoce Mas</NavLink></li>
+        <li><NavLink to = '/'>Se un Amigo</NavLink></li>
+        <li><button className="btn">Inicia Sesion</button></li>
       </ul>
 
     </nav>

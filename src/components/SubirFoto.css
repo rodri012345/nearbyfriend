@@ -1,75 +1,17 @@
-.subir-header {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px 20px 10px;
-    background-color: #d1d1d157;
-    border-radius: 10px;
-    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
-}
-
-.cuentanos{
-    padding: 20 px;
-}
-
-.ventana-flotante {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid #00cc00;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-.mensaje-flotante {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-.mensaje-flotante .ant-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.botones-container {
-    display: flex;
-    margin: 25px;
-    text-align: center;
-    justify-content: space-evenly;
-}
 
 
-.botones-container .ant-btn {
-    margin-right: 10px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    padding: 18px 2 6px;
-    height: auto;
-    line-height: normal;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
 
-.botones-container .ant-btn:hover,
-.botones-container .ant-btn:focus {
-    background-color: rgb(4, 205, 215);
-    border-color: rgb(4, 205, 215);
-}
 
-.upload-icon {
-    cursor: pointer;
-}
 
-#file-input {
-    display: none;
-}
+
+/*style={{
+    marginTop: "50px",
+    display: "flex",
+    justifyContent: "space-around",
+
+
+
+
+    width={"300px"}
+                            height={"320px"}
+}}*/
