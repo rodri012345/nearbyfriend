@@ -29,8 +29,7 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>About Us</h2>
-            <Link to='/sign-up'>Como funciona</Link>
-            <Link to='/'>Testimonios</Link>
+            <Link to='/ConoceMas'>Como funciona</Link>
             <Link to='/'>Amigos Alquilados</Link>
             <Link to='/'>FAQ'</Link>
             <Link to='/'>Terminos y condiciones</Link>
@@ -46,8 +45,8 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>Amigos</h2>
-            <Link to='/'>Se un amigo</Link>
-            <Link to='/'>Busca Amigo</Link>
+            <Link to='/SeAmigo'>Se un amigo</Link>
+            <Link to='/ConocerMas'>Busca Amigo</Link>
             <Link to='/'>Ubicacion</Link>
             <Link to='/'>Influencers</Link>
           </div>

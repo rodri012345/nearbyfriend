@@ -2,6 +2,10 @@
   padding: 25px;
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 25px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.100);
 }
 
 .perfil{

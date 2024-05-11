@@ -1,6 +1,61 @@
+.subir-header {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px 20px 10px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.200);
+}
+
+.cuentanos{
+    padding: 20 px;
+}
+
+.ventana-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #00cc00;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.mensaje-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.mensaje-flotante .ant-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botones-container {
+    display: flex;
+    margin: 25px;
+    text-align: center;
+    justify-content: space-evenly;
+}
 
 
 
+.botones-container .ant-btn:hover,
+.botones-container .ant-btn:focus {
+    background-color: rgb(206, 1, 1);
+    border-color: rgb(4, 205, 215);
+}
 
 
 

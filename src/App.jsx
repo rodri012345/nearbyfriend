@@ -1,24 +1,37 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import AlquilarAmigo from "./components/AlquilarAmigo";
-import { Navbar } from "./components/Navbar";
-import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil } from "./components/pages";
+import Footer from './components/Fotter'
+import {
+  About, RegistroCliente, Home, MenuPerfil, RegistroAmigo, SubirFotos, Perfil, Inicio,
+  Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas,
+  SeAmigo
+} from "./components/pages";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AlquilarAmigo />} />
-        <Route path="/contact" element={<Services />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/RegistroCliente" element={<RegistroCliente />} />
-        <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
-        <Route path="/SubirFotos" element={<SubirFotos />} />
-        <Route path="/Perfil" element={<Perfil />} />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/MenuPerfil" element={<MenuPerfil />} />
+          <Route path="/RegistroCliente" element={<RegistroCliente />} />
+          <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
+          <Route path="/SubirFotos" element={<SubirFotos />} />
+          <Route path="/Perfil/:amigoId" element={<Perfil />} />
+          <Route path="/Inicio" element={<Inicio />} />
+          <Route path="/Solicitudes" element={<Solicitudes />} />
+          <Route path="/Modificar" element={<Modificar />} />
+          <Route path="/Galeria" element={<Galeria />} />
+          <Route path="/SeePerfil" element={<SeePerfil />} />
+          <Route path="/Ayuda" element={<Ayuda />} />
+          <Route path="/ConoceMas" element={<ConoceMas />} />
+          <Route path="/SeAmigo" element={<SeAmigo />} />
+        </Routes>
+      </div>
 
-      </Routes>
+      
+      <Footer />
     </div>
   );
 }
