@@ -12,9 +12,9 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px 20px 0px;
-  background-color: #d1d1d157;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .Registro h2 {
@@ -31,7 +31,7 @@
 
 .Registro .ant-form-item-label {
   text-align: left;
-  color: #666;
+  /*color: #666;*/
 }
 
 .Registro .ant-form-item-control {
@@ -42,7 +42,7 @@
   width: 100%;
   max-width: 300px;
   margin: 20px auto;
-  background-color: #1890ff;
+  background-color: #212EA0;
   border: none;
   border-radius: 5px;
   color: #fffffff7;
@@ -60,19 +60,9 @@
         max-width: 100%;
     }
 
-    .hobbies-list-container {
-        max-width: 100%;
-    }
-
-}
-
-@media screen and (max-width: 576px) {
-    .Registro-header {
-        font-size: calc(6px + 2vmin);
-       
-    }
-}
-.image-gallery {
-    
-    text-align: center;
+.hobbies-container {
+  border: 2px solid #343739;
+  border-radius: 5px;
+  padding: 20px 5px;
+  padding-bottom: px;
 }

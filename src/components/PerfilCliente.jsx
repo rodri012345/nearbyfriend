@@ -84,7 +84,10 @@ const PerfilCliente = ({ clienteId }) => {
                             </div>
                                 <div className="hobbies">
                                     <h4>Hobbies</h4>
-                                    <p>{cliente.hobbies}</p>
+                                    <p>{cliente.hobbies[0]}</p>
+                                    <p>{cliente.hobbies[1]}</p>
+                                    <p>{cliente.hobbies[2]}</p>
+                                    <p>{cliente.hobbies[3]}</p>
                                     </div>
 
                                     </div>

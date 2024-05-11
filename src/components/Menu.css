@@ -1,0 +1,45 @@
+.perfil-menu {
+    width: 250px; /* Aumenta el ancho del menú */
+    background-color: #ffffff; /* Cambia el color de fondo */
+    color: #ffffff36;
+    position: relative; /* Cambia el posicionamiento a absoluto */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    border-radius: 5px;
+    z-index: 2;
+  }
+  
+  .perfil-menu ul {
+    list-style-type: none;
+    padding: 0;
+    color: #ffffff36;
+  }
+  
+  .perfil-menu ul li {
+    margin-bottom: 10px;
+    
+  } 
+  
+  .perfil-menu ul li a {
+    text-decoration: none;
+    color: #110101; /* Cambia el color del texto */
+    font-size: 18px;
+    display: block; /* Convierte los elementos en bloques para que ocupen toda la anchura del contenedor */
+    padding: 15px;
+    transition: background-color 0.3s, color 0.3s; /* Agrega una transición suave al cambio de color de fondo y texto */
+    border-radius: 5px; /* Añade bordes redondeados */
+    
+  }
+  
+  .perfil-menu ul li a:hover {
+    background-color: #357a38; /* Cambia el color de fondo al pasar el ratón por encima */
+    color: #fff; /* Cambia el color del texto al pasar el ratón por encima */
+  }
+  
+  .perfil-menu ul li.active a {
+    background-color: #357a38; /* Cambia el color de fondo de la opción activa */
+    color: #fff; /* Cambia el color del texto de la opción activa */
+  }
