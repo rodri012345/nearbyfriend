@@ -1,3 +1,4 @@
+
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
@@ -24,7 +25,7 @@ function BarraBusqueda() {
     setBuscado(true);
   };
 
-  /* useEffect(() => {
+  useEffect(() => {
     const getLista = async () => {
       try {
         if (!buscado) return;
@@ -32,14 +33,7 @@ function BarraBusqueda() {
         let queryRef = collection(db, "amigos");
         if (ciudad !== "Cualquiera") {
           queryRef = query(queryRef, where("departamento", "==", ciudad));
-        }const firebaseConfig = {
-  apiKey: "AIzaSyCtHYCYdUN17vIwhPPvLADefPFEbKk9Cg8",
-  authDomain: "hospedaje-react-dd174.firebaseapp.com",
-  projectId: "hospedaje-react-dd174",
-  storageBucket: "hospedaje-react-dd174.appspot.com",
-  messagingSenderId: "1066849059054",
-  appId: "1:1066849059054:web:7da379cd92ff175e52f3ff"
-};
+        }
 
         if (genero !== "Ambos") {
           queryRef = query(queryRef, where("genero", "==", genero));
@@ -62,11 +56,7 @@ function BarraBusqueda() {
       }
     };
     getLista();
-<<<<<<< HEAD
-  }, [lista]); */
-=======
   }, [buscado]);
->>>>>>> 6431f7db0ed085f769363229df62b767170d715b
 
   const calcularEdad = (fecha) => {
     const fechaNac = new Date(fecha);
@@ -378,13 +368,7 @@ function BarraBusqueda() {
           </Button>
         </Space>
       </div>
-<<<<<<< HEAD
-      <div>
-        {/* <BuscarAmigo seleccion={lista} /> */}
-      </div>
-=======
       <div><BuscarAmigo seleccion={lista} /></div>
->>>>>>> 6431f7db0ed085f769363229df62b767170d715b
     </div>
   );
 }
