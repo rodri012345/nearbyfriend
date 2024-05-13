@@ -4,7 +4,7 @@ import Footer from './components/Fotter'
 import {
   About, RegistroCliente, Home, MenuPerfil, RegistroAmigo, SubirFotos, Perfil, Inicio,
   Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas,
-  SeAmigo
+  SeAmigo, Soporte
 } from "./components/pages";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
           <Route path="/Ayuda" element={<Ayuda />} />
           <Route path="/ConoceMas" element={<ConoceMas />} />
           <Route path="/SeAmigo" element={<SeAmigo />} />
+          <Route path="/Soporte" element={<Soporte />} />
         </Routes>
       </div>
 

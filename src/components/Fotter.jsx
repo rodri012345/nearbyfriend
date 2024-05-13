@@ -39,7 +39,7 @@ function Footer() {
           <div class='footer-link-items'>
             <h2>Contactanos</h2>
             <Link to='/'>Contacto</Link>
-            <Link to='/'>Soporte</Link>
+            <Link to='/Soporte'>Soporte</Link>
             <Link to='/'>Direcciones</Link>
             <Link to='/'>Patrocinadores</Link>
           </div>
