@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { Card, Button } from "antd";
+import { Link, NavLink } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Carrusel.css';
@@ -14,7 +15,7 @@ function Carrusel() {
     slidesToScroll: 3,
     initialSlide: 0,
     prevArrow: <div />, // Quitamos la flecha de retroceso
-    nextArrow: <div/>,
+    nextArrow: <div />,
     responsive: [
       {
         breakpoint: 1024,
@@ -45,7 +46,7 @@ function Carrusel() {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div style={{padding:'80px'}}>
+        <div style={{ padding: '80px' }}>
           <Card
             className="image-style"
             hoverable
@@ -53,7 +54,7 @@ function Carrusel() {
               <img
                 alt="user"
                 src="https://static.vecteezy.com/system/resources/previews/001/131/187/non_2x/serious-man-portrait-real-people-high-definition-grey-background-photo.jpg"
-                
+
               />
             }
           >
@@ -73,10 +74,10 @@ function Carrusel() {
             hoverable
             cover={
               <img
-                
+
                 alt="user"
                 src="https://pymstatic.com/20622/conversions/personas-arrogantes-wide.jpg"
-                
+
               />
             }
           >
@@ -84,7 +85,7 @@ function Carrusel() {
               <h2>Paola Valdivia</h2>
               <h5>Cochabamba</h5>
               <div className="perfil-btn">
-                <Button className=" estilo-btn" type="primary">Ver Más</Button>
+                <Button className=" estilo-btn" type="primary"><NavLink to='/Perfil/KtYyj86EoIYfzaoszr8K'>Ver Más</NavLink></Button>
               </div>
             </div>
           </Card>
@@ -104,7 +105,9 @@ function Carrusel() {
               <h3>Maria Lopez Fernandez</h3>
               <h5>La Paz</h5>
               <div className="perfil-btn">
-                <Button className=" estilo-btn" type="primary">Ver Más</Button>
+                <Link to='/Perfil/55q7TpIt8vhTt2AMTJ7w'>
+                  <Button className=" estilo-btn" type="primary">Ver Más</Button>
+                </Link>
               </div>
             </div>
           </Card>
@@ -124,7 +127,9 @@ function Carrusel() {
               <h2>Alison Gonzales</h2>
               <h5>Sucre</h5>
               <div className="perfil-btn">
-                <Button className=" estilo-btn" type="primary">Ver Más</Button>
+              <Link to='/Perfil/KtYyj86EoIYfzaoszr8K'>
+                  <Button className=" estilo-btn" type="primary">Ver Más</Button>
+                </Link>
               </div>
             </div>
           </Card>
@@ -177,7 +182,7 @@ function Carrusel() {
               <img
                 alt="user"
                 src="https://www.uoh.cl/wp-content/uploads/2023/10/Gissella-Ramirez-500x500.png"
-               />
+              />
             }
           >
             <div className="perfil">
@@ -198,7 +203,7 @@ function Carrusel() {
               <img
                 alt="user"
                 src="https://www.uoh.cl/wp-content/uploads/2022/06/Betsabe-Rubilar-500x500.jpg"
-                
+
               />
             }
           >
@@ -219,7 +224,7 @@ function Carrusel() {
               <img
                 alt="user"
                 src="https://i.pinimg.com/736x/17/a6/73/17a6732cf7a72c548bfea920752ce98d.jpg"
-                
+
               />
             }
           >
@@ -240,7 +245,7 @@ function Carrusel() {
               <img
                 alt="user"
                 src=" https://previews.123rf.com/images/shotsstudio/shotsstudio1505/shotsstudio150500055/40062787-vista-frontal-del-hombre-cauc%C3%A1sico-retratos-de-personas-reales.jpg"
-                
+
               />
             }
           >
@@ -262,7 +267,7 @@ function Carrusel() {
               <img
                 alt="user"
                 src="https://cdn.pixabay.com/photo/2020/03/19/11/57/girl-4947240_1280.jpg"
-                
+
               />
             }
           >

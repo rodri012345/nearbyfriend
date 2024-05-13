@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState }from 'react';
 import "./Registro.css";
-import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber } from "antd";
+import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber,Modal } from "antd";
 import { collection, addDoc } from 'firebase/firestore';
+
 import { db } from '../firebase/firebase-conf';
 
 
@@ -41,18 +42,27 @@ function Registro() {
             hobbies: values.hobbies || []
         };
         localStorage.setItem('formData', JSON.stringify(values));
-      
+
         window.location.href = '/SubirFotos';
         console.log({ formData })
     };
 
     function disabledDate(current) {
-        
+
         const april2006 = new Date('2006-04-19');
-       
+
         return current && current > april2006;
     }
 
+    const [visible, setVisible] = useState(false);
+
+    const mostrarTerminosCondiciones = () => {
+        setVisible(true);
+    };
+
+    const cerrarModal = () => {
+        setVisible(false);
+    };
 
     return (
         <div className="Registro">
@@ -92,7 +102,7 @@ function Registro() {
                                 name="apellido"
                                 label="Apellido"
                                 rules={[
-                                    {   
+                                    {
                                         required: true,
                                         message: "Por favor Ingrese su Apellido",
                                     },
@@ -106,29 +116,29 @@ function Registro() {
                                 <Input placeholder="Escriba su Apellido" />
                             </Form.Item>
 
-                                <Form.Item
-                                    name="contraseña"
-                                    label="Contraseña"
-                                    rules={[
-                                        {
-                                            required: true, message: "Por Favor Ingrese su Contraseña"
-                                        },
-                                        { min: 6, message: "Debe de tener mas de 6 caracteres" },
-                                        /*{
-                                            validator: (_, value) =>
-                                                value && value.includes("A")
-                                                    ? Promise.resolve()
-                                                    : Promise.reject("Contraseña no Valida"),
-                                        },*/
-                                        {
-                                            pattern: /^(?=.*[A-Z])(?=.*\d).+$/,
-                                            message: "La contraseña debe contener al menos una letra mayúscula y un número"
-                                        }
-                                    ]}
-                                    hasFeedback
-                                >
-                                    <Input.Password placeholder="Escriba su Contraseña" />
-                                </Form.Item>
+                            <Form.Item
+                                name="contraseña"
+                                label="Contraseña"
+                                rules={[
+                                    {
+                                        required: true, message: "Por Favor Ingrese su Contraseña"
+                                    },
+                                    { min: 6, message: "Debe de tener mas de 6 caracteres" },
+                                    /*{
+                                        validator: (_, value) =>
+                                            value && value.includes("A")
+                                                ? Promise.resolve()
+                                                : Promise.reject("Contraseña no Valida"),
+                                    },*/
+                                    {
+                                        pattern: /^(?=.*[A-Z])(?=.*\d).+$/,
+                                        message: "La contraseña debe contener al menos una letra mayúscula y un número"
+                                    }
+                                ]}
+                                hasFeedback
+                            >
+                                <Input.Password placeholder="Escriba su Contraseña" />
+                            </Form.Item>
 
                             <Form.Item
                                 name="confirmarContraseña"
@@ -198,7 +208,7 @@ function Registro() {
                                         required: true,
                                         message: "Por favor Ingrese su fecha de nacimiento",
                                     },
-                                    
+
                                 ]}
                                 hasFeedback
                             >
@@ -242,7 +252,7 @@ function Registro() {
                                         required: true,
                                         message: 'Por favor Ingrese su Telefono',
                                     },
-                                    
+
                                     {
                                         validator: (_, value) => {
                                             if (!value) {
@@ -268,7 +278,7 @@ function Registro() {
 
 
 
-                            
+
                         </Col>
                         <Col span={12}>
 
@@ -321,26 +331,53 @@ function Registro() {
                         </Col>
                     </Row>
                     <Form.Item
-                                name="agreement"
-                                wrapperCol={{ offset: 7, span: 24 }}
-                                valuePropName="checked"
-                                rules={[
-                                    {
-                                        validator: (_, value) =>
-                                            value
-                                                ? Promise.resolve()
-                                                : Promise.reject(
-                                                    "Para continuar, debe de aceptar los terminos y condiciones"
-                                                ),
-                                    },
-                                ]}
+                        name="agreement"
+                        wrapperCol={{ offset: 7, span: 24 }}
+                        valuePropName="checked"
+                        rules={[
+                            {
+                                validator: (_, value) =>
+                                    value
+                                        ? Promise.resolve()
+                                        : Promise.reject(
+                                            "Para continuar, debe de aceptar los terminos y condiciones"
+                                        ),
+                            },
+                        ]}
+
+                    >
+                        <Checkbox  >
+                            {" "}
+                            Aceptar nuestros, <a href="#" onClick = {mostrarTerminosCondiciones}>Terminos y condiciones</a>
+                            <Modal
                                 
+                                visible={visible}
+                                onCancel={cerrarModal}
+                                footer={null}
                             >
-                                <Checkbox  >
-                                    {" "}
-                                    Aceptar nuestros, <a href="#">Terminos y condiciones</a>
-                                </Checkbox>
-                            </Form.Item>
+                                <h1>Términos y Condiciones de Uso</h1>
+                                <p>Por favor, lee cuidadosamente estos términos y condiciones de uso antes de utilizar nuestra plataforma de alquiler de amigos.</p>
+                                <h2>1.Aceptación de los Términos y Condiciones</h2>
+                                <p>Al acceder y utilizar nuestra plataforma de alquiler de amigos, aceptas cumplir y estar sujeto a estos términos y condiciones de uso. Si no estás de acuerdo con alguno de estos términos, no utilices nuestra plataforma.</p>
+                                <h2>2.Descripción del Servicio </h2>
+                                <p> Nuestra plataforma de alquiler de amigos permite a los usuarios buscar, seleccionar y alquilar amigos para diversas actividades y eventos sociales. No nos hacemos responsables del comportamiento de los amigos alquilados o de los usuarios de la plataforma.</p>
+                                <h2>3.Registro y Cuenta de Usuario</h2>
+                                <p>Para utilizar nuestra plataforma, es posible que debas registrarte y crear una cuenta de usuario. Es tu responsabilidad mantener la confidencialidad de tu contraseña y no compartir tu cuenta con terceros.</p>
+                                <h2>4.Condiciones de Alquiler</h2>
+                                <p>Al alquilar un amigo a través de nuestra plataforma, aceptas las condiciones establecidas por el amigo, incluidos los precios, horarios y actividades disponibles. Nos reservamos el derecho de cancelar o rechazar cualquier alquiler que considere inapropiado o en violación de nuestras políticas.</p>
+                                <h2>5.Descripción del Servicio </h2>
+                                <p>El pago por los servicios de alquiler de amigos se realizará a través de nuestra plataforma y estará sujeto a nuestras políticas de pago. Nos reservamos el derecho de modificar los precios y los términos </p>
+                                <h2>6.Cancelación y Reembolsos</h2>
+                                <p>Las políticas de cancelación y reembolso estarán determinadas por el amigo alquilado y se aplicarán de acuerdo con sus términos y condiciones. Nosotros no garantizamos reembolsos y no somos responsables de las transacciones entre usuarios y amigos alquilados.</p>
+                                <h2>7.Responsabilidad y Seguridad</h2>
+                                <p>Tanto los usuarios como los amigos alquilados son responsables de su propio comportamiento y seguridad durante el tiempo que pasen juntos. No nos hacemos responsables de ningún accidente, lesión o daño que ocurra durante el alquiler de un amigo.</p>
+                                <h2>8.Propiedad Intelectual </h2>
+                                <p>Todo el contenido y los materiales de nuestra plataforma, incluidos los textos, imágenes y logotipos, están protegidos por derechos de autor y otros derechos de propiedad intelectual. No puedes copiar, modificar o distribuir nuestro contenido sin nuestro consentimiento.</p>
+                                <h2>9.Modificaciones de los Términos y Condiciones</h2>
+                                <p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Se te notificará de cualquier cambio a través de nuestra plataforma. El uso continuado de nuestra plataforma después de dichas modificaciones constituirá tu aceptación de los nuevos términos y condiciones.</p>                         
+                            </Modal>
+                        </Checkbox>
+                    </Form.Item>
                     <Form.Item wrapperCol={{ offset: 8, span: 8 }} >
                         <Button block type="primary" htmlType="submit">
                             Siguiente

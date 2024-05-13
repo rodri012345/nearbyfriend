@@ -1,12 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Navbar } from "./components/Navbar";
 import Footer from './components/Fotter'
 import {
   About, RegistroCliente, Home, MenuPerfil, RegistroAmigo, SubirFotos, Perfil, Inicio,
-  Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas
+  Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas,
+  SeAmigo, Soporte
 } from "./components/pages";
-
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
           <Route path="/RegistroCliente" element={<RegistroCliente />} />
           <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
           <Route path="/SubirFotos" element={<SubirFotos />} />
-          <Route path="/Perfil" element={<Perfil />} />
+          <Route path="/Perfil/:amigoId" element={<Perfil />} />
           <Route path="/Inicio" element={<Inicio />} />
           <Route path="/Solicitudes" element={<Solicitudes />} />
           <Route path="/Modificar" element={<Modificar />} />
@@ -27,8 +26,12 @@ function App() {
           <Route path="/SeePerfil" element={<SeePerfil />} />
           <Route path="/Ayuda" element={<Ayuda />} />
           <Route path="/ConoceMas" element={<ConoceMas />} />
+          <Route path="/SeAmigo" element={<SeAmigo />} />
+          <Route path="/Soporte" element={<Soporte />} />
         </Routes>
       </div>
+
+      
       <Footer />
     </div>
   );

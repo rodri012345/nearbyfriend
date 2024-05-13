@@ -75,22 +75,38 @@ function SubirFoto() {
     };
 
     return (
-        <div className="subir">
-            <div className="subir-izquierda"></div>
+        <div className="subir-header">
             
-                
+            <Row gutter={[110, 10]} style={{ justifyContent: "center" }}>
+                <Col>
                     <div>
-                        <img src={image} alt="cargando imagen" />
-
-                        <input type="file" id='file-input' accept=".jpg,.jpeg,.png" onChange={handleChange}></input>
-                        <label htmlFor="file-input" className="upload-icon">
-                            <img src={upload} alt="subir archivo" width={'30px'} height={'30px'} />
-                        </label>
-
+                        <h2 style={{ textAlign: 'center', padding: '5px' }}>Añadir Foto de Perfil </h2>
+                        <img
+                            src={image}
+                            alt="cargando imagen"
+                            width={"250px"}
+                            height={"280px"}
+                            style={{ borderRadius: "30px" }}
+                        />
+                        
+                            <input
+                            type="file"
+                            id = 'file-input'
+                            accept=".jpg,.jpeg,.png"
+                            onChange={handleChange}
+                            style={{display:'none'}}
+                            ></input>
+                            <label htmlFor="file-input" className="upload-icon">
+                                <img src={upload} alt="subir archivo" width={'30px'} height={'30px'} />
+                            </label>
+                        
                     </div>
+                    
+                </Col>
 
-                    <div >
-                        <h2>Cuentanos más de ti</h2>
+                <Col className="cuentanos">
+                    <div style={{ marginTop: "10px", }}>
+                        <h2>Que quiero que sepan de mi</h2>
                         <textarea
                             name="text"
                             id="tex1"
@@ -100,10 +116,25 @@ function SubirFoto() {
                             onChange={handleAboutChange}
                         ></textarea>
                     </div>
-            
+                </Col>
+            </Row>
+            {registroExitoso && (
+                <div className="mensaje-flotante">
+                    <Result
+                        status="success"
+                        title="Felicidades! Tu registro fue exitoso!"
+                        subTitle="Ahora podras comensar a disfrutar de lo mejor de nuestra comunidad."
+                        extra={[
+                            <Button type="primary" key="console"><NavLink to = '/ConoceMas'>Comenzar</NavLink></Button>
+                            
+                        ]}
+                    />
+                </div>
+            )}
 
-            <div>
-                <Button type="primary" onClick={handleGoBack}>volver atras</Button>
+
+            <div className="botones-container">
+                <Button type="primary" onClick={handleGoBack}>Volver</Button>
                 <Button type="primary" disabled={image === URL_DEFAULT} onClick={handleRegister}>
                     Registrarse
                 </Button>

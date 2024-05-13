@@ -1,21 +1,20 @@
-import React from "react";
-import Footer from "../Fotter";
-import Alquilar from "../Alquilar";
+import React from 'react'
+import { useParams } from "react-router-dom";
 import PerfilAmigo from "../PerfilAmigo";
-import PerfilCliente from "../PerfilCliente";
-import SoliModal from "../SolicitudModal";
-import GestionDeSolicitudes from "../GestionDeSolicitudes";
+import Navbar1 from '../Navbar1';
+import Titulo from '../Titulo';
+
 export const Perfil = () => {
+    const {amigoId} = useParams();
     return (
         <>
-       
-      <GestionDeSolicitudes />
-        <Footer />
+        <Navbar1 />
+        <Titulo subTitulo="Aqui encontraras" titulo="Amigos para toda ocacion"/>
+        <div className="bar">
+        <PerfilAmigo amigoId={amigoId}/>
+        </div>
         
-
         </>
     )
 
 }
-
-
