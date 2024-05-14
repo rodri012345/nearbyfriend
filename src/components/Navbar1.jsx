@@ -11,8 +11,9 @@ export const Navbar = () => {
       </Link>
       <ul>
         <li><NavLink to='/'>Inicio</NavLink></li>
-        <li><NavLink to='/'>Conoce Mas</NavLink></li>
-        <li><NavLink to='/'>Se un Amigo</NavLink></li>
+        <li><NavLink to='/ConoceMas'>Conoce Mas</NavLink></li>
+        <li><NavLink to='/SeAmigo'>Se un Amigo</NavLink></li>
+        <li><NavLink to='/Soporte'>Soporte</NavLink></li>
         <li><button className="btn">Inicia Sesion</button></li>
       </ul>
     </div>
