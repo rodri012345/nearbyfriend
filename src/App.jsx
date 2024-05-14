@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 //import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil} from "./components/pages";
-import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil, Solicitud } from "./components/pages";
+import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil, Solicitud, EditarPerfil } from "./components/pages";
 import SubirFotosA from "./components/pages/SubirFotosA";
 
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/SubirFotos" element={<SubirFotos />} />
         <Route path="/Perfil/:amigoId" element={<Perfil />} />
         <Route path="/SubirFotosA" element={<SubirFotosA/>}/>
-        
+        <Route path="/EditarPerfil/:idAmigo" element={<EditarPerfil/>}/>
         <Route path="/Solicitud " element={<Solicitud />} />
       </Routes>
     </div>

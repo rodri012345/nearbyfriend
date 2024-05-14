@@ -29,7 +29,7 @@
     padding-right: 10%;
   }
   
-  .barra ul li:nth-child(-n+3):hover { 
+  .barra ul li:nth-child(-n+5):hover { 
     border-bottom: 2px solid #fff;
     color: #fff;
   }
