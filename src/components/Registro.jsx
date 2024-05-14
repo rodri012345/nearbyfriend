@@ -807,7 +807,7 @@ function Registro() {
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 8 }}>
             <Button block type="primary" htmlType="submit">
-              Siguiente
+              Siguiente 
             </Button>
           </Form.Item>
         </Form>

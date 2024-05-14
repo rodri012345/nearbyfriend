@@ -1,8 +1,8 @@
-nav {
+.barra {
     width: 100%;
-    /* background-color: #212EA0; */
     height: 70px;
-    color: white ;
+    background-color: #212EA0;
+    color: white;
     padding: 4px 0px;
     display: flex;
     top: 0;
@@ -16,26 +16,30 @@ nav {
   .logo {
     width: 250px;
   }
-
-  nav ul li{
+  
+  .barra ul li{
     display: inline-block;
     list-style: none;
     margin: 5px 20px;
     font-size: 16px;
   }
-
+  
   .bar {
     padding-left: 10%;
     padding-right: 10%;
   }
-  .dark-bar{
-    background: #212EA0;
-    transition: 0.5s;
-  }
-
-  nav ul li:nth-child(-n+3):hover { 
+  
+  .barra ul li:nth-child(-n+3):hover { 
     border-bottom: 2px solid #fff;
     color: #fff;
+  }
+  
+  /*
+  .title {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    padding-left: 60px;
   }
   
   .menu {
@@ -44,16 +48,46 @@ nav {
     cursor: pointer;
   }
   
+  .menu span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+  }
+  
+  .menu-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu-items.open {
+    flex-direction: column;
+  }
+  
+  .menu-items li {
+    padding: 10px;
+  }
+  
+  .menu-items li a {
+    text-decoration: none;
+    color: white;
+  }
+  
   .registro-item {
     position: relative;
     cursor: pointer;
+    background-color: #17cf97;
+    border-radius: 10px;
+  
   }
   
   .sub-menu {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #212EA0;
+    background-color: #0f172a;
     padding: 10px;
     border-radius: 5px;
     display: none;
@@ -62,6 +96,7 @@ nav {
   
   .registro-item:hover .sub-menu {
     display: block;
+  
   }
   
   .sub-menu li {
@@ -76,18 +111,23 @@ nav {
   
   .sub-menu li a:hover {
     color: #17cf97;
-    
+    border-bottom: 2px solid #17cf97
   }
-
   
+  nav ul li a:not(.active):hover {
+    color: #17cf97;
+    border-bottom: 2px solid #17cf97;
+  }
   
- 
-
+  .registro-item:hover {
+    color: #fff;
+  }
   
-
-.menu-items .selected {
-    background-color: #067a57; 
+  .menu-items .selected {
+    background-color: #067a57;
     padding: 0.2rem;
     border-radius: 0.5rem;
-    color: #fff; 
+    color: #fff;
   }
+  */
+

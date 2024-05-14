@@ -8,7 +8,7 @@ import SolicitudesConclusas from './SolicitudesConclusas';
 const GestionDeSolicitudes = () => {
 
     return (
-        <div className='NotificaionesContainer'>
+        <div className='NotificaionesContainer' style={{marginTop:'20px'}}>
                 <div className='Fila'>
                     <h2 className='Titulo'>Gestion de Solicitudes</h2>
                 </div>

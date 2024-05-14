@@ -9,6 +9,7 @@ const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
   const onVerMasInfo = () => {
     console.log("presionaste el boton de: ",nombre, "con id: ",idAmigo);
   }
+  console.log("id de amigo",idAmigo);
   return (
     <div style={{margin:'20px'}}>
       <Card
@@ -27,7 +28,7 @@ const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
             <div style={{display:'flex',justifyContent:'center', alignItems:'center'}}>
             {/* <Button type="primary" className='estilo-btn' onClick={onVerMasInfo}>Ver mas info</Button> */}
             <Link to={`/perfil/${idAmigo}`}>
-            <Button type="primary" className='estilo-btn'>Ver más info</Button>
+            <Button type="primary" className='estilo-btn' >Ver más info</Button>
             </Link>
             </div>
 

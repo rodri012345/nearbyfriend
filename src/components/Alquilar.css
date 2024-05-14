@@ -1,3 +1,8 @@
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .perfil-ami-container {
     margin: 20px;
     padding: 20px;
@@ -92,7 +97,8 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
     max-width: 400px;  
-    width: 100%;
+    width: 1000px !important;
+    min-width: 35%;
 }
 
 .close {
@@ -155,14 +161,22 @@ button[type="button"]:hover {
 }
 
 .mon-n {
-    background-color: #007bff; 
-    color: #fff; 
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #212EA0;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    color: #fffffff7;
+    font-size: 20px;
     padding: 10px 20px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
 }
 
 .mon-n:hover {
@@ -256,4 +270,9 @@ button[type="button"]:hover {
     
 
 
+}
+
+.btn-st {
+    font-size: 18px;
+    background-color: #212EA0 !important;
 }

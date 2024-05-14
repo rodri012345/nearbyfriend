@@ -8,8 +8,8 @@ const BuscarAmigo = ({seleccion}) => {
   const lista = seleccion
   
   return (
-    <div style={{ backgroundColor:'#DDDDDD', padding:'40px', display: 'flex', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '1200px' }}>
+    <div className="busqueda">
+            <div className="buscar">
                 {lista.map((list, index) => (
                     <div key={list.id} style={{ flex: '1 0 25%', marginBottom: '20px' }}>
                         <Tarjeta
@@ -22,7 +22,7 @@ const BuscarAmigo = ({seleccion}) => {
                     </div>
                 ))}
             </div>
-        </div>
+    </div>
   );
 };
 

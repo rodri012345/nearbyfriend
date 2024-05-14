@@ -1,6 +1,7 @@
 .Registro {
   text-align: center;
   padding: 20px;
+  
 }
 
 .Registro h1 {
@@ -12,9 +13,10 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 20px 0px;
-  background-color: white;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 4px 5px 2px #212ea0af;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); */
 }
 
 .Registro h2 {
@@ -22,3 +24,48 @@
   font-size: 24px;
   color: #333;
 }
+
+.Registro .ant-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Registro .ant-form-item-label {
+  text-align: left;
+  /*color: #666;*/
+}
+
+.Registro .ant-form-item-control {
+  text-align: left;
+}
+
+.Registro .ant-btn {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  background-color: #212EA0;
+  border: none;
+  border-radius: 5px;
+  color: #fffffff7;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Registro .ant-btn:hover {
+  background-color: #75d606bf;
+}
+
+.hobbies-container {
+  border: 2px solid #343739;
+  border-radius: 5px;
+  padding: 20px 5px;
+  padding-bottom: px;
+}
+

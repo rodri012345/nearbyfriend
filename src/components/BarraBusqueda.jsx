@@ -2,7 +2,7 @@ import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import { Button, Select, Space } from "antd";
-import "./EstilosInicio.css";
+import "./BarraBusqueda.css";
 import {
   EnvironmentOutlined,
   TeamOutlined,
@@ -124,7 +124,7 @@ function BarraBusqueda() {
   };
 
   return (
-    <div style={{ padding: "50px" }}>
+    <div className="content">
       <div>
         <h3 className="estilo-h3 ">
           Busca con quién y dónde quieres alquilar un amigo o encontrar una

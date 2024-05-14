@@ -1,13 +1,16 @@
 import React from "react";
 import Footer from '../Fotter'
 import RegistrarAmigo from "../RegistrarAmigo";
+import Navbar from "../Navbar1";
+import Titulo from "../Titulo";
 export const RegistroAmigo = () => {
     return (
         <>
-        <h1 style={{textAlign:'center', padding:'15px'}}>Registrar Amigo</h1>
+        <Navbar/>
+        <Titulo subTitulo="Registrar Amigo" titulo="Comienza una Nueva Experiencia"/>
         <RegistrarAmigo/>
-        <Footer />
         
+        <Footer />
         </>
     );
 };

@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
-import "./Navbar.css";
+import "./Navbar1.css";
 
 export const Navbar = () => {
-    const [fijar, setFijar] = useState(false);
-
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            window.scrollY > 50 ? setFijar(true) : setFijar(false);
-        });
-    }, []);
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [registroOpen, setRegistroOpen] = useState(false);
-
+    
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
         setRegistroOpen(false); // Siempre que se abra/cierre el menú principal, cerrar el submenú de registro
@@ -23,9 +16,8 @@ export const Navbar = () => {
     const toggleRegistro = () => {
         setRegistroOpen(!registroOpen);
     };
-
     return (
-        <nav className={`bar ${fijar ? "dark-bar" : ""}`}>
+        <div className="barra bar">
             <Link to="/" className="title">
                 <img src={logo} alt="" className="logo" />
             </Link>
@@ -57,7 +49,7 @@ export const Navbar = () => {
                 <button className="btn">Inicia Sesion</button>
                 </li>
             </ul>
-        </nav>
+        </div>
     );
 };
 
