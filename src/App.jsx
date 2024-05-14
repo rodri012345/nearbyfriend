@@ -1,6 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Router } from "react-router-dom";
 import "./App.css";
 import Footer from './components/Fotter'
+import ScrollToTop from '../src/components/ScrollToTop'
 import {
   About, RegistroCliente, Home, MenuPerfil, RegistroAmigo, SubirFotos, Perfil, Inicio,
   Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas,
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className="content">
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
