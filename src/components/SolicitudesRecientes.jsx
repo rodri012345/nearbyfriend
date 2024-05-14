@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Avatar, Button, List, Skeleton } from 'antd';
 import SoliModal from './SolicitudModal';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase-conf'; 
+import { db } from '../firebase/firebase-conf';
 
-const SolicitudesRecientes = () => {
+const SolicitudReciente = () => {
   const [initLoading, setInitLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [list, setList] = useState([]);
+  const [totalSolicitudes, setTotalSolicitudes] = useState(0);
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'eventos'));
+        const querySnapshot = await getDocs(collection(db, 'eventos')); // Obtener solo 5 solicitudes
         const events = [];
         for (const docRef of querySnapshot.docs) {
           const event = { id: docRef.id, ...docRef.data() };
@@ -27,6 +28,7 @@ const SolicitudesRecientes = () => {
         }
         setData(events);
         setList(events);
+        setTotalSolicitudes(querySnapshot.size); // Establecer el total de solicitudes
         setInitLoading(false);
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -36,13 +38,36 @@ const SolicitudesRecientes = () => {
     fetchEvents();
   }, []);
 
-  const onLoadMore = () => {
+  const onLoadMore = async () => {
     setLoading(true);
-    // Aquí puedes implementar la lógica para cargar más eventos si es necesario
+    try {
+      const ultimoEvento = list[list.length - 1];
+      const querySnapshot = await getDocs(
+        collection(db, 'eventos').startAfter(ultimoEvento).limit(2) // Obtener  solicitudes más
+      );
+
+      const masEventos = [];
+      for (const docRef of querySnapshot.docs) {
+        const evento = { id: docRef.id, ...docRef.data() };
+        // Obtener datos del cliente
+        const clienteDoc = await getDoc(doc(db, 'clientes', evento.clienteId.clienteId));
+        const datosCliente = clienteDoc.data();
+        evento.cliente = datosCliente; // Add client data to the event object
+        if (evento.estado === 'inactivo') { // Filter events with estado "inactivo"
+          masEventos.push(evento);
+        }
+      }
+
+      setList([...list, ...masEventos]);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error al cargar más eventos:', error);
+      setLoading(false);
+    }
   };
 
   const loadMore =
-    !initLoading && !loading ? (
+    !initLoading && !loading && totalSolicitudes > list.length ? ( // Mostrar el botón "Cargar Más" solo si hay más solicitudes para cargar
       <div
         style={{
           textAlign: 'center',
@@ -79,4 +104,4 @@ const SolicitudesRecientes = () => {
   );
 };
 
-export default SolicitudesRecientes;
+export default SolicitudReciente;

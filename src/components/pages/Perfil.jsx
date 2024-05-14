@@ -8,7 +8,7 @@ import GestionDeSolicitudes from "../GestionDeSolicitudes";
 export const Perfil = () => {
     return (
         <>
-        <PerfilAmigo amigoId="2OD9yIDoUoyiLfnR6JZZ"/>
+        <PerfilAmigo amigoId="978cbAJbe46Gqm1p6ejN"/>
         </>
     )
 

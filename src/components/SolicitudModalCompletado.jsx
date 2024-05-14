@@ -70,12 +70,12 @@ const SolicitudModalCompletado = ({eventoId}) => {
 
     return (
         <>
-            <Button type='primary' onClick={showModal}>
+            <Button type='primary' onClick={showModal} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 Abrir
             </Button>
             <Modal title="Solicitud" visible={isModalOpen} onOk={handleOk}  onCancel={handleCancel} width={600} height={600}
              footer={[
-              <Button key="aceptar" type="primary" onClick={handleOk}>
+              <Button key="aceptar" type="primary" onClick={handleOk} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   Concluir cita
               </Button>,
           ]}

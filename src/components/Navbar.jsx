@@ -29,9 +29,9 @@ export const Navbar = () => {
       <ul className={`menu-items ${menuOpen ? "open" : ""}`}>
         <li>
           <NavLink to="/about">Inicio</NavLink>
-        </li>
+        </li> 
         <li>
-          <NavLink to="/services">Solicitud</NavLink>
+          <NavLink to="/services">Editar</NavLink>
         </li>
         <li>
           <NavLink to="/Perfil">Cuenta</NavLink>

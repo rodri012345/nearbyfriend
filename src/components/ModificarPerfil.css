@@ -1,0 +1,150 @@
+.ModificarContainer {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.fila{
+    display: flex;
+    flex-wrap: wrap;
+    /*align-items: center;                        esto lleva todo hacia el centro*/
+    justify-content: center;/* alinear  divs al centro*/
+}
+.columna{
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    max-width: 300px;
+    grid-gap: 3px; 
+
+    align-items: center;
+
+}
+.FotosContainer{
+    
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+}
+.DatosEditarContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+}
+.filaDatos{
+    
+    width: 60%;
+}
+.HobbiesDescripcionContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dddddd;
+}
+.Row{
+    display: flex;
+}
+.HDContainer{
+    flex-grow: 1;
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+.filaDatos{
+    
+    justify-content: center;
+
+}
+.BtnImagen{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  padding-left: 20%;
+  padding-right: 25%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  
+}
+
+
+.ModificarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.FotosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fila {
+    margin-bottom: 20px;
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.Image {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.BtnImagen {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.BtnImagen:hover {
+    background-color: #40a9ff;
+}
+
+.FormContainer {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AntForm {
+    width: 100%;
+}
+
+.AntFormItem {
+    width: 100%;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.UpdateButton {
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.UpdateButton:hover {
+    background-color: #73d13d;
+}

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
 import './GestionDeSolicitudes.css';
-import SolicitudesRecientes from './SolicitudesRecientes';
-import SolicitudesEnCurso from './SolicitudesEnCurso';
-import SolicitudesConclusas from './SolicitudesConclusas';
+import SolicitudReciente from './SolicitudesRecientes';
+import SolicitudEnCurso from './SolicitudesEnCurso';
+import SolicitudConcluida from './SolicitudesConclusas';
+
 const GestionDeSolicitudes = () => {
 
     return (
@@ -19,7 +20,7 @@ const GestionDeSolicitudes = () => {
                         <div className="SolicitudNueva">
                         
             
-                            <SolicitudesRecientes/>
+                            <SolicitudReciente />
             
                         </div>
                     </div>
@@ -27,14 +28,15 @@ const GestionDeSolicitudes = () => {
                     <h3 className='Solicitud'>Solicitudes en Curso </h3>
                         <div className="SolicitudesAceptadas">
                         
-                           <SolicitudesEnCurso /> 
+                           <SolicitudEnCurso/>
+
                         </div>
                     </div>
                     <div className="Columna">
                     <h3 className='Solicitud'>Solicitudes Conclusas</h3>
                         <div className="SolicitudesConcluidas ">
                         
-                        <SolicitudesConclusas />
+                        <SolicitudConcluida/>
             
                         </div>
                     </div>
