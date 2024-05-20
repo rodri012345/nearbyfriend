@@ -18,8 +18,7 @@ function Carrusel({idCliente}) {
         slidesToScroll: 3,
         initialSlide: 0,
 
-        // prevArrow: <div />, // Quitamos la flecha de retroceso
-        // nextArrow: <div/>,
+        
         responsive: [
             {
                 breakpoint: 1024,
@@ -67,7 +66,7 @@ function Carrusel({idCliente}) {
             setLista(docs);
             
         } catch (error) {
-            console.log(error);
+            console.log('este es el error: ',error);
         }
         };
         getLista();

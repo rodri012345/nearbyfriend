@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { doc, getDoc, collection, addDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
-
 import "./PerfilAmigo.css";
-import { Image, Flex, Rate, notification } from "antd";
-import Alquilar from "./Alquilar";
-import imagen from "../img/image1.png";
+import { Image, Switch, Flex, Rate, notification, Carousel } from "antd";
+import Titulo from "./Titulo";
 
 const PerfilAmigo = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
+
+    const cambiarEstado = (checked) => {
+        console.log(`switch to ${checked}`);
+    };
+
     useEffect(() => {
         const obtenerAmigo = async () => {
             try {
@@ -29,40 +32,91 @@ const PerfilAmigo = ({ amigoId }) => {
     }, [amigoId]);
 
     return (
-        <div className="perfil-container">
-            {amigo && (
+        amigo && (
+            <div className="perfil-container">
+                <Titulo titulo={`${amigo.nombre} ${amigo.apellido}`} />
                 <div className="perfil-content">
-                    <div className="perfil-izq">
-                        <Image src={amigo.imageURL} alt="Foto del amigo" fallback={imagen} className='det-img' />
+                    <div className=" perfil-izq">
+                        <div>
+                            <Image
+                                src={amigo.imageURL}
+                                alt="Foto del amigo"
+                                className="det-img"
+                                width={"75%"}
+                                height={400}
+                            />
+                        </div>
+                        <div className="sub-cont">
+                            <Image
+                                src={amigo.imageURL}
+                                alt="Foto del amigo"
+                                className="det-img"
+                                width={"25%"}
+                                height={150}
+                            />
+                            <Image
+                                src={amigo.imageURL}
+                                alt="Foto del amigo"
+                                className="det-img"
+                                width={"25%"}
+                                height={150}
+                            />
+                            <Image
+                                src={amigo.imageURL}
+                                alt="Foto del amigo"
+                                className="det-img"
+                                width={"25%"}
+                                height={150}
+                            />
+                        </div>
                     </div>
-                    <div className="perfil-der">
-                        <h1>{amigo.nombre} {amigo.apellido}</h1>
-                        <h3>{amigo.departamento}</h3>
-                        <div className="usr-info">
-                            <h4>Correo: {amigo.correo}</h4>
-                            <h4>Teléfono: {amigo.telefono}</h4>
-                            <h4>Genero: {amigo.genero}</h4>
+                    <div className="cont-der">
+                        <div className="perfil-der">
+                            <div className="sub-contenedor">
+                                <h2>Datos personales:</h2>
+                                <div className="switch-wrapper">
+                                    <h2 className="h2-style">Estado: </h2>
+                                    <Switch
+                                        defaultChecked
+                                        onChange={cambiarEstado}
+                                        className="style-switch switch-aling"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="usr-info">
+                                <h4>Departamento: {amigo.departamento}</h4>
+                                <h4>Correo: {amigo.correo}</h4>
+                                <h4>Teléfono: {amigo.telefono}</h4>
+                                <h4>Genero: {amigo.genero}</h4>
+                            </div>
+
+                            <h2>Hobies y gustos:</h2>
+                            <div className="hobbies-perfil">
+                                {amigo.hobbies &&
+                                    amigo.hobbies.map((hobby, index) => (
+                                        <h4 key={index}>{hobby}</h4>
+                                    ))}
+                            </div>
+                            <h2>Cuéntanos más sobre ti:</h2>
+                            <div className="usr-det">
+                                <h4>{amigo.aboutText}</h4>
+                            </div>
                         </div>
-                        <h2>Mis Hobies y gustos Son:</h2>
-                        <div className="hobbies-perfil">
-                            {amigo.hobbies && amigo.hobbies.map((hobby, index) => (
-                                <h4 key={index}>{hobby}</h4>
-                            ))}
-                        </div>
-                        <h2>Cuéntanos más sobre ti:</h2>
-                        <div className="usr-det">
-                            <h4>{amigo.aboutText}</h4>
-                        </div>
-                        
+                        <button
+                            className="mon-n"
+                            style={{
+                                margin: "20px",
+                                width: "200px",
+                                display: "iline-block",
+                            }}
+                        >
+                            Editar perfil
+                        </button>
                     </div>
-                    
                 </div>
-            )}
-            <Alquilar
-                    amigoId={"55q7TpIt8vhTt2AMTJ7w"}
-                    clienteId={"EUyZf9qFA3l072WHbBbN"}
-                    />
-        </div>
+            </div>
+        )
     );
 };
 export default PerfilAmigo;
