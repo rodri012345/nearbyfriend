@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Modal, message } from 'antd';
+import { Form, Input, Button, Modal, message, InputNumber } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
@@ -47,7 +47,7 @@ const ModificarTelefono = ({ amigoId }) => {
         <Form form={form} layout="vertical" onFinish={onFinish}>
           <Form.Item
             name="nuevoTelefono"
-            label="Nuevo Telefono"
+            label="Nuevo Teléfono"
             rules={[
                 {
                     required: true,
@@ -74,7 +74,7 @@ const ModificarTelefono = ({ amigoId }) => {
                 },
             ]}
           >
-            <Input placeholder="Escriba su nuevo Correo" />
+            <InputNumber  style={{ width: '100%' }}placeholder="Escriba su nuevo Teléfono" />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" loading={loading}>

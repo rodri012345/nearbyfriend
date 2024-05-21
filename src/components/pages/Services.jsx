@@ -10,7 +10,7 @@ import ModificarPerfil from "../ModificarPerfil";
 export const Services = () => {
   return (
     <>
-      <ModificarPerfil amigoId={"978cbAJbe46Gqm1p6ejN"}/>
+      <ModificarPerfil amigoId={"KtYyj86EoIYfzaoszr8K"}/>
       <Footer />
     </>
   );
