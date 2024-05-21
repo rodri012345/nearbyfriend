@@ -5,7 +5,6 @@ export const Solicitudes= () => {
     return (
         <>
         <GestionDeSolicitudes />
-        <Menu />
         </>
     );
 };

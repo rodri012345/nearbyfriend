@@ -5,7 +5,7 @@ import ScrollToTop from '../src/components/ScrollToTop'
 import {
   About, RegistroCliente, Home, MenuPerfil, RegistroAmigo, SubirFotos, Perfil, Inicio,
   Solicitudes, Ayuda, Galeria, Modificar, SeePerfil, ConoceMas,
-  SeAmigo, Soporte, PerfilUsuario
+  SeAmigo, Soporte, PerfilUsuario, EditarPerfil
 } from "./components/pages";
 import { auth, db } from "./firebase/firebase-conf";
 import Navbar from "./components/Navbar";
@@ -78,7 +78,8 @@ function App() {
           <Route path="/ConoceMas" element={<ConoceMas />} />
           <Route path="/SeAmigo" element={<SeAmigo />} />
           <Route path="/Soporte" element={<Soporte />} />
-          <Route path="/PerfilUsuario" element={<PerfilUsuario />} />
+          <Route path="/PerfilUsuario" element={<PerfilUsuario userID={userID} />} />
+          <Route path="/EditarPerfil" element={<EditarPerfil userID = {userID} />} />
         </Routes>
       </div>
       <ToastContainer />

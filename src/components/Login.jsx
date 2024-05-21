@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { auth } from '../firebase/firebase-conf';
 import { FaTimes } from 'react-icons/fa';
 
+
 const Login = ({ onClose }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ const Login = ({ onClose }) => {
             });
         } catch (error) {
             console.log(error.message);
-            let errorMessage = "Error al iniciar sesión. Por favor, inténtelo de nuevo.";
+            let errorMessage = "Datos no correctos. Por favor, Revice e inténtelo de nuevo.";
             if (error.code === 'auth/wrong-password') {
                 errorMessage = "La contraseña es incorrecta. Por favor, inténtelo de nuevo.";
             } else if (error.code === 'auth/user-not-found') {
@@ -71,7 +72,7 @@ const Login = ({ onClose }) => {
 
                     <button className='btn-log' type='submit'>Iniciar Sesion</button>
                     <div className="register-link">
-                        <p>No tienes una cuenta? <a href="#">Registrarse</a></p>
+                        <p>No tienes una cuenta? <a href="/RegistroCliente">Registrarse</a></p>
                     </div>
                 </form>
             </div>

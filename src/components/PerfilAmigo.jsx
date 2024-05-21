@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase-conf';
 
-import './PerfilAmigo.css';
-import { Image, Flex, Rate, notification } from 'antd';
-import Alquilar from './Alquilar';
-import imagen from '../img/image1.png'
+import React, { useState, useEffect } from "react";
+import { doc, getDoc, collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase-conf";
 
-const PerfilAmigo = ({ amigoId }) => {
+import "./PerfilAmigo.css";
+import { Image, Flex, Rate, notification } from "antd";
+import Alquilar from "./Alquilar";
+import imagen from "../img/image1.png";
 
+const PerfilAmigo = ({ amigoId, user }) => {
     const [amigo, setAmigo] = useState(null);
     useEffect(() => {
         const obtenerAmigo = async () => {
@@ -44,24 +44,29 @@ const PerfilAmigo = ({ amigoId }) => {
                             <h4>Teléfono: {amigo.telefono}</h4>
                             <h4>Genero: {amigo.genero}</h4>
                         </div>
-                        <h2>Mis Hobies Son:</h2>
+                        <h2>Mis Hobies y gustos Son:</h2>
                         <div className="hobbies-perfil">
                             {amigo.hobbies && amigo.hobbies.map((hobby, index) => (
                                 <h4 key={index}>{hobby}</h4>
                             ))}
                         </div>
-                        <h2>Mis Pasa Tiempos Son:</h2>
+                        <h2>Cuéntanos más sobre ti:</h2>
                         <div className="usr-det">
                             <h4>{amigo.aboutText}</h4>
                         </div>
 
                     </div>
-                </div>
 
+                </div>
             )}
-            
+            {user ? (
+                <Alquilar amigoId={amigoId} />
+            ) : (
+                <NavLink to="/RegistroCliente" className="btn-registro">
+                    Registrarse para poder alquilar
+                </NavLink>
+            )}
         </div>
     );
-
-}
+};
 export default PerfilAmigo;

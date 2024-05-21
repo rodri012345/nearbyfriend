@@ -17,11 +17,6 @@ export const Home = ({ user, userID }) => {
     <>
 
       <Content>
-
-        {/*<Titulo subTitulo="Aqui encontraras" titulo="Amigos para toda ocacion"/>
-        <Informacion/>
-        <Detalles />
-        <Trabajo /> */}
         {user && (
           <>
             <Fondo

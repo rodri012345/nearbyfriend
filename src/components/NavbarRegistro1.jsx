@@ -32,12 +32,26 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
         };
     }, [location.pathname]);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
     if (!userData) {
         return <div>Loading...</div>;
-      }
+    }
 
     const userAvatar = userData?.imageURL ? userData.imageURL : user_1;
 
@@ -49,7 +63,6 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
         } catch (error) {
             console.error("Error al Cerrar Sesion", error.message);
         }
-
     }
 
     console.log(userID);
@@ -62,17 +75,18 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
             <ul>
                 <li><NavLink to='/'>Inicio</NavLink></li>
                 <li><NavLink to='/ConoceMas'>Buscar Amigo</NavLink></li>
-                <li><NavLink to='/SeAmigo'>Solicitudes</NavLink></li>
+                <li><NavLink to='/Solicitudes'>Solicitudes</NavLink></li>
+                <li><NavLink to='/Soporte'>Soporte</NavLink></li>
                 <li>
                     <div className="user-menu" ref={menuRef}>
                         <div className="user-avatar" onClick={toggleMenu}>
                             <img src={userAvatar} alt="Usuario" />
                         </div>
                         {menuOpen && (
-                            <div className="menu-options" ref={clickOutsideRef}>
+                            <div className="menu-options">
                                 <ul>
                                     <li><NavLink to='/PerfilUsuario'>Ver Perfil</NavLink></li>
-                                    <li>Editar Perfil</li>
+                                    <li><NavLink to='/EditarPerfil'>Editar Perfil</NavLink></li>
                                     <li onClick={handleLogout}>Cerrar sesión</li>
                                 </ul>
                             </div>

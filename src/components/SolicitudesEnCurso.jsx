@@ -3,6 +3,7 @@ import { Avatar, Button, List, Skeleton } from 'antd';
 import SolicitudModalCompletado from './SolicitudModalCompletado';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; // Asegúrate de importar correctamente la configuración de Firebase
+import "./Solicitud.css"
 
 const SolicitudesRecientes = () => {
   const [initLoading, setInitLoading] = useState(true);
@@ -18,7 +19,7 @@ const SolicitudesRecientes = () => {
         for (const docRef of querySnapshot.docs) {
           const event = { id: docRef.id, ...docRef.data() };
           // Fetch client data
-          const clienteDoc = await getDoc(doc(db, 'clientes', event.clienteId));
+          const clienteDoc = await getDoc(doc(db, 'clientes', event.clienteId.clienteId));
           const clienteData = clienteDoc.data();
           event.cliente = clienteData; // Add client data to the event object
           if (event.estado === 'activo') { // Filter events with estado "inactivo"
@@ -51,7 +52,7 @@ const SolicitudesRecientes = () => {
           lineHeight: '32px',
         }}
       >
-        <Button onClick={onLoadMore}>Cargar Más</Button>
+        <Button className='btn' onClick={onLoadMore}>Cargar Más</Button>
       </div>
     ) : null;
 
