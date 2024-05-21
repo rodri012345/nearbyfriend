@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Col, Row, Upload, Button, message, Result } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import avatarDefault from '../img/avatar2.jpg';
 import upload from "../img/subir.png"
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase-conf';
+import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
+import { db,auth } from '../firebase/firebase-conf';
 import './SubirFoto.css'
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {toast} from 'react-toastify'
 
 function SubirFoto() {
     const URL_DEFAULT = avatarDefault;
@@ -44,13 +47,22 @@ function SubirFoto() {
 
     const guardarDatosEnFirebase = async (formData) => {
         try {
+            await createUserWithEmailAndPassword(auth, formData.correo, formData.contraseña);
+            const user = auth.currentUser;
+            console.log(user);
             formData.aboutText = aboutText;
-            const docRef = await addDoc(collection(db, "clientes"), formData);
-            console.log("Documento guardado con ID: ", docRef.id);
+            const docRef = await setDoc(doc(db, "clientes", user.uid), formData);
+            console.log("Documento guardado con ID: ", docRef.correo);
             localStorage.removeItem('formData');
             setRegistroExitoso(true);
+            toast.success("El Usuario Fue Registrado Exitosamente!", {
+                position: "top-center"
+            });
         } catch (e) {
             console.error("Error al agregar documento: ", e);
+            toast.success(e.message, {
+                position: "botton-center"
+            });
         }
     };
 

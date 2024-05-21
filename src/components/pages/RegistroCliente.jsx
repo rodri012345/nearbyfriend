@@ -5,7 +5,7 @@ import Titulo from "../Titulo";
 export const RegistroCliente = () => {
     return (
         <>
-        <Navbar1 />
+        
         <Titulo subTitulo="Registro Cliente" titulo="Comienza una Nueva Experiencia"/>
         <Registro />
         

@@ -6,7 +6,7 @@ import { Contactanos } from "../Contactanos";
 export const Soporte= () => {
     return (
         <>
-        <Navbar1 />
+        
         <Titulo subTitulo="Estamos contigo en cada paso" titulo="Preguntas Frecuentes de Usuarios"/>
         <div className="bar">
         <FAQ />

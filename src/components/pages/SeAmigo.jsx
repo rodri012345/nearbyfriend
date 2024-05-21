@@ -8,7 +8,7 @@ import Experiencias from "../Experiencias";
 export const SeAmigo= () => {
     return (
         <>
-        <Navbar1 />
+        
         <Titulo subTitulo="Se Parte de Esta gran Experiencia" titulo="Genera Ingresos y Amistad"/>
         <div className="bar">
         <InfoTrabajo />

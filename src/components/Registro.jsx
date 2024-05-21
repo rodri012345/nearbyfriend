@@ -1,68 +1,73 @@
 import React, { useState }from 'react';
 import "./Registro.css";
-import { Form, Button, Checkbox, DatePicker, Input, Select, Space, message, Col, Row, Upload, InputNumber,Modal } from "antd";
-import { collection, addDoc } from 'firebase/firestore';
+import {
+  Form,
+  Button,
+  Checkbox,
+  DatePicker,
+  Input,
+  Select,
+  Space,
+  message,
+  Col,
+  Row,
+  Upload,
+  InputNumber,
+  Modal 
+} from "antd";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase-conf";
 
-import { db } from '../firebase/firebase-conf';
-
-
-
-
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
-
-
 function Registro() {
+  const [form] = Form.useForm();
 
-    const [form] = Form.useForm();
+  const onFinish = async (values) => {
+    const dob = values.dob ? values.dob.toDate() : null;
+    delete values.dob;
 
-    const onFinish = async (values) => {
-
-        const dob = values.dob ? values.dob.toDate() : null;
-        delete values.dob;
-
-        if (dob) {
-            values.dob = dob;
-        }
-
-        const formData = {
-            nombre: values.nombre,
-            apellido: values.apellido,
-            correo: values.correo,
-            contraseña: values.contraseña,
-            confirmarContraseña: values.confirmarContraseña,
-            genero: values.genero,
-            dob: values.dob,
-            departamento: values.departamento,
-            telefono: values.telefono,
-            agreement: values.agreement,
-            hobbies: values.hobbies || []
-        };
-        localStorage.setItem('formData', JSON.stringify(values));
-
-        window.location.href = '/SubirFotos';
-        console.log({ formData })
-    };
-
-    function disabledDate(current) {
-
-        const april2006 = new Date('2006-04-19');
-
-        return current && current > april2006;
+    if (dob) {
+      values.dob = dob;
     }
 
-    const [visible, setVisible] = useState(false);
-
-    const mostrarTerminosCondiciones = () => {
-        setVisible(true);
+    const formData = {
+      nombre: values.nombre,
+      apellido: values.apellido,
+      correo: values.correo,
+      contraseña: values.contraseña,
+      confirmarContraseña: values.confirmarContraseña,
+      genero: values.genero,
+      dob: values.dob,
+      departamento: values.departamento,
+      telefono: values.telefono,
+      agreement: values.agreement,
+      hobbies: values.hobbies || [],
     };
+    localStorage.setItem("formData", JSON.stringify(values));
 
-    const cerrarModal = () => {
-        setVisible(false);
-    };
+    window.location.href = "/SubirFotos";
+    console.log({ formData });
+  };
+
+  function disabledDate(current) {
+    const april2006 = new Date("2006-04-19");
+
+    return current && current > april2006;
+  }
+
+  const [visible, setVisible] = useState(false);
+
+  const mostrarTerminosCondiciones = () => {
+      setVisible(true);
+  };
+
+  const cerrarModal = () => {
+      setVisible(false);
+  };
 
     return (
         <div className="Registro">

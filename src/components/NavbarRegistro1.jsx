@@ -1,52 +1,79 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
-import logo from '../img/logo.png'
-import user_1 from '../img/user-1.png'
+import { Link, NavLink, useLocation } from "react-router-dom";
+import logo from '../img/logo.png';
+import user_1 from '../img/user-1.png';
 import "./NavbarRegistro1.css";
+import { auth } from "../firebase/firebase-conf";
 
-export const NavbarRegistro1 = () => {
+export const NavbarRegistro1 = ({ userData, userID }) => {
+    const location = useLocation();
 
+    const [fijar, setFijar] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
     const clickOutsideRef = useRef(null);
+
     useEffect(() => {
-        const handleClickOutside = (event) => {
-          if (menuRef.current && !menuRef.current.contains(event.target)) {
-            setMenuOpen(false);
-          }
+        const handleScroll = () => {
+            if (location.pathname === "/") {
+                setFijar(window.scrollY > 50);
+            } else {
+                setFijar(true);
+            }
         };
-    
-        document.addEventListener('mousedown', handleClickOutside);
-    
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Check scroll position initially
+        handleScroll();
+
         return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
+            window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
+    }, [location.pathname]);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+    if (!userData) {
+        return <div>Loading...</div>;
+      }
+
+    const userAvatar = userData?.imageURL ? userData.imageURL : user_1;
+
+    async function handleLogout() {
+        try {
+            await auth.signOut();
+            window.location.href = "/";
+            console.log("Sesion cerrada, exitosamente");
+        } catch (error) {
+            console.error("Error al Cerrar Sesion", error.message);
+        }
+
+    }
+
+    console.log(userID);
 
     return (
-        <nav className="navRegistro bar ">
+        <nav className={`navRegistro bar ${fijar ? 'dark-bar' : ''}`}>
             <Link to="/" className="title">
                 <img src={logo} alt="" className="logo" />
             </Link>
             <ul>
                 <li><NavLink to='/'>Inicio</NavLink></li>
-                <li><NavLink to='/ConoceMas'>Conoce Mas</NavLink></li>
-                <li><NavLink to='/SeAmigo'>Se un Amigo</NavLink></li>
+                <li><NavLink to='/ConoceMas'>Buscar Amigo</NavLink></li>
+                <li><NavLink to='/SeAmigo'>Solicitudes</NavLink></li>
                 <li>
                     <div className="user-menu" ref={menuRef}>
                         <div className="user-avatar" onClick={toggleMenu}>
-                            <img src={user_1} alt="Usuario" />
+                            <img src={userAvatar} alt="Usuario" />
                         </div>
                         {menuOpen && (
                             <div className="menu-options" ref={clickOutsideRef}>
                                 <ul>
-                                    <li>Ver perfil</li>
-                                    <li>Configuraciones</li>
-                                    <li>Cerrar sesión</li>
+                                    <li><NavLink to='/PerfilUsuario'>Ver Perfil</NavLink></li>
+                                    <li>Editar Perfil</li>
+                                    <li onClick={handleLogout}>Cerrar sesión</li>
                                 </ul>
                             </div>
                         )}

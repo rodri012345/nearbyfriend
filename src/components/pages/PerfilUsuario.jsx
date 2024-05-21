@@ -1,17 +1,17 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
 import PerfilAmigo from "../PerfilAmigo";
-import Navbar1 from '../Navbar1';
+import NavbarRegistro1 from '../NavbarRegistro1';
 import Titulo from '../Titulo';
 
-export const Perfil = () => {
-    const {amigoId} = useParams();
+export const PerfilUsuario = () => {
+    const {userID} = useParams();
     return (
         <>
-        
+        <NavbarRegistro1 />
         <Titulo subTitulo="Aqui encontraras" titulo="Amigos para toda ocacion"/>
         <div className="bar">
-        <PerfilAmigo amigoId={amigoId}/>
+        <PerfilAmigo amigoId={userID}/>
         </div>
         
         </>

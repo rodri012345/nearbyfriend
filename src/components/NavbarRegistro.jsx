@@ -4,7 +4,7 @@ import logo from '../img/logo.png'
 import user_1 from '../img/user-1.png'
 import "./NavbarRegistro.css";
 
-export const NavbarRegistro = () => {
+export const NavbarRegistro = ({userData}) => {
 
     const [fijar, setFijar] = useState(false);
 
@@ -34,7 +34,7 @@ export const NavbarRegistro = () => {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
-
+    console.log(userData);
     return (
         <nav className={`bar ${fijar ? 'dark-bar' : ''}`}>
             <Link to="/" className="title">
@@ -47,7 +47,7 @@ export const NavbarRegistro = () => {
                 <li>
                     <div className="user-menu" ref={menuRef}>
                         <div className="user-avatar" onClick={toggleMenu}>
-                            <img src={user_1} alt="Usuario" />
+                            <img src={userData.imageURL} alt="Usuario" />
                         </div>
                         {menuOpen && (
                             <div className="menu-options" ref={clickOutsideRef}>
