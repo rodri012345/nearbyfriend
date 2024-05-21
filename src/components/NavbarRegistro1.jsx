@@ -24,7 +24,6 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Check scroll position initially
         handleScroll();
 
         return () => {

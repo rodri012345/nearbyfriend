@@ -8,8 +8,6 @@ import Detail from "../Detail";
 export const ConoceMas= () => {
     return (
         <>
-        
-        
         <Titulo subTitulo="Aqui encontraras" titulo="Amigos para toda ocacion"/>
         <div className="bar">
         <BarraBusqueda />

@@ -20,15 +20,12 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    // Verificar si estamos en la página de inicio
     const isHome = location.pathname === "/";
 
-    // Aplicar el efecto de fondo azul en las páginas que no son de inicio
     if (!isHome) {
       setFijar(true);
     }
 
-    // Aplicar el efecto de fondo transparente solo en la página de inicio
     if (isHome) {
       const handleScroll = () => {
         window.scrollY > 50 ? setFijar(true) : setFijar(false);
@@ -36,7 +33,6 @@ export const Navbar = () => {
 
       window.addEventListener('scroll', handleScroll);
 
-      // Limpiar el event listener cuando salimos de la página de inicio
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };

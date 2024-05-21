@@ -29,7 +29,7 @@ function App() {
       } else {
         setUser(null);
         setUserDetails(null);
-        setLoading(false); // Set loading to false if no user is signed in
+        setLoading(false); 
       }
     });
 
@@ -51,7 +51,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching user data:", error);
     } finally {
-      setLoading(false); // Always set loading to false after the fetch is done
+      setLoading(false); 
     }
   };
 

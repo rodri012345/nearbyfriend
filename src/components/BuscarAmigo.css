@@ -19,11 +19,6 @@
     
 }
 
-/*style={{ backgroundColor:'#DDDDDD', padding:'40px', display: 'flex', justifyContent: 'center' }}
-
-style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '1200px' }}
-
-*/
 
 .tarjetas-container>* {
     max-width: 250px;

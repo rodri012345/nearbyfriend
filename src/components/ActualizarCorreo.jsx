@@ -38,7 +38,7 @@ const ModificarCorreo = ({ amigoId }) => {
 
   return (
     <div>
-      <Button type="default"  onClick={abrirModal} icon={<EditOutlined />} /> {/* Botón de editar con icono */}
+      <Button type="default"  onClick={abrirModal} icon={<EditOutlined />} /> 
       <Modal
         title="Modificar Correo"
         visible={visible}

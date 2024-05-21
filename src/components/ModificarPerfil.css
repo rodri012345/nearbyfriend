@@ -7,8 +7,7 @@
 .fila{
     display: flex;
     flex-wrap: wrap;
-    /*align-items: center;                        esto lleva todo hacia el centro*/
-    justify-content: center;/* alinear  divs al centro*/
+    justify-content: center;
 }
 .columna{
     flex: 1;

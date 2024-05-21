@@ -40,7 +40,6 @@ const ModificarPerfil = ({ amigoId }) => {
                         </div>
                         <div className="fila">
                             {" "}
-                            {/*este contenido tendra la edicion de imagenes */}
                             <div className="columna">
                                 <Image
                                     width={200}
@@ -96,7 +95,6 @@ const ModificarPerfil = ({ amigoId }) => {
                             <h2>Actualizar datos </h2>
                         </div>
                         <div className="fila">
-                            {/* esto sera para modificar los datos personales */}
                             <div className="filaDatos">
                                 <Form>
                                     <Form.Item label="Correo">

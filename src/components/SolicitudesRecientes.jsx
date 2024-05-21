@@ -17,11 +17,10 @@ const SolicitudesRecientes = () => {
         const events = [];
         for (const docRef of querySnapshot.docs) {
           const event = { id: docRef.id, ...docRef.data() };
-          // Fetch client data
           const clienteDoc = await getDoc(doc(db, 'clientes', event.clienteId.clienteId));
           const clienteData = clienteDoc.data();
-          event.cliente = clienteData; // Add client data to the event object
-          if (event.estado === 'inactivo') { // Filter events with estado "inactivo"
+          event.cliente = clienteData; 
+          if (event.estado === 'inactivo') { 
             events.push(event);
           }
         }
@@ -38,7 +37,6 @@ const SolicitudesRecientes = () => {
 
   const onLoadMore = () => {
     setLoading(true);
-    // Aquí puedes implementar la lógica para cargar más eventos si es necesario
   };
 
   const loadMore =

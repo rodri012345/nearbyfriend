@@ -56,8 +56,6 @@ const ModificarHobbies = ({ amigoId }) => {
                     <Form.Item
                         name="nuevosHobbies"
                         label=""
-                        //wrapperCol={{ offset: 2, span: 24 }}
-                        //className="hobbies-container"
                         rules={[
                             {
                                 required: true,
