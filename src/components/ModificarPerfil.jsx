@@ -97,10 +97,19 @@ const ModificarPerfil = ({amigoId}) => {
             <div className='filaDatos' >
             <Form>
                 <Form.Item
+                
                  label="Correo"
                 >
+                  <div className='DataContainer'>
+                    <div className='fila'>
+                    <div className='columna1'>
                   <Input type="email" placeholder={amigo.correo} readOnly/>
+                  </div>
+                  <div className='columna2'>
                  < ModificarCorreo amigoId={amigo.id}/>
+                 </div>
+                 </div>
+                 </div>
                 </Form.Item>
             </Form>
             </div>
@@ -110,8 +119,18 @@ const ModificarPerfil = ({amigoId}) => {
                  
                  label="Contraseña"
                 >
-                  <Input  type="password" placeholder={amigo.contraseña} readOnly/>
+                 <div className='DataContainer'>
+                    <div className='fila'>
+                    <div className='columna1'>
+                    <Input  type="password" placeholder={amigo.contraseña} readOnly/>
+                  </div>
+                  <div className='columna2'>
                   <ModificarContraseña amigoId={amigo.id} />
+                 </div>
+                 </div>
+                 </div> 
+                  
+              
                 </Form.Item>
             </Form>
             </div>
@@ -119,10 +138,20 @@ const ModificarPerfil = ({amigoId}) => {
             <Form>
                 <Form.Item
                
-                 label="Telefono" labelAlign='center'
+                 label="Teléfono" labelAlign='center'
                 >
-                  <Input type="int" placeholder={amigo.telefono} readOnly/>
+                  <div className='DataContainer'>
+                    <div className='fila'>
+                    <div className='columna1'>
+                    <Input type="int" placeholder={amigo.telefono} readOnly/>
+                  </div>
+                  <div className='columna2'>
                   <ModificarTelefono amigoId={amigo.id}/>
+                 </div>
+                 </div>
+                 </div> 
+                  
+                  
                 </Form.Item>
             </Form>
             </div>
@@ -145,7 +174,7 @@ const ModificarPerfil = ({amigoId}) => {
           </div>
             
           <div className='HDContainer'>
-                <h2>Descripcion</h2>
+                <h2>Descripción</h2>
                 <textarea name="Descripcion" rows={"5"} cols={"25"} readOnly placeholder={amigo.aboutText}></textarea>
                 <ModificarDescripcion amigoId={amigo.id}/>
 

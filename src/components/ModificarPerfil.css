@@ -7,7 +7,7 @@
 .fila{
     display: flex;
     flex-wrap: wrap;
-    /*align-items: center;                        esto lleva todo hacia el centro*/
+    align-items: center;                       /* esto lleva todo hacia el centro*/
     justify-content: center;/* alinear  divs al centro*/
 }
 .columna{
@@ -31,8 +31,8 @@
     border: 1px solid #dddddd;
 }
 .filaDatos{
-    
-    width: 60%;
+    justify-content: center;
+    min-width: 60%;
 }
 .HobbiesDescripcionContainer{
     display: flex;
@@ -47,11 +47,7 @@
     border: 1px solid #dddddd;
     padding: 8px;
 }
-.filaDatos{
-    
-    justify-content: center;
 
-}
 .BtnImagen{
     display: flex;
   justify-content: center;
@@ -82,11 +78,32 @@
     align-items: center;
     margin-bottom: 20px;
 }
-
+.DataContainer{
+    display: inline-block;
+    flex-direction: column;
+    
+    align-items: center;
+    margin-bottom: 20px;
+}
 .fila {
     margin-bottom: 20px;
 }
-
+.columna1{
+    display: 2;
+    
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    width: 300px;
+    
+    
+}
+.columna2{
+    display: 1;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
 .columna {
     display: flex;
     flex-direction: column;
@@ -147,4 +164,27 @@
 
 .UpdateButton:hover {
     background-color: #73d13d;
+}
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 576px) {
+    .filaDatos{
+    
+        width: 100%;
+    }
+    .columna1{
+    display: 2;
+    
+    flex-direction: column;
+    align-items: center;
+    margin: 1px;
+    width: 260px;
+    
+    }
+    .DataContainer{
+        display: inline-block;
+        flex-direction: column;
+        
+        align-items: center;
+        margin-bottom: 2px;
+    }
 }
