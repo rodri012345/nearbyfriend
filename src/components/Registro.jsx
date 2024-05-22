@@ -320,9 +320,9 @@ function Registro() {
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Anime">Anime</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Autos">Autos</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Futbol">Futbol</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Motos">Motos</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Actuar">Actuar</Checkbox>
-                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Estudiar">Estudiar</Checkbox>
+                                        <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Investigar">Investigar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Conciertos">Conciertos</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Nadar">Nadar</Checkbox>
                                         <Checkbox style={{ width: '33%', marginBottom: '20px' }} value="Fiestas">Fiestas</Checkbox>
