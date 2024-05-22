@@ -72,10 +72,20 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
                 <img src={logo} alt="" className="logo" />
             </Link>
             <ul>
-                <li><NavLink to='/'>Inicio</NavLink></li>
-                <li><NavLink to='/ConoceMas'>Buscar Amigo</NavLink></li>
-                <li><NavLink to='/Solicitudes'>Solicitudes</NavLink></li>
-                <li><NavLink to='/Soporte'>Soporte</NavLink></li>
+            <li>
+                    <NavLink to="/">Inicio</NavLink> 
+                </li>
+                <li>
+                    <NavLink to="/services">Solicitud</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/EditarPerfil/55q7TpIt8vhTt2AMTJ7w">
+                        Editar Perfil
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/Perfil/55q7TpIt8vhTt2AMTJ7w">Cuenta</NavLink>
+                </li>
                 <li>
                     <div className="user-menu" ref={menuRef}>
                         <div className="user-avatar" onClick={toggleMenu}>

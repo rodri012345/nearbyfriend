@@ -1,12 +1,9 @@
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
-import { db } from "../firebase/firebase-conf";
-import React, { useEffect, useState } from "react";
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection,  getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import { Button, Select, Space } from "antd";
 import "./BarraBusqueda.css";
-import "./BarraBusqueda.css";
+
 import {
   EnvironmentOutlined,
   TeamOutlined,
@@ -15,7 +12,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import BuscarAmigo from "./BuscarAmigo";
-import BuscarAmigo from "./BuscarAmigo";
+
 
 function BarraBusqueda() {
   const [lista, setLista] = useState([]);
@@ -461,9 +458,6 @@ function BarraBusqueda() {
             Buscar
           </Button>
         </Space>
-      </div>
-      <div>
-        <BuscarAmigo seleccion={lista} />
       </div>
       <div>
         <BuscarAmigo seleccion={lista} />
