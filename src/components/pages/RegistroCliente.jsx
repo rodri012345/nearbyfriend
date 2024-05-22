@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from '../Fotter'
+import Navbar1 from '../Navbar1'
 import Registro from "../Registro";
 import Navbar from "../Navbar1";
 import Titulo from "../Titulo"

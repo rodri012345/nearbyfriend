@@ -8,6 +8,7 @@ import PerfilAmigo from '../PerfilAmigo';
 
 export const Perfil = () => {
     const {amigoId} = useParams();
+    
     return (
         <>
         <Navbar/>
@@ -19,5 +20,3 @@ export const Perfil = () => {
     )
 
 }
-
-

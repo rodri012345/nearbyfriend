@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from 'react';
 import "./Registro.css";
 import {
   Form,
@@ -13,6 +13,7 @@ import {
   Row,
   Upload,
   InputNumber,
+  Modal 
 } from "antd";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
@@ -58,6 +59,16 @@ function Registro() {
     return current && current > april2006;
   }
 
+  const [visible, setVisible] = useState(false);
+
+  const mostrarTerminosCondiciones = () => {
+      setVisible(true);
+  };
+
+  const cerrarModal = () => {
+      setVisible(false);
+  };
+
   return (
     <div className="Registro">
       <header className="Registro-header">
@@ -101,59 +112,47 @@ function Registro() {
                 <Input placeholder="Escriba su Nombre" />
               </Form.Item>
 
-              <Form.Item
-                name="apellido"
-                label="Apellido"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor Ingrese su Apellido",
-                  },
-                  { whitespace: true },
-                  {
-                    min: 3,
-                    message: "El nombre debe tener al menos 3 caracteres",
-                  },
-                  {
-                    max: 30,
-                    message: "El nombre no puede tener más de 30 caracteres",
-                  },
-                  {
-                    pattern: /^[a-zA-Zñ\s]*$/,
-                    message:
-                      "El nombre solo puede contener letras del alfabeto",
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input placeholder="Escriba su Apellido" />
-              </Form.Item>
+                            <Form.Item
+                                name="apellido"
+                                label="Apellido"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Por favor Ingrese su Apellido",
+                                    },
+                                    { whitespace: true },
+                                    { min: 3, message: "El nombre debe tener al menos 3 caracteres" },
+                                    { max: 30, message: "El nombre no puede tener más de 30 caracteres" },
+                                    { pattern: /^[a-zA-Z\s]*$/, message: "El nombre solo puede contener letras del alfabeto" },
+                                ]}
+                                hasFeedback
+                            >
+                                <Input placeholder="Escriba su Apellido" />
+                            </Form.Item>
 
-              <Form.Item
-                name="contraseña"
-                label="Contraseña"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por Favor Ingrese su Contraseña",
-                  },
-                  { min: 6, message: "Debe de tener mas de 6 caracteres" },
-                  /*{
-                                            validator: (_, value) =>
-                                                value && value.includes("A")
-                                                    ? Promise.resolve()
-                                                    : Promise.reject("Contraseña no Valida"),
-                                        },*/
-                  {
-                    pattern: /^(?=.*[A-Z])(?=.*\d).+$/,
-                    message:
-                      "La contraseña debe contener al menos una letra mayúscula y un número",
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input.Password placeholder="Escriba su Contraseña" />
-              </Form.Item>
+                            <Form.Item
+                                name="contraseña"
+                                label="Contraseña"
+                                rules={[
+                                    {
+                                        required: true, message: "Por Favor Ingrese su Contraseña"
+                                    },
+                                    { min: 6, message: "Debe de tener mas de 6 caracteres" },
+                                    /*{
+                                        validator: (_, value) =>
+                                            value && value.includes("A")
+                                                ? Promise.resolve()
+                                                : Promise.reject("Contraseña no Valida"),
+                                    },*/
+                                    {
+                                        pattern: /^(?=.*[A-Z])(?=.*\d).+$/,
+                                        message: "La contraseña debe contener al menos una letra mayúscula y un número"
+                                    }
+                                ]}
+                                hasFeedback
+                            >
+                                <Input.Password placeholder="Escriba su Contraseña" />
+                            </Form.Item>
 
               <Form.Item
                 name="confirmarContraseña"
@@ -218,25 +217,26 @@ function Registro() {
                 </Select>
               </Form.Item>
 
-              <Form.Item
-                name="dob"
-                label="Feha de Nacimiento"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor Ingrese su fecha de nacimiento",
-                  },
-                ]}
-                hasFeedback
-              >
-                <DatePicker
-                  style={{ width: "100%" }}
-                  picker="date"
-                  placeholder="Seleccione una fecha"
-                  disabledDate={disabledDate}
-                  format="DD/MM/YYYY"
-                />
-              </Form.Item>
+                            <Form.Item
+                                name="dob"
+                                label="Feha de Nacimiento"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Por favor Ingrese su fecha de nacimiento",
+                                    },
+
+                                ]}
+                                hasFeedback
+                            >
+                                <DatePicker
+                                    style={{ width: "100%" }}
+                                    picker="date"
+                                    placeholder="Seleccione una fecha"
+                                    disabledDate={disabledDate}
+                                    format="DD/MM/YYYY"
+                                />
+                            </Form.Item>
 
               <Form.Item
                 name="correo"

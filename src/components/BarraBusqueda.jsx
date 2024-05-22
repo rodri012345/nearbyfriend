@@ -1,7 +1,11 @@
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase/firebase-conf";
+import React, { useEffect, useState } from "react";
 import { Button, Select, Space } from "antd";
+import "./BarraBusqueda.css";
 import "./BarraBusqueda.css";
 import {
   EnvironmentOutlined,
@@ -10,6 +14,7 @@ import {
   CalendarOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
+import BuscarAmigo from "./BuscarAmigo";
 import BuscarAmigo from "./BuscarAmigo";
 
 function BarraBusqueda() {
@@ -134,6 +139,7 @@ function BarraBusqueda() {
       <br />
       <div className="content-buscador">
         <div>
+          
           <h6>
             <i>
               <EnvironmentOutlined />
@@ -142,11 +148,17 @@ function BarraBusqueda() {
           </h6>
           <Select
             defaultValue="Cualquiera"
+            
             style={{
               width: 200,
             }}
             onChange={handleChangeCiudad}
+            
             options={[
+              {
+                value: "Cualquiera",
+                label: "Cualquiera",
+              },
               {
                 value: "Cualquiera",
                 label: "Cualquiera",
@@ -191,6 +203,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
+          
           <h6>
             <TeamOutlined /> genero
           </h6>
@@ -200,8 +213,11 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeGenero}
+            
             options={[
               {
+                value: "femenino",
+                label: "femenino",
                 value: "femenino",
                 label: "femenino",
               },
@@ -217,6 +233,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
+          
           <h6>
             <CarOutlined /> Hobbies/gustos
           </h6>
@@ -226,6 +243,7 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeGustos}
+            
             options={[
               {
                 value: "Cualquiera",
@@ -246,6 +264,8 @@ function BarraBusqueda() {
               {
                 value: "Ver peliculas",
                 label: "Ver peliculas",
+                value: "Ver peliculas",
+                label: "Ver peliculas",
               },
               {
                 value: "Cine",
@@ -258,6 +278,10 @@ function BarraBusqueda() {
               {
                 value: "Pasear",
                 label: "Pasear",
+              },
+              {
+                value: "Pintar",
+                label: "Pintar",
               },
               {
                 value: "Pintar",
@@ -280,12 +304,24 @@ function BarraBusqueda() {
                 label: "Juegos",
               },
               {
+                value: "Viajes",
+                label: "Viajes",
+              },
+              {
+                value: "Juegos",
+                label: "Juegos",
+              },
+              {
                 value: "Musica",
                 label: "Musica",
               },
               {
                 value: "Mascotas",
                 label: "Mascotas",
+              },
+              {
+                value: "Escribir",
+                label: "Escribir",
               },
               {
                 value: "Escribir",
@@ -304,6 +340,20 @@ function BarraBusqueda() {
                 label: "Autos",
               },
               {
+                value: "Gim",
+                label: "Gim",
+              },
+              {
+                value: "Actuar",
+                label: "Actuar",
+              },
+              {
+                value: "Cocinar",
+                label: "Cocinar",
+              },
+              {
+                value: "Conciertos",
+                label: "Conciertos",
                 value: "Gim",
                 label: "Gim",
               },
@@ -338,11 +388,30 @@ function BarraBusqueda() {
               {
                 value: "Trabajo",
                 label: "Trabajo",
+                value: "Nadar",
+                label: "Nadar",
+              },
+              {
+                value: "Fiestas",
+                label: "Fiestas",
+              },
+              {
+                value: "Coleccionar",
+                label: "Coleccionar",
+              },
+              {
+                value: "Negocios",
+                label: "Negocios",
+              },
+              {
+                value: "Trabajo",
+                label: "Trabajo",
               },
             ]}
           />
         </div>
         <div>
+          
           <h6>
             <CalendarOutlined /> edad
           </h6>
@@ -352,6 +421,7 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeEdad}
+            
             options={[
               {
                 value: "Cualquiera",
@@ -381,6 +451,7 @@ function BarraBusqueda() {
           />
         </div>
         <Space>
+          
           <Button
             className="estilo-btn"
             type="primary"
@@ -390,6 +461,9 @@ function BarraBusqueda() {
             Buscar
           </Button>
         </Space>
+      </div>
+      <div>
+        <BuscarAmigo seleccion={lista} />
       </div>
       <div>
         <BuscarAmigo seleccion={lista} />

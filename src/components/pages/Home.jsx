@@ -1,5 +1,11 @@
 import React from "react";
-import Footer from "../Fotter";
+import Fondo from '../Fondo';
+import { Layout } from "antd";
+import Informacion from "../Informacion";
+import Titulo from "../Titulo";
+import Detalles from "../Detalles";
+import Trabajo from "../Trabajo";
+import Testimonios from "../Testimonios";
 import Carrusel from "../Carrusel";
 
 import BarraBusqueda from "../BarraBusqueda";

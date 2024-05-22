@@ -2,9 +2,9 @@
     max-width: 800px;
     margin: 30px auto;
     padding: 20px 20px 10px;
-    background-color: #d1d1d157;
-    border-radius: 10px;
-    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.200);
 }
 .subir-header-amigo {
     max-width: 1000px;
@@ -70,7 +70,7 @@
 
 .botones-container .ant-btn:hover,
 .botones-container .ant-btn:focus {
-    background-color: rgb(4, 205, 215);
+    background-color: rgb(206, 1, 1);
     border-color: rgb(4, 205, 215);
 }
 

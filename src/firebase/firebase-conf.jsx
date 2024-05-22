@@ -3,6 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import {getStorage,ref, uploadBytes, getDownloadURL} from "firebase/storage"
 // import {v4} from "uuid"
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
 apiKey: "AIzaSyD3YIyAIGmwyRz4fLmZVpQbnYJInQiOD4Y",
@@ -36,3 +37,5 @@ export  async function uploadFile(file) {
   return url
   
 }
+export const auth = getAuth(app);
+
