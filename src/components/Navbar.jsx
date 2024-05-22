@@ -37,7 +37,7 @@ export const Navbar = () => {
                     <NavLink to="/services">Solicitud</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/EditarPerfil/978cbAJbe46Gqm1p6ejN">Editar Perfil</NavLink>
+                    <NavLink to="/EditarPerfil/55q7TpIt8vhTt2AMTJ7w">Editar Perfil</NavLink>
                 </li>
                 <li>
                     <NavLink to="/Perfil/55q7TpIt8vhTt2AMTJ7w">Cuenta</NavLink>

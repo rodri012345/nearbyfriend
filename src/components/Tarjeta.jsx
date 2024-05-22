@@ -9,7 +9,7 @@ const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
   const onVerMasInfo = () => {
     console.log("presionaste el boton de: ",nombre, "con id: ",idAmigo);
   }
-  console.log("id de amigo",idAmigo);
+  
   return (
     <div style={{margin:'20px'}}>
       <Card

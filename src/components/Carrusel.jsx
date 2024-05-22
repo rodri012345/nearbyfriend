@@ -52,7 +52,6 @@ function Carrusel({idCliente}) {
         try {
 
             let queryRef = collection(db, "amigos");
-            console.log(idCliente);         
             const queryRefCli = doc(db,"clientes",idCliente)
             const docSnapCli = await getDoc(queryRefCli)
             const cliente = {id:docSnapCli.id,...docSnapCli.data()}
@@ -61,7 +60,11 @@ function Carrusel({idCliente}) {
             const querySnapshot = await getDocs(queryRef);
             const docs = [];
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id });
+                const amigoData = doc.data();
+                if(amigoData.activo === true) {
+                    docs.push({ ...doc.data(), id: doc.id });
+                }
+                
             });
             setLista(docs);
             

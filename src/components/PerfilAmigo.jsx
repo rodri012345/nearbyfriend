@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc,updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
+import { Link } from 'react-router-dom';
 import "./PerfilAmigo.css";
-import { Image, Switch, Flex, Rate, notification, Carousel } from "antd";
+import { Image, Switch, Flex, Rate, notification} from "antd";
 import Titulo from "./Titulo";
 
 const PerfilAmigo = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
+    const [estado,setEstado] = useState(false);
 
-    const cambiarEstado = (checked) => {
-        console.log(`switch to ${checked}`);
+    const cambiarEstado = async (checked) => {
+        try {
+            const amigoRef = doc(db, "amigos", amigoId);
+            await updateDoc(amigoRef, {
+                activo: checked
+            });
+            setEstado(checked);
+            
+        } catch (e) {
+            console.error("Error al actualizar el documento: ", e);
+        }
     };
 
     useEffect(() => {
@@ -18,14 +29,16 @@ const PerfilAmigo = ({ amigoId }) => {
                 const amigoRef = doc(db, "amigos", amigoId);
                 const docSnap = await getDoc(amigoRef);
                 if (docSnap.exists()) {
-                    setAmigo({ id: docSnap.id, ...docSnap.data() });
+                    const amigoData = { id: docSnap.id, ...docSnap.data() };
+                    setAmigo(amigoData);
+                    setEstado(amigoData.activo ?? false); 
                 } else {
                     console.log("No se encontró el amigo.");
                 }
             } catch (error) {
                 console.error("Error al obtener el amigo:", error);
             }
-            console.log(amigo);
+            
         };
 
         obtenerAmigo();
@@ -42,8 +55,8 @@ const PerfilAmigo = ({ amigoId }) => {
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"75%"}
-                                height={400}
+                                width={"70%"}
+                                height={350}
                             />
                         </div>
                         <div className="sub-cont">
@@ -51,22 +64,22 @@ const PerfilAmigo = ({ amigoId }) => {
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"25%"}
-                                height={150}
+                                width={"23%"}
+                                height={110}
                             />
                             <Image
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"25%"}
-                                height={150}
+                                width={"23%"}
+                                height={110}
                             />
                             <Image
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"25%"}
-                                height={150}
+                                width={"23%"}
+                                height={110}
                             />
                         </div>
                     </div>
@@ -77,7 +90,7 @@ const PerfilAmigo = ({ amigoId }) => {
                                 <div className="switch-wrapper">
                                     <h2 className="h2-style">Estado: </h2>
                                     <Switch
-                                        defaultChecked
+                                        checked = {estado}
                                         onChange={cambiarEstado}
                                         className="style-switch switch-aling"
                                     />
@@ -103,6 +116,7 @@ const PerfilAmigo = ({ amigoId }) => {
                                 <h4>{amigo.aboutText}</h4>
                             </div>
                         </div>
+                        <Link to={`/EditarPerfil/${amigoId}`}>
                         <button
                             className="mon-n"
                             style={{
@@ -113,6 +127,7 @@ const PerfilAmigo = ({ amigoId }) => {
                         >
                             Editar perfil
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -47,7 +47,7 @@ function RegistrarAmigo() {
       hobbies: values.hobbies || [],
     };
     localStorage.setItem("formData", JSON.stringify(values));
-
+    
     window.location.href = "/SubirFotosA";
     console.log({ formData });
   };

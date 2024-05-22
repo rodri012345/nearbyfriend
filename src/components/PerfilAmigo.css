@@ -9,12 +9,13 @@
 .perfil-content{
     margin: 0px auto;
     display: flex;
-    align-items: center;
+    justify-content: center;
     width: 90%;
+    
 }
 
 .perfil-izq {
-    width: 40%;
+    width: 38%;
     height: 100%;
     
     text-align: center;
@@ -26,12 +27,13 @@
 
 .perfil-der {
     width: 100%;
-    height: 450px;
-    /* background-color: #fbf9f9; */
-    background-color: #fbf9f9;
+    height: 400px;
+    background-color: #fbf9f9; 
     border-radius: 15px;
     justify-content: space-around;
     box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    
 }
 
 .cont-der {

@@ -47,17 +47,17 @@ function BarraBusqueda() {
         const querySnapshot = await getDocs(queryRef);
         const docs = [];
         querySnapshot.forEach((doc) => {
-          
+          const amigoData = doc.data();
           if (edad !== "Cualquiera") {
             setEdad("Cualquiera");
-            const amigoData = doc.data();
             const edadAmg = calcularEdad(amigoData.dob);
-            
-            if (edadAmg >= edadMinima && edadAmg <= edadMaxima) {
+            if (edadAmg >= edadMinima && edadAmg <= edadMaxima & amigoData.activo === true) {
               docs.push({ ...doc.data(), id: doc.id });
             }
           } else {
-            docs.push({ ...doc.data(), id: doc.id });
+            if(amigoData.activo === true) {
+              docs.push({ ...doc.data(), id: doc.id });
+            }
           }
         });
         setLista(docs);

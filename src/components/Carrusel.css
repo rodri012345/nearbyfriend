@@ -1,6 +1,7 @@
 .style-carrusel {
     padding: 10px 100px;
     width: 90%;
+    height: 550px;
     margin:50px auto;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
@@ -16,7 +17,7 @@
     position: absolute; 
     top: 50%; 
     transform: translateY(-50%);
-    margin: -51px;
+    margin: -60px;
 }
 
 

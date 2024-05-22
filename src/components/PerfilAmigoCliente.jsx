@@ -4,7 +4,6 @@ import { db } from "../firebase/firebase-conf";
 import Slider from "react-slick";
 
 import "./PerfilAmigoCliente.css";
-import "./Carrusel.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Image, Switch, Flex, Rate, notification, Carousel } from "antd";
@@ -55,8 +54,8 @@ const PerfilAmigoCliente = ({ amigoId }) => {
                                     src={amigo.imageURL}
                                     alt="Foto del amigo"
                                     className="det-img"
-                                    width={'90%'}
-                                    height={470}
+                                    width={'80%'}
+                                    height={450}
                                 />
                             </div>
                             <div>
@@ -64,8 +63,8 @@ const PerfilAmigoCliente = ({ amigoId }) => {
                                     src={amigo.imageURL1}
                                     alt="Foto del amigo"
                                     className="det-img"
-                                    width={'90%'}
-                                    height={470}
+                                    width={'80%'}
+                                    height={450}
                                 />
                             </div>
                             <div>
@@ -73,8 +72,8 @@ const PerfilAmigoCliente = ({ amigoId }) => {
                                     src={amigo.imageURL2}
                                     alt="Foto del amigo"
                                     className="det-img"
-                                    width={'90%'}
-                                    height={470}
+                                    width={'80%'}
+                                    height={450}
                                 />
                             </div>
                             <div>
@@ -82,8 +81,8 @@ const PerfilAmigoCliente = ({ amigoId }) => {
                                     src={amigo.imageURL3}
                                     alt="Foto del amigo"
                                     className="det-img"
-                                    width={'90%'}
-                                    height={470}
+                                    width={'80%'}
+                                    height={450}
                                 />
                             </div>
                         </Slider>

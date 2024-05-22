@@ -11,8 +11,8 @@ export const Perfil = () => {
     return (
         <>
         <Navbar/>
-        {/* 
-        <Titulo  titulo="Amigos para toda ocacion"/>
+        
+        {/* <Titulo  titulo="Amigos para toda ocasión"/>
         <PerfilAmigoCliente amigoId={amigoId}/> */}
         <PerfilAmigo amigoId={amigoId}/>
         </>

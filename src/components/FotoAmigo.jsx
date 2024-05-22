@@ -78,12 +78,14 @@ function FotoAmigo() {
     formData.imageURL1 = image1;
     formData.imageURL2 = image2;
     formData.imageURL3 = image3;
+    
     guardarDatosEnFirebase(formData);
   };
 
   const guardarDatosEnFirebase = async (formData) => {
     try {
       formData.aboutText = aboutText;
+      formData.activo = true;
       const docRef = await addDoc(collection(db, "amigos"), formData);
       console.log("Documento guardado con ID: ", docRef.id);
       localStorage.removeItem("formData");

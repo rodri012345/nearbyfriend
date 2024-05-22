@@ -14,7 +14,7 @@ const { Content } = Layout;
 
 export const About = () => {
     const {clienteId} = useParams();
-    console.log(clienteId);
+    
     return (
         <>
             <Content>
