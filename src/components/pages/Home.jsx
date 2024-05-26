@@ -78,7 +78,7 @@ export const Home = ({ user, userID }) => {
                     <Testimonios />
                 </div>
             </Content>
-            <Footer />
+            
         </>
     );
 };

@@ -105,7 +105,7 @@ const PerfilAmigo = ({ amigoId }) => {
                             </div>
 
                             <h2>Hobies y gustos:</h2>
-                            <div className="hobbies-perfil">
+                            <div className="hobbies-perfil" >
                                 {amigo.hobbies &&
                                     amigo.hobbies.map((hobby, index) => (
                                         <h4 key={index}>{hobby}</h4>

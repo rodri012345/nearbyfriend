@@ -12,7 +12,7 @@ export const EditarPerfil = () => {
     <>
       <Navbar/>
       <ModificarPerfil amigoId={idAmigo}/>
-      <Footer />
+      
     </>
   );
 };
