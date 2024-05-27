@@ -51,10 +51,9 @@ function SubirFoto() {
         try {
             await createUserWithEmailAndPassword(auth,formData.correo, formData.contraseña);
             const user = auth.currentUser;
-            console.log(user);
             formData.aboutText = aboutText;
-            const docRef = await setDoc(doc(db, "clientes", user.uid), formData);
-            console.log("Documento guardado con ID: ", docRef.id);
+            await setDoc(doc(db, "clientes", user.uid), formData);
+            console.log("Documento guardado con ID: ",user.uid);
             localStorage.removeItem("formData");
             setRegistroExitoso(true);
             toast.success("El usuario fue registrado Exitosamente!",{

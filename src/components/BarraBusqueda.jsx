@@ -156,10 +156,7 @@ function BarraBusqueda() {
                 value: "Cualquiera",
                 label: "Cualquiera",
               },
-              {
-                value: "Cualquiera",
-                label: "Cualquiera",
-              },
+              
               {
                 value: "Cochabamba",
                 label: "Cochabamba",
@@ -215,8 +212,7 @@ function BarraBusqueda() {
               {
                 value: "femenino",
                 label: "femenino",
-                value: "femenino",
-                label: "femenino",
+                
               },
               {
                 value: "masculino",
@@ -261,8 +257,7 @@ function BarraBusqueda() {
               {
                 value: "Ver peliculas",
                 label: "Ver peliculas",
-                value: "Ver peliculas",
-                label: "Ver peliculas",
+                
               },
               {
                 value: "Cine",
@@ -280,10 +275,7 @@ function BarraBusqueda() {
                 value: "Pintar",
                 label: "Pintar",
               },
-              {
-                value: "Pintar",
-                label: "Pintar",
-              },
+              
               {
                 value: "Arte",
                 label: "Arte",
@@ -292,10 +284,7 @@ function BarraBusqueda() {
                 value: "Futbol",
                 label: "Futbol",
               },
-              {
-                value: "Viajes",
-                label: "Viajes",
-              },
+              
               {
                 value: "Juegos",
                 label: "Juegos",
@@ -304,10 +293,7 @@ function BarraBusqueda() {
                 value: "Viajes",
                 label: "Viajes",
               },
-              {
-                value: "Juegos",
-                label: "Juegos",
-              },
+              
               {
                 value: "Musica",
                 label: "Musica",
@@ -316,10 +302,7 @@ function BarraBusqueda() {
                 value: "Mascotas",
                 label: "Mascotas",
               },
-              {
-                value: "Escribir",
-                label: "Escribir",
-              },
+              
               {
                 value: "Escribir",
                 label: "Escribir",
@@ -348,20 +331,7 @@ function BarraBusqueda() {
                 value: "Cocinar",
                 label: "Cocinar",
               },
-              {
-                value: "Conciertos",
-                label: "Conciertos",
-                value: "Gim",
-                label: "Gim",
-              },
-              {
-                value: "Actuar",
-                label: "Actuar",
-              },
-              {
-                value: "Cocinar",
-                label: "Cocinar",
-              },
+              
               {
                 value: "Conciertos",
                 label: "Conciertos",
@@ -369,6 +339,12 @@ function BarraBusqueda() {
               {
                 value: "Nadar",
                 label: "Nadar",
+              },
+              
+              {
+                value: "Trabajo",
+                label: "Trabajo",
+                
               },
               {
                 value: "Fiestas",
@@ -382,28 +358,7 @@ function BarraBusqueda() {
                 value: "Negocios",
                 label: "Negocios",
               },
-              {
-                value: "Trabajo",
-                label: "Trabajo",
-                value: "Nadar",
-                label: "Nadar",
-              },
-              {
-                value: "Fiestas",
-                label: "Fiestas",
-              },
-              {
-                value: "Coleccionar",
-                label: "Coleccionar",
-              },
-              {
-                value: "Negocios",
-                label: "Negocios",
-              },
-              {
-                value: "Trabajo",
-                label: "Trabajo",
-              },
+              
             ]}
           />
         </div>

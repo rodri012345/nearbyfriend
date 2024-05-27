@@ -5,7 +5,7 @@ import user_1 from '../img/user-1.png';
 import "./NavbarRegistro1.css";
 import { auth } from "../firebase/firebase-conf";
 
-export const NavbarRegistro1 = ({ userData, userID }) => {
+export const NavbarRegistro2 = ({ userData, userID }) => {
     const location = useLocation();
 
     const [fijar, setFijar] = useState(false);
@@ -75,7 +75,7 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
             <li>
                     <NavLink to="/">Inicio</NavLink> 
                 </li>
-                <li><NavLink to='/ConoceMas'>Buscar Amigo</NavLink></li>
+                
                 <li><NavLink to='/Soporte'>Soporte</NavLink></li>
                 <li>
                     <div className="user-menu" ref={menuRef}>
@@ -98,4 +98,4 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
     );
 };
 
-export default NavbarRegistro1;
+export default NavbarRegistro2;

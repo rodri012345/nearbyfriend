@@ -11,6 +11,7 @@ import Carrusel from "../Carrusel";
 import BarraBusqueda from "../BarraBusqueda";
 import Enlaces from "../Enlaces";
 import Footer from "../Fotter";
+import ListaAmg from "../ListaAmg";
 
 const { Content } = Layout;
 export const Home = ({ user, userID }) => {
@@ -37,15 +38,12 @@ export const Home = ({ user, userID }) => {
                             titulo="Amigos para toda ocacion"
                         />
                         <Enlaces />
-                        <Titulo titulo="Amigos para toda ocacion" />
-                        <div className="bar">
-                            <BarraBusqueda />
-                        </div>
+                        
                         <Titulo
-                            subTitulo="Amigos con tus mismos gustos"
+                            subTitulo="¿Necesitas un amigo/amiga?"
                             titulo="Ellos estan listos para ayudarte"
                         />
-                        <Carrusel idCliente="EUyZf9qFA3l072WHbBbN" />
+                        <ListaAmg/>
                     </>
                 )}
                 {!user && (

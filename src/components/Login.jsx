@@ -4,6 +4,8 @@ import { FaLock } from 'react-icons/fa';
 import { MdAlternateEmail } from "react-icons/md";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
+
+
 import { auth } from '../firebase/firebase-conf';
 import { FaTimes } from 'react-icons/fa';
 
@@ -70,9 +72,10 @@ const Login = ({ onClose }) => {
                         <a href="#">Olvidaste tu Contraseña?</a>
                     </div>
 
-                    <button className='btn-log' type='submit'>Iniciar Sesion</button>
+                    <button className='btn-log' type='submit'>Iniciar Sesión</button>
                     <div className="register-link">
-                        <p>No tienes una cuenta? <a href="/RegistroCliente">Registrarse</a></p>
+                        <p>¿No tienes una cuenta? <a href="/RegistroCliente">Registrarse como Cliente</a></p>
+                        <p><a href="/RegistroAmigo">Registrarse como Amigo</a></p>
                     </div>
                 </form>
             </div>
