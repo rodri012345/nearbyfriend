@@ -9,8 +9,6 @@ export const SubirFotos = () => {
         <>
         <Navbar/>
         <SubirFoto/>
-        <Footer />
-        
         </>
     );
 };

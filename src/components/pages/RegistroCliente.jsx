@@ -13,9 +13,6 @@ export const RegistroCliente = () => {
         <Navbar/>
         <Titulo subTitulo="Registrar Cliente" titulo="Comienza una Nueva Experiencia"/>
         <Registro />
-        
-        <Footer />
-        
         </>
     );
 };
