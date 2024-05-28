@@ -10,14 +10,13 @@
     margin: 0px auto;
     display: flex;
     justify-content: center;
-    width: 90%;
-    
+    align-items: center;
+    width: 80%;
 }
 
 .perfil-izq {
-    width: 38%;
+    width: 40%;
     height: 100%;
-    
     text-align: center;
 }
 .sub-cont {
@@ -26,7 +25,7 @@
 }
 
 .perfil-der {
-    width: 100%;
+    width: 70%;
     height: 400px;
     background-color: #fbf9f9; 
     border-radius: 15px;
@@ -37,7 +36,7 @@
 }
 
 .cont-der {
-    width: 50%;
+    width: 80%;
 }
 .sub-contenedor {
     display: flex;

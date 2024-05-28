@@ -36,7 +36,7 @@ export const Navbar = () => {
                 </li>
                 
                 <li className="registro-item">
-                    <span onClick={toggleRegistro}>Registro</span>
+                    <span onClick={toggleRegistro}>Registrarse</span>
                     {registroOpen && (
                         <ul className="sub-menu">
                             <li>

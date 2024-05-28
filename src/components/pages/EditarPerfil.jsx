@@ -2,15 +2,17 @@ import React from "react";
 import Footer from '../Fotter'
 
 import ModificarPerfil from "../ModificarPerfil";
-import { useParams } from "react-router-dom";
+
 import Navbar from "../Navbar1";
+import Titulo from "../Titulo";
 
 
-export const EditarPerfil = () => {
-    const {idAmigo} = useParams();
+export const EditarPerfil = ({idAmigo}) => {
+  
   return (
     <>
       <Navbar/>
+      <Titulo titulo={'Actualiza tus datos'}/>
       <ModificarPerfil amigoId={idAmigo}/>
       
     </>

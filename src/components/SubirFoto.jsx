@@ -120,7 +120,7 @@ function SubirFoto() {
                     </div>
                 </Col>
             </Row>
-            {registroExitoso && (
+            {/* {registroExitoso && (
                 <div className="mensaje-flotante">
                     <Result
                         status="success"
@@ -133,7 +133,7 @@ function SubirFoto() {
                         ]}
                     />
                 </div>
-            )}
+            )} */}
 
             <div className="botones-container">
                 <Button type="primary" onClick={handleGoBack}>

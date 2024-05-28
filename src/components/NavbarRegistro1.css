@@ -37,10 +37,10 @@
     transition: 0.5s;
   }
   
-  .navRegistro ul li:nth-child(-n+3):hover { 
+  /* .navRegistro  ul li:nth-child(-n+2):hover { 
     border-bottom: 2px solid #fff;
     color: #fff;
-  }
+  } */
   
 
 .user-menu {

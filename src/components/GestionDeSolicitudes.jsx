@@ -5,7 +5,7 @@ import './GestionDeSolicitudes.css';
 import SolicitudesRecientes from './SolicitudesRecientes';
 import SolicitudesEnCurso from './SolicitudesEnCurso';
 import SolicitudesConclusas from './SolicitudesConclusas';
-const GestionDeSolicitudes = () => {
+const GestionDeSolicitudes = ({amigoId}) => {
 
     return (
         <div className='NotificaionesContainer' style={{marginTop:'20px'}}>
@@ -19,7 +19,7 @@ const GestionDeSolicitudes = () => {
                         <div className="SolicitudNueva">
                         
             
-                            <SolicitudesRecientes/>
+                            <SolicitudesRecientes amigoId={amigoId}/>
             
                         </div>
                     </div>
@@ -27,14 +27,14 @@ const GestionDeSolicitudes = () => {
                     <h3 className='Solicitud'>Solicitudes en Curso </h3>
                         <div className="SolicitudesAceptadas">
                         
-                           <SolicitudesEnCurso /> 
+                           <SolicitudesEnCurso amigoId={amigoId}/> 
                         </div>
                     </div>
                     <div className="Columna">
                     <h3 className='Solicitud'>Solicitudes Conclusas</h3>
                         <div className="SolicitudesConcluidas ">
                         
-                        <SolicitudesConclusas />
+                        <SolicitudesConclusas amigoId={amigoId}/>
             
                         </div>
                     </div>

@@ -5,7 +5,6 @@ import Modal from "react-modal";
 import Login from "./Login";
 import "./Navbar.css";
 
-
 export const Navbar = () => {
     const location = useLocation();
 
@@ -51,22 +50,14 @@ export const Navbar = () => {
             </Link>
             <ul>
                 <li>
-                    <NavLink to="/">Inicio</NavLink> 
+                    <NavLink to="/">Inicio</NavLink>
                 </li>
+                
                 <li>
-                    <NavLink to="/services">Solicitud</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/EditarPerfil/55q7TpIt8vhTt2AMTJ7w">
-                        Editar Perfil
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/Perfil/55q7TpIt8vhTt2AMTJ7w">Cuenta</NavLink>
+                    <NavLink to="/SeAmigo">Se un Amigo</NavLink>
                 </li>
 
                 <li className="registro-item">
-                
                     <span onClick={toggleRegistro}>Registro</span>
                     {registroOpen && (
                         <ul className="sub-menu">

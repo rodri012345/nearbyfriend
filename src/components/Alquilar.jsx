@@ -178,7 +178,7 @@ const Alquilar = ({ clienteId, amigoId }) => {
                                     className="btn-st"
                                     onclick="return confirm('¿Estás seguro de que deseas alquilar a este amigo?')"
                                 >
-                                    Alquilar
+                                    Enviar
                                 </button>
                             </div>
                         </form>

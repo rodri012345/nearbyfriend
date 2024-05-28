@@ -33,7 +33,7 @@ nav {
     transition: 0.5s;
   }
 
-  nav ul li:nth-child(-n+5):hover { 
+  nav ul li:nth-child(-n+3):hover { 
     border-bottom: 2px solid #fff;
     color: #fff;
   }

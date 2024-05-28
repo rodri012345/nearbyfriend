@@ -64,7 +64,7 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
         }
     }
 
-    console.log(userID);
+    
 
     return (
         <nav className={`navRegistro bar ${fijar ? 'dark-bar' : ''}`}>
@@ -72,9 +72,7 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
                 <img src={logo} alt="" className="logo" />
             </Link>
             <ul>
-            <li>
-                    <NavLink to="/">Inicio</NavLink> 
-                </li>
+                <li><NavLink to='/'>Inicio</NavLink></li>
                 <li><NavLink to='/ConoceMas'>Buscar Amigo</NavLink></li>
                 <li><NavLink to='/Soporte'>Soporte</NavLink></li>
                 <li>
@@ -86,7 +84,6 @@ export const NavbarRegistro1 = ({ userData, userID }) => {
                             <div className="menu-options">
                                 <ul>
                                     <li><NavLink to='/PerfilUsuario'>Ver Perfil</NavLink></li>
-                                    
                                     <li onClick={handleLogout}>Cerrar sesión</li>
                                 </ul>
                             </div>

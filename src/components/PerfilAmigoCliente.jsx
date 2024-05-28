@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Image, Switch, Flex, Rate, notification, Carousel } from "antd";
 import Alquilar from "./Alquilar";
 
-const PerfilAmigoCliente = ({ amigoId }) => {
+const PerfilAmigoCliente = ({ amigoId , clienteId}) => {
     const [amigo, setAmigo] = useState(null);
 
     var settings = {
@@ -18,6 +18,7 @@ const PerfilAmigoCliente = ({ amigoId }) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        arrows:false
     };
 
     const cambiarEstado = (checked) => {
@@ -129,8 +130,8 @@ const PerfilAmigoCliente = ({ amigoId }) => {
                 </div>
             )}
             <Alquilar
-                amigoId={"55q7TpIt8vhTt2AMTJ7w"}
-                clienteId={"EUyZf9qFA3l072WHbBbN"}
+                amigoId= {amigoId}
+                clienteId={clienteId}
             />
         </div>
     );

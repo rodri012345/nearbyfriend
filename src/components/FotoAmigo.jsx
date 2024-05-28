@@ -82,7 +82,7 @@ function FotoAmigo() {
         formData.imageURL1 = image1;
         formData.imageURL2 = image2;
         formData.imageURL3 = image3;
-
+        formData.activo = true;
         guardarDatosEnFirebase(formData);
     };
 
@@ -250,7 +250,7 @@ function FotoAmigo() {
                     </div>
                 </Col>
             </Row>
-            {registroExitoso && (
+            {/* {registroExitoso && (
                 <div className="mensaje-flotante">
                     <Result
                         status="success"
@@ -263,7 +263,7 @@ function FotoAmigo() {
                         ]}
                     />
                 </div>
-            )}
+            )} */}
 
             <div className="botones-container">
                 <Button type="primary" onClick={handleGoBack}>

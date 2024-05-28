@@ -55,7 +55,7 @@ const PerfilAmigo = ({ amigoId }) => {
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"70%"}
+                                width={"80%"}
                                 height={350}
                             />
                         </div>
@@ -64,21 +64,21 @@ const PerfilAmigo = ({ amigoId }) => {
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"23%"}
+                                width={"26%"}
                                 height={110}
                             />
                             <Image
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"23%"}
+                                width={"26%"}
                                 height={110}
                             />
                             <Image
                                 src={amigo.imageURL}
                                 alt="Foto del amigo"
                                 className="det-img"
-                                width={"23%"}
+                                width={"26%"}
                                 height={110}
                             />
                         </div>
@@ -86,9 +86,9 @@ const PerfilAmigo = ({ amigoId }) => {
                     <div className="cont-der">
                         <div className="perfil-der">
                             <div className="sub-contenedor">
-                                <h2>Datos personales:</h2>
+                                <h2>Mis datos personales:</h2>
                                 <div className="switch-wrapper">
-                                    <h2 className="h2-style">Estado: </h2>
+                                    <h2 className="h2-style">Mi Estado: </h2>
                                     <Switch
                                         checked = {estado}
                                         onChange={cambiarEstado}
@@ -104,30 +104,19 @@ const PerfilAmigo = ({ amigoId }) => {
                                 <h4>Genero: {amigo.genero}</h4>
                             </div>
 
-                            <h2>Hobies y gustos:</h2>
+                            <h2>Mis hobbies y gustos:</h2>
                             <div className="hobbies-perfil" >
                                 {amigo.hobbies &&
                                     amigo.hobbies.map((hobby, index) => (
                                         <h4 key={index}>{hobby}</h4>
                                     ))}
                             </div>
-                            <h2>Cuéntanos más sobre ti:</h2>
+                            <h2>Lo que quiero que sepan de mi:</h2>
                             <div className="usr-det">
                                 <h4>{amigo.aboutText}</h4>
                             </div>
                         </div>
-                        <Link to={`/EditarPerfil/${amigoId}`}>
-                        <button
-                            className="mon-n"
-                            style={{
-                                margin: "20px",
-                                width: "200px",
-                                display: "iline-block",
-                            }}
-                        >
-                            Editar perfil
-                        </button>
-                        </Link>
+                        
                     </div>
                 </div>
             </div>

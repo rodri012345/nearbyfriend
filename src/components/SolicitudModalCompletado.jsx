@@ -99,15 +99,11 @@ const SolicitudModalCompletado = ({eventoId}) => {
                             <p>Ciudad: {cliente.departamento}</p>
                             <p>Telefono: {cliente.telefono}</p>
                         </div>
-                        <div className='hobbies' style={{ marginLeft: '20px' }}>
-                            <p>{cliente.hobbies[0]}</p>
-                            <p>{cliente.hobbies[1]}</p>
-                            <p>{cliente.hobbies[2]}</p>
-                        </div>
+                        
                     </div>
                 )}
                 {evento && (
-                    <div style={{alignItems: 'center', marginLeft: '180px'}}>
+                    <div style={{alignItems: 'center', marginLeft: '120px'}}>
                         <p>Fecha: {evento.fecha}</p>
                         <p>Duracion: {evento.duracion}</p> 
                         <p>Hora: {evento.hora}</p>

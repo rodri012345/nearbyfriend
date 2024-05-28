@@ -37,10 +37,10 @@ nav {
     transition: 0.5s;
   }
   
-  nav ul li:nth-child(-n+3):hover { 
+  /* nav ul :nth-child(-n+3):hover { 
     border-bottom: 2px solid #fff;
     color: #fff;
-  }
+  } */
   
 
 .user-menu {

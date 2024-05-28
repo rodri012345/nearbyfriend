@@ -75,8 +75,9 @@ export const NavbarRegistro2 = ({ userData, userID }) => {
             <li>
                     <NavLink to="/">Inicio</NavLink> 
                 </li>
-                
+                <li><NavLink to='/Solicitudes'>Solicitudes</NavLink></li>
                 <li><NavLink to='/Soporte'>Soporte</NavLink></li>
+                
                 <li>
                     <div className="user-menu" ref={menuRef}>
                         <div className="user-avatar" onClick={toggleMenu}>
@@ -85,8 +86,8 @@ export const NavbarRegistro2 = ({ userData, userID }) => {
                         {menuOpen && (
                             <div className="menu-options">
                                 <ul>
-                                    <li><NavLink to='/PerfilUsuario'>Ver Perfil</NavLink></li>
-                                    
+                                    <li><NavLink to='/Perfil'>Ver Perfil</NavLink></li>
+                                    <li><NavLink  to = '/EditarPerfil'>Editar Perfil</NavLink></li>
                                     <li onClick={handleLogout}>Cerrar sesión</li>
                                 </ul>
                             </div>

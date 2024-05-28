@@ -13,15 +13,16 @@ import {
     About,
     RegistroCliente,
     Home,
-    Services,
     RegistroAmigo,
     SubirFotos,
     Perfil,
-    Solicitud,
+    Solicitudes,
     EditarPerfil,
     ConoceMas,
     Soporte,
     PerfilUsuario,
+    PerfilAmg,
+    SeAmigo
 } from "./components/pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -87,15 +88,18 @@ function App() {
                         path="/"
                         element={<Home user={user} userID={userID} />}
                     />
-                    <Route path="/services" element={<Services />} />
+                    
                     <Route
                         path="/RegistroCliente"
                         element={<RegistroCliente />}
                     />
                     <Route path="/RegistroAmigo" element={<RegistroAmigo />} />
+                    <Route path="/SeAmigo" element={<SeAmigo />} />
                     <Route path="/SubirFotos" element={<SubirFotos />} />
-                    <Route path="/Perfil/:amigoId" element={<Perfil />} />
+                    <Route path="/Perfil/" element={<Perfil amigoId={userID}/>} />
                     <Route path="/Soporte" element={<Soporte />} />
+                    <Route path="/Solicitudes" element={<Solicitudes amigoId={userID} />} />
+                    <Route path="/PerfilAmg/:amigoId" element={<PerfilAmg clienteId={userID}/>} />
                     <Route
                         path="/ConoceMas"
                         element={<ConoceMas userID={userID} />}
@@ -107,20 +111,15 @@ function App() {
                     />
                     <Route
                         path="/EditarPerfil"
-                        element={<EditarPerfil userID={userID} />}
+                        element={<EditarPerfil idAmigo={userID} />}
                     />
-                    <Route
-                        path="/EditarPerfil/:idAmigo"
-                        element={<EditarPerfil />}
-                    />
-                    <Route path="/Solicitud " element={<Solicitud />} />
                 </Routes>
             </div>
             <ToastContainer />
             {!loading && (
                 <>
                     {user && amigo ? (
-                        <NavbarRegistro1
+                        <NavbarRegistro2
                             userData={userDetails}
                             userID={userID}
                         />
@@ -140,3 +139,16 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
