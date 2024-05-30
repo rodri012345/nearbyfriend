@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { FaLock } from 'react-icons/fa';
+import { FaEye,FaEyeSlash } from 'react-icons/fa';
 import { MdAlternateEmail } from "react-icons/md";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
@@ -8,12 +8,17 @@ import { toast } from 'react-toastify';
 
 import { auth } from '../firebase/firebase-conf';
 import { FaTimes } from 'react-icons/fa';
+import { Input } from 'antd';
 
 
 const Login = ({ onClose }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [visible, setVisible] = useState(false);
 
+    const handleVisible = ()=>{
+        setVisible(!visible);
+    }
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
@@ -52,7 +57,7 @@ const Login = ({ onClose }) => {
                 <form action="" onSubmit={handleRegister}>
                     <h1>Inicio Sesion</h1>
                     <div className="input-box">
-                        <input type="text"
+                        <Input type="text"
                             placeholder='Correo'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -60,17 +65,23 @@ const Login = ({ onClose }) => {
                         <MdAlternateEmail className='icon' />
                     </div>
                     <div className="input-box">
-                        <input type="password"
+                        <Input type = {visible ? "text" : "password"}
                             placeholder='Contraseña'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required />
-                        <FaLock className='icon' />
+                        <span className='icon' onClick={handleVisible}>
+                                {visible ? (
+                                    <FaEye />
+                                ) : (
+                                    <FaEyeSlash />
+                                )}
+                            </span>
                     </div>
-                    <div className="remember-forgot">
+                    {/* <div className="remember-forgot">
                         <label><input type="checkbox" />Recuerdame</label>
                         <a href="#">Olvidaste tu Contraseña?</a>
-                    </div>
+                    </div> */}
 
                     <button className='btn-log' type='submit'>Iniciar Sesión</button>
                     <div className="register-link">

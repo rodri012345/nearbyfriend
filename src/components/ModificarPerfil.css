@@ -1,7 +1,7 @@
 .ModificarContainer {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    
     border-radius: 5px;
 }
 .fila{
@@ -23,12 +23,12 @@
 .FotosContainer{
     
     margin-bottom: 20px;
-    border: 1px solid #dddddd;
+    
 }
 .DatosEditarContainer{
     display: flex;
     flex-direction: column;
-    border: 1px solid #dddddd;
+    
 }
 .filaDatos{
     justify-content: center;
@@ -37,14 +37,14 @@
 .HobbiesDescripcionContainer{
     display: flex;
     flex-direction: column;
-    border: 1px solid #dddddd;
+    
 }
 .Row{
     display: flex;
 }
 .HDContainer{
     flex-grow: 1;
-    border: 1px solid #dddddd;
+    
     padding: 8px;
 }
 
@@ -61,13 +61,32 @@
   
 }
 
+.mon-n {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #212EA0;
+    border: none;
+    border-radius: 5px;
+    color: #fffffff7;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
 
 .ModificarContainer {
     display: flex;
     flex-direction: column;
  
     padding: 20px;
-    background-color: #f0f2f5;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -117,7 +136,7 @@
 }
 
 .BtnImagen {
-    background-color: #1890ff;
+    background-color: #212EA0;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -127,7 +146,7 @@
 }
 
 .BtnImagen:hover {
-    background-color: #40a9ff;
+    background-color: #212EA0;
 }
 
 .FormContainer {

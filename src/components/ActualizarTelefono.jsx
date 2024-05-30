@@ -3,6 +3,7 @@ import { Form, Input, Button, Modal, message } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
+import "./Alquilar.css";
 
 const ModificarTelefono = ({ amigoId }) => {
     const [form] = Form.useForm();
@@ -43,6 +44,7 @@ const ModificarTelefono = ({ amigoId }) => {
                 type="default"
                 onClick={abrirModal}
                 icon={<EditOutlined />}
+                className="mon-n"
             />{" "}
             {/* Botón de editar con icono */}
             <Modal
@@ -96,7 +98,7 @@ const ModificarTelefono = ({ amigoId }) => {
                             },
                         ]}
                     >
-                        <Input placeholder="Escriba su nuevo Correo" />
+                        <Input.Number placeholder="Escriba su nuevo telefono" />
                     </Form.Item>
                     <Form.Item>
                         <Button

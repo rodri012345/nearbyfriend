@@ -35,6 +35,17 @@ form .input-box {
     height: 50px;
     margin: 30px 0;
 }
+.input-box {
+    position: relative;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    cursor: pointer;
+}
 
 .input-box input {
     width: 100%;

@@ -17,29 +17,24 @@ export const Home = ({ user, userID }) => {
             <Content>
                 {user && (
                     <>
-                        <div
-                            style={{
-                                backgroundImage: `url("https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
-                                backgroundSize: "100% 100%",
-                                backgroundPosition: "center",
-                                backgroundRepeat: "no-repeat",
-                                width: "100%",
-                                height: "700px",
-                            }}
-                        >
-                            <Fondo />
+                        <div>
+                            <Fondo
+                                titulo="Bienvenido a la plataforma mas grande de amigos"
+                                subtitulo="Comienza a buscar al amigo que necesitas, para ese momento especial."
+                                user={user}
+                            />
                         </div>
                         <Titulo
                             subTitulo="Aqui encontraras"
                             titulo="Amigos para toda ocacion"
                         />
                         <Enlaces />
-                        
+
                         <Titulo
                             subTitulo="¿Necesitas un amigo/amiga?"
                             titulo="Ellos estan listos para ayudarte"
                         />
-                        <ListaAmg/>
+                        <ListaAmg />
                     </>
                 )}
                 {!user && (
@@ -72,7 +67,6 @@ export const Home = ({ user, userID }) => {
                     <Testimonios />
                 </div>
             </Content>
-            
         </>
     );
 };

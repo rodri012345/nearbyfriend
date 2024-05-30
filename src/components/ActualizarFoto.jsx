@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Button, message, Modal, Result } from "antd";
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
-//import './SubirFoto.css';
+
+import "./Alquilar.css";
 
 function ModificarFoto({ amigoId }) {
     const [imageFile, setImageFile] = useState(null);
@@ -61,7 +62,7 @@ function ModificarFoto({ amigoId }) {
 
     return (
         <div className="actualizar-foto-cliente">
-            <Button type="primary" onClick={() => setModalVisible(true)}>Actualizar Imagen</Button>
+            <button className="mon-n" onClick={() => setModalVisible(true)}>Actualizar Imagen</button>
             <Modal
                 title="Actualizar Foto"
                 visible={modalVisible}

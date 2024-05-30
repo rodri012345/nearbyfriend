@@ -61,21 +61,21 @@ const PerfilAmigo = ({ amigoId }) => {
                         </div>
                         <div className="sub-cont">
                             <Image
-                                src={amigo.imageURL}
+                                src={amigo.imageURL1}
                                 alt="Foto del amigo"
                                 className="det-img"
                                 width={"26%"}
                                 height={110}
                             />
                             <Image
-                                src={amigo.imageURL}
+                                src={amigo.imageURL2}
                                 alt="Foto del amigo"
                                 className="det-img"
                                 width={"26%"}
                                 height={110}
                             />
                             <Image
-                                src={amigo.imageURL}
+                                src={amigo.imageURL3}
                                 alt="Foto del amigo"
                                 className="det-img"
                                 width={"26%"}

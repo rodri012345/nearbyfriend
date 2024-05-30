@@ -3,6 +3,7 @@
     font-size: 17px;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 .perfil-content{
@@ -25,7 +26,6 @@
 
 .perfil-der {
     flex-basis: 58%;
-    background-color: #fbf9f9;
     border-radius: 15px;
     padding: 20px;
     padding: 30px;

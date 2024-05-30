@@ -57,6 +57,7 @@ const PerfilAmigoCliente = ({ amigoId , clienteId}) => {
                                     className="det-img"
                                     width={'80%'}
                                     height={450}
+                                    
                                 />
                             </div>
                             <div>
