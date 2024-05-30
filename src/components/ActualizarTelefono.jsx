@@ -98,7 +98,7 @@ const ModificarTelefono = ({ amigoId }) => {
                             },
                         ]}
                     >
-                        <Input.Number placeholder="Escriba su nuevo telefono" />
+                        <InputNumber style = {{width:'100%'}} placeholder="Escriba su nuevo telefono" />
                     </Form.Item>
                     <Form.Item>
                         <Button
