@@ -154,16 +154,19 @@ const Alquilar = ({ clienteId, amigoId }) => {
                                     Lugar de encuentro:
                                 </label>
                                 <input
-                                    maxLength={40}
+                                    type = 'text'
+                                    maxLength={50}
                                     name="lugar"
                                     value={evento.lugar}
                                     onChange={handleChange}
+                                    
                                 />
                             </div>
                             <div
                                 style={{
                                     display: "flex",
                                     justifyContent: "space-between",
+                                    marginTop:'20px'
                                 }}
                             >
                                 <button

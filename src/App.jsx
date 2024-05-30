@@ -9,6 +9,8 @@ import { auth, db } from "./firebase/firebase-conf";
 import Footer from "./components/Fotter";
 import { doc, getDoc } from "firebase/firestore";
 //import { About, RegistroCliente, Home, Services,RegistroAmigo,SubirFotos, Perfil} from "./components/pages";
+
+
 import {
     About,
     RegistroCliente,

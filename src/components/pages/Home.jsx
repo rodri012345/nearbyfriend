@@ -6,11 +6,7 @@ import Titulo from "../Titulo";
 import Detalles from "../Detalles";
 import Trabajo from "../Trabajo";
 import Testimonios from "../Testimonios";
-import Carrusel from "../Carrusel";
-
-import BarraBusqueda from "../BarraBusqueda";
 import Enlaces from "../Enlaces";
-import Footer from "../Fotter";
 import ListaAmg from "../ListaAmg";
 
 const { Content } = Layout;

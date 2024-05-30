@@ -7,7 +7,7 @@ import Navbar from "../Navbar";
 export const SubirFotos = () => {
     return (
         <>
-        <Navbar/>
+        
         <SubirFoto/>
         </>
     );

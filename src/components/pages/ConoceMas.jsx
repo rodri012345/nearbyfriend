@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar1 from "../Navbar1";
 import BarraBusqueda from "../BarraBusqueda";
 import Titulo from "../Titulo";
 import Carrusel from "../Carrusel";

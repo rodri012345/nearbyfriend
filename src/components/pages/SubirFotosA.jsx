@@ -6,7 +6,7 @@ import Navbar from '../Navbar';
 const SubirFotosA = () => {
     return (
         <>
-        <Navbar/>
+        
         <FotoAmigo/>
         
         
