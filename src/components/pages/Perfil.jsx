@@ -1,15 +1,19 @@
-import React from "react";
-import Footer from "../Fotter";
-import App2 from "../Alquilar";
-import PerfilAmi from "../Alquilar";
-export const Perfil = () => {
+import React from 'react'
+import PerfilAmigoCliente from "../PerfilAmigoCliente";
+import PerfilAmigo from '../PerfilAmigo';
+
+
+export const Perfil = ({amigoId}) => {
+    
+    
     return (
         <>
-            <PerfilAmi amigoId="KtYyj86EoIYfzaoszr8K" />
-            <Footer />
+        
+        
+        {/* <Titulo  titulo="Amigos para toda ocasión"/>
+        <PerfilAmigoCliente amigoId={amigoId}/> */}
+        <PerfilAmigo amigoId={amigoId}/>
         </>
     )
 
 }
-
-

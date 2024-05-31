@@ -1,14 +1,20 @@
 import React from 'react'
 import {Card, Button} from 'antd'
 import './Carrusel.css'
+import { Link } from 'react-router-dom';
 
 const {Meta} = Card
-const Tarjeta = ({nombre , ciudad, urlImage,onVerMasInfo}) => {
+const Tarjeta = ({nombre , ciudad, urlImage,idAmigo}) => {
+
+  const onVerMasInfo = () => {
+    console.log("presionaste el boton de: ",nombre, "con id: ",idAmigo);
+  }
+  
   return (
-    <div style={{margin:'10px'}}>
+    <div style={{margin:'20px'}}>
       <Card
             hoverable
-            style={{ width: 250, textAlign:'center', border:'solid 1px black'}}
+            style={{ width: 250, textAlign:'center',boxShadow: '2px 4px 8px rgba(0, 0, 0, 0.6)'}}
             cover={
               <img
                 alt="user"
@@ -20,7 +26,9 @@ const Tarjeta = ({nombre , ciudad, urlImage,onVerMasInfo}) => {
           >
             <Meta title = {nombre} description= {ciudad} className='text-center'/>
             <div style={{display:'flex',justifyContent:'center', alignItems:'center'}}>
-            <Button type="primary" className='estilo-btn' onClick={onVerMasInfo}>Ver mas info</Button>
+            <Link to={`/PerfilAmg/${idAmigo}`}>
+            <Button type="primary" className='estilo-btn' >Ver más info</Button>
+            </Link>
             </div>
 
           </Card>

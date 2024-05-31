@@ -1,12 +1,25 @@
-.tarjetas-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crea columnas que se ajustan automáticamente al ancho del contenedor */
-    gap: 20px; /* Espacio entre las tarjetas */
+.busqueda {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
 }
 
-/* Esto asegura que cada tarjeta tenga un tamaño máximo */
+.buscar {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+.tarjetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+
 .tarjetas-container > * {
-    max-width: 250px; /* Ancho máximo de cada tarjeta */
+    max-width: 250px; 
 }
 
 /* Esto garantiza que solo haya cuatro tarjetas por fila */

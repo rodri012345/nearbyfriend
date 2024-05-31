@@ -1,9 +1,9 @@
-
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection,  getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import { Button, Select, Space } from "antd";
-import "./EstilosInicio.css";
+import "./BarraBusqueda.css";
+
 import {
   EnvironmentOutlined,
   TeamOutlined,
@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import BuscarAmigo from "./BuscarAmigo";
 
+
 function BarraBusqueda() {
   const [lista, setLista] = useState([]);
   const [ciudad, setCiudad] = useState("Cualquiera");
@@ -20,6 +21,8 @@ function BarraBusqueda() {
   const [gusto, setGusto] = useState("Cualquiera");
   const [edad, setEdad] = useState("Cualquiera");
   const [buscado, setBuscado] = useState(false);
+  const [edadMinima, setEdadMinima] = useState(0);
+  const [edadMaxima, setEdadMaxima] = useState(0);
 
   const handleBuscar = () => {
     setBuscado(true);
@@ -43,11 +46,21 @@ function BarraBusqueda() {
           queryRef = query(queryRef, where("hobbies", "array-contains", gusto));
         }
 
-        //query(collection(db, "amigos"),where("departamento","==","Cochabamba"))
         const querySnapshot = await getDocs(queryRef);
         const docs = [];
         querySnapshot.forEach((doc) => {
-          docs.push({ ...doc.data(), id: doc.id });
+          const amigoData = doc.data();
+          if (edad !== "Cualquiera") {
+            setEdad("Cualquiera");
+            const edadAmg = calcularEdad(amigoData.dob);
+            if (edadAmg >= edadMinima && edadAmg <= edadMaxima & amigoData.activo === true) {
+              docs.push({ ...doc.data(), id: doc.id });
+            }
+          } else {
+            if(amigoData.activo === true) {
+              docs.push({ ...doc.data(), id: doc.id });
+            }
+          }
         });
         setLista(docs);
         setBuscado(false);
@@ -83,25 +96,37 @@ function BarraBusqueda() {
   };
 
   const handleChangeEdad = (value) => {
+    console.log(value);
     if (value === "entre 18 y 25") {
-      setEdad("18");
+      setEdadMinima(18);
+      setEdadMaxima(25);
+      setEdad("tiene edad");
     }
     if (value === "entre 25 y 35") {
-      setEdad("25");
+      setEdadMinima(25);
+      setEdadMaxima(35);
+      setEdad("tiene edad");
     }
     if (value === "entre 35 y 45") {
-      setEdad("35");
+      setEdadMinima(35);
+      setEdadMaxima(45);
+      setEdad("tiene edad");
     }
     if (value === "entre 45 y 65") {
-      setEdad("45");
+      setEdadMinima(45);
+      setEdadMaxima(65);
+      setEdad("tiene edad");
     }
     if (value === "mas de 65") {
-      setEdad("65");
+      setEdadMinima(65);
+      setEdadMaxima(80)
+      setEdad("tiene edad");
     }
+    
   };
 
   return (
-    <div style={{ padding: "50px" }}>
+    <div className="content">
       <div>
         <h3 className="estilo-h3 ">
           Busca con quién y dónde quieres alquilar un amigo o encontrar una
@@ -111,6 +136,7 @@ function BarraBusqueda() {
       <br />
       <div className="content-buscador">
         <div>
+          
           <h6>
             <i>
               <EnvironmentOutlined />
@@ -119,15 +145,18 @@ function BarraBusqueda() {
           </h6>
           <Select
             defaultValue="Cualquiera"
+            
             style={{
               width: 200,
             }}
             onChange={handleChangeCiudad}
+            
             options={[
               {
                 value: "Cualquiera",
                 label: "Cualquiera",
               },
+              
               {
                 value: "Cochabamba",
                 label: "Cochabamba",
@@ -168,6 +197,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
+          
           <h6>
             <TeamOutlined /> genero
           </h6>
@@ -177,10 +207,12 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeGenero}
+            
             options={[
               {
                 value: "femenino",
                 label: "femenino",
+                
               },
               {
                 value: "masculino",
@@ -194,6 +226,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
+          
           <h6>
             <CarOutlined /> Hobbies/gustos
           </h6>
@@ -203,6 +236,7 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeGustos}
+            
             options={[
               {
                 value: "Cualquiera",
@@ -223,6 +257,7 @@ function BarraBusqueda() {
               {
                 value: "Ver peliculas",
                 label: "Ver peliculas",
+                
               },
               {
                 value: "Cine",
@@ -240,6 +275,7 @@ function BarraBusqueda() {
                 value: "Pintar",
                 label: "Pintar",
               },
+              
               {
                 value: "Arte",
                 label: "Arte",
@@ -248,14 +284,16 @@ function BarraBusqueda() {
                 value: "Futbol",
                 label: "Futbol",
               },
+              
+              {
+                value: "Juegos",
+                label: "Juegos",
+              },
               {
                 value: "Viajes",
                 label: "Viajes",
               },
-              {
-                value: "Dibujar",
-                label: "Dibujar",
-              },
+              
               {
                 value: "Musica",
                 label: "Musica",
@@ -264,6 +302,7 @@ function BarraBusqueda() {
                 value: "Mascotas",
                 label: "Mascotas",
               },
+              
               {
                 value: "Escribir",
                 label: "Escribir",
@@ -292,6 +331,7 @@ function BarraBusqueda() {
                 value: "Cocinar",
                 label: "Cocinar",
               },
+              
               {
                 value: "Conciertos",
                 label: "Conciertos",
@@ -299,6 +339,12 @@ function BarraBusqueda() {
               {
                 value: "Nadar",
                 label: "Nadar",
+              },
+              
+              {
+                value: "Trabajo",
+                label: "Trabajo",
+                
               },
               {
                 value: "Fiestas",
@@ -312,14 +358,12 @@ function BarraBusqueda() {
                 value: "Negocios",
                 label: "Negocios",
               },
-              {
-                value: "Trabajo",
-                label: "Trabajo",
-              },
+              
             ]}
           />
         </div>
         <div>
+          
           <h6>
             <CalendarOutlined /> edad
           </h6>
@@ -329,6 +373,7 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeEdad}
+            
             options={[
               {
                 value: "Cualquiera",
@@ -358,6 +403,7 @@ function BarraBusqueda() {
           />
         </div>
         <Space>
+          
           <Button
             className="estilo-btn"
             type="primary"
@@ -368,7 +414,9 @@ function BarraBusqueda() {
           </Button>
         </Space>
       </div>
-      <div><BuscarAmigo seleccion={lista} /></div>
+      <div>
+        <BuscarAmigo seleccion={lista} />
+      </div>
     </div>
   );
 }

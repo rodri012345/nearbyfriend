@@ -1,38 +1,72 @@
 import React from "react";
-import Footer from "../Fotter";
-import Carrusel from "../Carrusel";
-
-import BarraBusqueda from "../BarraBusqueda";
-import { Layout} from "antd";
+import Fondo from "../Fondo";
+import { Layout } from "antd";
+import Informacion from "../Informacion";
+import Titulo from "../Titulo";
+import Detalles from "../Detalles";
+import Trabajo from "../Trabajo";
+import Testimonios from "../Testimonios";
 import Enlaces from "../Enlaces";
-
+import ListaAmg from "../ListaAmg";
 
 const { Content } = Layout;
-export const Home = () => {
-  return (
-    <>
-      <Content style={{backgroundColor:'#DFF5FF'}}>
-        <div
-          style={{
-            backgroundImage: `url("https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg")` /* 'https://www.elplural.com/uploads/s1/11/08/54/6/simon-maage-tximrx3gc-g-unsplash.jpeg' */,
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            width: "100%",
-            height: "700px",
-            
-          }}
-        >
-          <h1 style={{textAlign:'center',fontFamily: "Creepster",fontSize:'100px'}}>NearbyFriend</h1>
-        </div>
-        <div style={{backgroundColor:'#DDDDDD'}}>
-        <BarraBusqueda/>
-        </div>
-        <Enlaces/>
-        <h1>Ultimos Amigos Registrados</h1>
-        <Carrusel />
-      </Content>
-      <Footer/>
-    </>
-  );
+export const Home = ({ user, userID }) => {
+    console.log("este es el uID", userID);
+    return (
+        <>
+            <Content>
+                {user && (
+                    <>
+                        <div>
+                            <Fondo
+                                titulo="Bienvenido a la plataforma mas grande de amigos"
+                                subtitulo="Comienza a buscar al amigo que necesitas, para ese momento especial."
+                                user={user}
+                            />
+                        </div>
+                        <Titulo
+                            subTitulo="Aqui encontraras"
+                            titulo="Amigos para toda ocacion"
+                        />
+                        <Enlaces />
+
+                        <Titulo
+                            subTitulo="¿Necesitas un amigo/amiga?"
+                            titulo="Ellos estan listos para ayudarte"
+                        />
+                        <ListaAmg />
+                    </>
+                )}
+                {!user && (
+                    <>
+                        <Fondo
+                            titulo="El Amigo que necesitas para el momento que necesites"
+                            subtitulo="Contamos con una amplia cantidad de amigos que comparten tus
+                                        mismas aficiones y estan dispuestos a compañarte en
+                                        cualquier momento para lo que necesites."
+                            user={user}
+                        />
+                        <Titulo
+                            subTitulo="Aqui encontraras"
+                            titulo="Amigos para toda ocacion"
+                        />
+                        <Informacion />
+                        <Detalles />
+                        <Titulo
+                            subTitulo="Trabaja con nosotros"
+                            titulo="Tu tambien puedes ser un amigo"
+                        />
+                        <Trabajo />
+                    </>
+                )}
+                <div className="bar">
+                    <Titulo
+                        subTitulo="Las experiencias hablan por si mismas"
+                        titulo="Personas que comparten sus experiencias"
+                    />
+                    <Testimonios />
+                </div>
+            </Content>
+        </>
+    );
 };

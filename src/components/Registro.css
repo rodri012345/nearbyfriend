@@ -1,6 +1,7 @@
 .Registro {
   text-align: center;
   padding: 20px;
+  
 }
 
 .Registro h1 {
@@ -12,9 +13,10 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 20px 0px;
-  background-color: white;
+  background-color: #fff;
   border-radius: 10px;
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); */
 }
 
 .Registro h2 {
@@ -31,7 +33,7 @@
 
 .Registro .ant-form-item-label {
   text-align: left;
-  color: #666;
+  /*color: #666;*/
 }
 
 .Registro .ant-form-item-control {
@@ -42,7 +44,7 @@
   width: 100%;
   max-width: 300px;
   margin: 20px auto;
-  background-color: #1890ff;
+  background-color: #212EA0;
   border: none;
   border-radius: 5px;
   color: #fffffff7;
@@ -65,6 +67,5 @@
   border-radius: 5px;
   padding: 20px 5px;
   padding-bottom: px;
-  box-shadow: 15px 5px 15px 15px rgba(0, 0, 0, 0.1);
-
 }
+

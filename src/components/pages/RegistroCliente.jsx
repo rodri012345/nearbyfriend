@@ -1,13 +1,17 @@
 import React from "react";
-import Footer from '../Fotter'
+import Navbar1 from '../Navbar1'
 import Registro from "../Registro";
+import Titulo from "../Titulo"
+
+
+
+
 export const RegistroCliente = () => {
     return (
         <>
-        <h1 style={{textAlign:'center', padding:'15px'}}>Registro Cliente</h1>
-        <Registro />
-        <Footer />
         
+        <Titulo subTitulo="Registrar Cliente" titulo="Comienza una Nueva Experiencia"/>
+        <Registro />
         </>
     );
 };
