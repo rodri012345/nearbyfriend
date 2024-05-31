@@ -1,0 +1,49 @@
+.mon-n {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #212EA0;
+    border: none;
+    border-radius: 5px;
+    color: #fffffff7;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.mon2 {
+    width: 100%;
+    max-width: 170px;
+    margin: 20px auto;
+    background-color: #212EA0;
+    border: none;
+    border-radius: 5px;
+    color: #fffffff7;
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    text-align: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.modal-style {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-style2 {
+    display:flex;
+    justify-content: sp;
+    
+}

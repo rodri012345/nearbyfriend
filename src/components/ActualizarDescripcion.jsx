@@ -3,6 +3,7 @@ import { Form, Input, Button, Modal, message } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
+import "./EstilosMod.css";
 
 const ModificarDescripcion = ({ amigoId }) => {
     const [form] = Form.useForm();
@@ -44,6 +45,7 @@ const ModificarDescripcion = ({ amigoId }) => {
                 type="default"
                 onClick={abrirModal}
                 icon={<EditOutlined />}
+                style = {{backgroundColor:'#0056b3'}}
             />{" "}
             {/* Botón de editar con icono */}
             <Modal
@@ -77,14 +79,15 @@ const ModificarDescripcion = ({ amigoId }) => {
                     >
                         <Input placeholder="Escriba su nueva Descripcion" />
                     </Form.Item>
-                    <Form.Item>
-                        <Button
+                    <Form.Item className="modal-style">
+                        <button
                             type="primary"
                             htmlType="submit"
                             loading={loading}
+                            className="mon-n"
                         >
                             Guardar Cambios
-                        </Button>
+                        </button>
                     </Form.Item>
                 </Form>
             </Modal>

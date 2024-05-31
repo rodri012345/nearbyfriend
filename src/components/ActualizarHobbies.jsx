@@ -3,6 +3,7 @@ import { Form, Input, Button, Modal, message, Checkbox } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
+import "./EstilosMod.css";
 
 const ModificarHobbies = ({ amigoId }) => {
     const [form] = Form.useForm();
@@ -44,6 +45,7 @@ const ModificarHobbies = ({ amigoId }) => {
                 type="default"
                 onClick={abrirModal}
                 icon={<EditOutlined />}
+                style = {{backgroundColor:'#0056b3'}}
             />{" "}
             {/* Botón de editar con icono */}
             <Modal
@@ -297,14 +299,15 @@ const ModificarHobbies = ({ amigoId }) => {
                             </div>
                         </Checkbox.Group>
                     </Form.Item>
-                    <Form.Item>
-                        <Button
+                    <Form.Item className="modal-style">
+                        <button
                             type="primary"
                             htmlType="submit"
                             loading={loading}
+                            className="mon-n"
                         >
                             Guardar Cambios
-                        </Button>
+                        </button>
                     </Form.Item>
                 </Form>
             </Modal>

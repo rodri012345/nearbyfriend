@@ -3,6 +3,7 @@ import { Form, Input, Button, Modal, message } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf';
+import "./EstilosMod.css";
 
 const ModificarContraseña = ({ amigoId }) => {
   const [form] = Form.useForm();
@@ -38,8 +39,8 @@ const ModificarContraseña = ({ amigoId }) => {
   };
 
   return (
-    <div>
-      <Button type="default"  onClick={abrirModal} icon={<EditOutlined />} /> {/* Botón de editar con icono */}
+    <div style={{display:'flex'}}>
+      <Button type="default" style = {{backgroundColor:'#0056b3', alignItems:'end'}} onClick={abrirModal} icon={<EditOutlined />} /> {/* Botón de editar con icono */}
       <Modal
         title="Modificar Contraseña"
         visible={visible}
@@ -90,10 +91,10 @@ hasFeedback
 </Form.Item>
 
         
-          <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>
+          <Form.Item className='modal-style'>
+            <button className='mon-n' htmlType="submit" loading={loading}>
               Guardar Cambios
-            </Button>
+            </button>
           </Form.Item>
         </Form>
       </Modal>

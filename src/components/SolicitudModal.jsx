@@ -90,17 +90,17 @@ const SoliModal = ({eventoId}) => {
     }
     return (
         <>
-            <Button type='primary' onClick={showModal}>
+            <button className='mon-n' onClick={showModal}>
                 Ver más
-            </Button>
+            </button>
             <Modal title="Solicitud" visible={isModalOpen} onOk={handleOk} onCancel={handleCan} width={600} height={600}
              footer={[
-              <Button key="rechazar" onClick={handleCancel} >
+              <button style= {{width:'200px',fontSize:'15px', marginRight:'20px'}} key="rechazar" className='mon-n' onClick={handleCancel} >
                   Rechazar
-              </Button>,
-              <Button key="aceptar" type="primary" onClick={handleOk }>
+              </button>,
+              <button style= {{width:'200px', fontSize:'15px'}} key="aceptar" className='mon-n' type="primary" onClick={handleOk }>
                   Aceptar
-              </Button>,
+              </button>,
           ]}
             >
                 {isLoading && <p>Cargando...</p>}

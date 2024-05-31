@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Modal, message } from "antd";
+import { Form, InputNumber, Button, Modal, message } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
-import "./Alquilar.css";
+import "./EstilosMod.css";
 
 const ModificarTelefono = ({ amigoId }) => {
     const [form] = Form.useForm();
@@ -39,12 +39,13 @@ const ModificarTelefono = ({ amigoId }) => {
     };
 
     return (
-        <div>
+        <div style={{display:'flex'}}>
             <Button
                 type="default"
                 onClick={abrirModal}
                 icon={<EditOutlined />}
-                className="mon-n"
+
+                style = {{backgroundColor:'#0056b3', alignItems:'end'}}
             />{" "}
             {/* Botón de editar con icono */}
             <Modal
@@ -100,14 +101,15 @@ const ModificarTelefono = ({ amigoId }) => {
                     >
                         <InputNumber style = {{width:'100%'}} placeholder="Escriba su nuevo telefono" />
                     </Form.Item>
-                    <Form.Item>
-                        <Button
+                    <Form.Item className="modal-style" >
+                        <button
                             type="primary"
                             htmlType="submit"
                             loading={loading}
+                            className="mon-n"
                         >
                             Guardar Cambios
-                        </Button>
+                        </button>
                     </Form.Item>
                 </Form>
             </Modal>

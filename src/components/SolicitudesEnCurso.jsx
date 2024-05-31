@@ -48,12 +48,13 @@ const SolicitudesRecientes = ({amigoId}) => {
       <div
         style={{
           textAlign: 'center',
-          marginTop: 12,
+          
           height: 32,
           lineHeight: '32px',
+          marginBottom: 30,
         }}
       >
-        <Button className='btn' onClick={onLoadMore}>Cargar Más</Button>
+        <button className= "mon-n"  onClick={onLoadMore}>Cargar Más</button>
       </div>
     ) : null;
 

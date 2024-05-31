@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button, message, Modal, Result } from "antd";
-import { doc, updateDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase-conf';
+import { Button, message, Modal, Result, Form } from "antd";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase-conf";
 
-import "./Alquilar.css";
+import "./EstilosMod.css";
 
 function ModificarFoto({ amigoId }) {
     const [imageFile, setImageFile] = useState(null);
@@ -55,23 +55,49 @@ function ModificarFoto({ amigoId }) {
             };
         } catch (error) {
             console.error("Error al cargar la imagen:", error);
-            setUploadError("Error al cargar la imagen. Por favor, intenta de nuevo más tarde.");
+            setUploadError(
+                "Error al cargar la imagen. Por favor, intenta de nuevo más tarde."
+            );
             setUploading(false);
         }
     };
 
     return (
         <div className="actualizar-foto-cliente">
-            <button className="mon-n" onClick={() => setModalVisible(true)}>Actualizar Imagen</button>
+            <button className="mon-n" onClick={() => setModalVisible(true)}>
+                Actualizar Imagen
+            </button>
             <Modal
                 title="Actualizar Foto"
                 visible={modalVisible}
                 onCancel={() => setModalVisible(false)}
                 footer={[
-                    <Button key="cancel" onClick={() => setModalVisible(false)}>Cancelar</Button>,
-                    <Button key="update" type="primary" disabled={!imageFile || uploading} onClick={handleUpdate}>
-                        {uploading ? "Actualizando..." : "Actualizar Imagen"}
-                    </Button>,
+                    <Form.Item >
+                        <button
+                            key="cancel"
+                            className="mon2"
+                            style={{width:'100px'}}
+                            onClick={() => setModalVisible(false)}
+                                                    >
+                            Cancelar
+                        </button>
+                        ,
+                        <button
+                            key="update"
+                            disabled={!imageFile || uploading}
+                            onClick={handleUpdate}
+                            className="mon2"
+                            style={{backgroundColor: (!imageFile || uploading) ? 'lightgrey' : '#212EA0', 
+                            opacity: (!imageFile || uploading) ? 0.5 : 1, // 
+                            cursor: (!imageFile || uploading) ? 'not-allowed' : 'pointer', 
+                             }}
+                        >
+                            {uploading
+                                ? "Actualizando..."
+                                : "Actualizar Imagen"}
+                        </button>
+                        ,
+                    </Form.Item>,
                 ]}
             >
                 <input
@@ -80,7 +106,13 @@ function ModificarFoto({ amigoId }) {
                     onChange={handleImageChange}
                 />
                 {/* Mostrar la previsualización de la imagen */}
-                {imagePreview && <img src={imagePreview} alt="Previsualización de la imagen" style={{ maxWidth: "100%", maxHeight: "200px" }} />}
+                {imagePreview && (
+                    <img
+                        src={imagePreview}
+                        alt="Previsualización de la imagen"
+                        style={{ maxWidth: "100%", maxHeight: "200px" }}
+                    />
+                )}
                 {uploadError && (
                     <Result
                         status="error"
