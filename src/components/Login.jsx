@@ -57,7 +57,7 @@ const Login = ({ onClose }) => {
                 <form action="" onSubmit={handleRegister}>
                     <h1>Inicio Sesion</h1>
                     <div className="input-box">
-                        <Input type="text"
+                        <Input id='email-user' type="text"
                             placeholder='Correo'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const Login = ({ onClose }) => {
                         <MdAlternateEmail className='icon' />
                     </div>
                     <div className="input-box">
-                        <Input type = {visible ? "text" : "password"}
+                        <Input id = 'password-user' type = {visible ? "text" : "password"}
                             placeholder='Contraseña'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -83,7 +83,7 @@ const Login = ({ onClose }) => {
                         <a href="#">Olvidaste tu Contraseña?</a>
                     </div> */}
 
-                    <button className='btn-log' type='submit'>Iniciar Sesión</button>
+                    <button id='btn-sesion' className='btn-log' type='submit'>Iniciar Sesión</button>
                     <div className="register-link">
                         <p>¿No tienes una cuenta? <a href="/RegistroCliente">Registrarse como Cliente</a></p>
                         <p><a href="/RegistroAmigo">Registrarse como Amigo</a></p>

@@ -72,7 +72,7 @@ export const Navbar = () => {
                 </li>
 
                 <li>
-                    <button className="btn" onClick={openModal}>
+                    <button id='btn-login' className="btn" onClick={openModal}>
                         Inicia Sesion
                     </button>
                 </li>
