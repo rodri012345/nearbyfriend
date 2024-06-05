@@ -65,14 +65,14 @@ const SolicitudModalConcluidas = ({eventoId}) => {
 
     return (
         <>
-            <Button type='primary' onClick={showModal}>
+            <button type='primary' className="mon-n" onClick={showModal}>
                 Ver
-            </Button>
+            </button>
             <Modal title="Solicitud" visible={isModalOpen}  onCancel={handleCancel} width={600} height={600}
              footer={[
-                <Button key="rechazar" onClick={handleCancel} >
+                <button key="rechazar" className="mon-n" onClick={handleCancel} >
                     ok
-                </Button>,
+                </button>,
             ]}
                 
             >

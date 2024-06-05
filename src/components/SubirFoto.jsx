@@ -120,20 +120,7 @@ function SubirFoto() {
                     </div>
                 </Col>
             </Row>
-            {/* {registroExitoso && (
-                <div className="mensaje-flotante">
-                    <Result
-                        status="success"
-                        title="Felicidades! Tu registro fue exitoso!"
-                        subTitle="Ahora podras comensar a disfrutar de lo mejor de nuestra comunidad."
-                        extra={[
-                            <Button type="primary" key="console" >
-                                Cerrar
-                            </Button>,
-                        ]}
-                    />
-                </div>
-            )} */}
+            
 
             <div className="botones-container">
                 <Button type="primary" onClick={handleGoBack}>

@@ -2,6 +2,7 @@ import { collection,  getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import { Button, Select, Space } from "antd";
+import { toast } from "react-toastify";
 import "./BarraBusqueda.css";
 
 import {
@@ -62,6 +63,12 @@ function BarraBusqueda() {
             }
           }
         });
+
+        if(docs.length === 0) {
+          toast.info("por el momento no existe amigos registrados con esas caracteristicas ☹ ",{
+            position: "top-center"
+          });
+        }
         setLista(docs);
         setBuscado(false);
       } catch (error) {

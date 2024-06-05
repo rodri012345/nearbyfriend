@@ -56,7 +56,11 @@ function ListaAmg() {
             const querySnapshot = await getDocs(limitedQuery);
             const docs = [];
             querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id });
+                const amigoData = doc.data();
+                if(amigoData.activo === true) {
+                    docs.push({ ...doc.data(), id: doc.id });
+                }
+                
             });
             setLista(docs);
             
