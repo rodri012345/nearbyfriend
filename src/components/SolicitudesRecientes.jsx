@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Button, List, Skeleton } from 'antd';
 import SoliModal from './SolicitudModal';
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, query, where} from 'firebase/firestore';
 import { db } from '../firebase/firebase-conf'; 
 
-const SolicitudesRecientes = () => {
+const SolicitudesRecientes = ({amigoId}) => {
   const [initLoading, setInitLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -13,7 +13,11 @@ const SolicitudesRecientes = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'eventos'));
+        
+        const q = query(collection(db, 'eventos'), where('amigoId.amigoId', '==', amigoId.amigoId));
+        
+        const querySnapshot = await getDocs(q);
+        console.log('resultados', querySnapshot)
         const events = [];
         for (const docRef of querySnapshot.docs) {
           const event = { id: docRef.id, ...docRef.data() };
@@ -26,6 +30,7 @@ const SolicitudesRecientes = () => {
           }
         }
         setData(events);
+        console.log('eventos: ', events)
         setList(events);
         setInitLoading(false);
       } catch (error) {
@@ -46,12 +51,12 @@ const SolicitudesRecientes = () => {
       <div
         style={{
           textAlign: 'center',
-          marginTop: 12,
+          marginBottom: 30,
           height: 32,
           lineHeight: '32px',
         }}
       >
-        <Button onClick={onLoadMore}>Cargar Más</Button>
+        <button className= "mon-n"  onClick={onLoadMore}>Cargar Más</button>
       </div>
     ) : null;
 

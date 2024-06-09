@@ -65,14 +65,14 @@ const SolicitudModalConcluidas = ({eventoId}) => {
 
     return (
         <>
-            <Button type='primary' onClick={showModal}>
+            <button type='primary' className="mon-n" onClick={showModal}>
                 Ver
-            </Button>
+            </button>
             <Modal title="Solicitud" visible={isModalOpen}  onCancel={handleCancel} width={600} height={600}
              footer={[
-                <Button key="rechazar" onClick={handleCancel} >
+                <button key="rechazar" className="mon-n" onClick={handleCancel} >
                     ok
-                </Button>,
+                </button>,
             ]}
                 
             >
@@ -95,15 +95,11 @@ const SolicitudModalConcluidas = ({eventoId}) => {
                             <p>Ciudad: {cliente.departamento}</p>
                             <p>Telefono: {cliente.telefono}</p>
                         </div>
-                        <div className='hobbies' style={{ marginLeft: '20px' }}>
-                            <p>{cliente.hobbies[0]}</p>
-                            <p>{cliente.hobbies[1]}</p>
-                            <p>{cliente.hobbies[2]}</p>
-                        </div>
+                        
                     </div>
                 )}
                 {evento && (
-                    <div style={{alignItems: 'center', marginLeft: '180px'}}>
+                    <div style={{alignItems: 'center', marginLeft: '120px'}}>
                         <p>Fecha: {evento.fecha}</p>
                         <p>Duracion: {evento.duracion}</p> 
                         <p>Hora: {evento.hora}</p>

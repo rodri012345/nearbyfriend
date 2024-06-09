@@ -1,8 +1,10 @@
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection,  getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
 import React, { useEffect, useState } from "react";
 import { Button, Select, Space } from "antd";
+import { toast } from "react-toastify";
 import "./BarraBusqueda.css";
+
 import {
   EnvironmentOutlined,
   TeamOutlined,
@@ -11,6 +13,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import BuscarAmigo from "./BuscarAmigo";
+
 
 function BarraBusqueda() {
   const [lista, setLista] = useState([]);
@@ -47,19 +50,25 @@ function BarraBusqueda() {
         const querySnapshot = await getDocs(queryRef);
         const docs = [];
         querySnapshot.forEach((doc) => {
-          
+          const amigoData = doc.data();
           if (edad !== "Cualquiera") {
             setEdad("Cualquiera");
-            const amigoData = doc.data();
             const edadAmg = calcularEdad(amigoData.dob);
-            
-            if (edadAmg >= edadMinima && edadAmg <= edadMaxima) {
+            if (edadAmg >= edadMinima && edadAmg <= edadMaxima & amigoData.activo === true) {
               docs.push({ ...doc.data(), id: doc.id });
             }
           } else {
-            docs.push({ ...doc.data(), id: doc.id });
+            if(amigoData.activo === true) {
+              docs.push({ ...doc.data(), id: doc.id });
+            }
           }
         });
+
+        if(docs.length === 0) {
+          toast.info("por el momento no existe amigos registrados con esas caracteristicas ☹ ",{
+            position: "top-center"
+          });
+        }
         setLista(docs);
         setBuscado(false);
       } catch (error) {
@@ -134,6 +143,7 @@ function BarraBusqueda() {
       <br />
       <div className="content-buscador">
         <div>
+          
           <h6>
             <i>
               <EnvironmentOutlined />
@@ -142,15 +152,18 @@ function BarraBusqueda() {
           </h6>
           <Select
             defaultValue="Cualquiera"
+            
             style={{
               width: 200,
             }}
             onChange={handleChangeCiudad}
+            
             options={[
               {
                 value: "Cualquiera",
                 label: "Cualquiera",
               },
+              
               {
                 value: "Cochabamba",
                 label: "Cochabamba",
@@ -191,6 +204,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
+          
           <h6>
             <TeamOutlined /> genero
           </h6>
@@ -200,10 +214,12 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeGenero}
+            
             options={[
               {
                 value: "femenino",
                 label: "femenino",
+                
               },
               {
                 value: "masculino",
@@ -217,6 +233,7 @@ function BarraBusqueda() {
           />
         </div>
         <div>
+          
           <h6>
             <CarOutlined /> Hobbies/gustos
           </h6>
@@ -226,6 +243,7 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeGustos}
+            
             options={[
               {
                 value: "Cualquiera",
@@ -246,6 +264,7 @@ function BarraBusqueda() {
               {
                 value: "Ver peliculas",
                 label: "Ver peliculas",
+                
               },
               {
                 value: "Cine",
@@ -263,6 +282,7 @@ function BarraBusqueda() {
                 value: "Pintar",
                 label: "Pintar",
               },
+              
               {
                 value: "Arte",
                 label: "Arte",
@@ -271,14 +291,16 @@ function BarraBusqueda() {
                 value: "Futbol",
                 label: "Futbol",
               },
-              {
-                value: "Viajes",
-                label: "Viajes",
-              },
+              
               {
                 value: "Juegos",
                 label: "Juegos",
               },
+              {
+                value: "Viajes",
+                label: "Viajes",
+              },
+              
               {
                 value: "Musica",
                 label: "Musica",
@@ -287,6 +309,7 @@ function BarraBusqueda() {
                 value: "Mascotas",
                 label: "Mascotas",
               },
+              
               {
                 value: "Escribir",
                 label: "Escribir",
@@ -315,6 +338,7 @@ function BarraBusqueda() {
                 value: "Cocinar",
                 label: "Cocinar",
               },
+              
               {
                 value: "Conciertos",
                 label: "Conciertos",
@@ -322,6 +346,12 @@ function BarraBusqueda() {
               {
                 value: "Nadar",
                 label: "Nadar",
+              },
+              
+              {
+                value: "Trabajo",
+                label: "Trabajo",
+                
               },
               {
                 value: "Fiestas",
@@ -335,14 +365,12 @@ function BarraBusqueda() {
                 value: "Negocios",
                 label: "Negocios",
               },
-              {
-                value: "Trabajo",
-                label: "Trabajo",
-              },
+              
             ]}
           />
         </div>
         <div>
+          
           <h6>
             <CalendarOutlined /> edad
           </h6>
@@ -352,6 +380,7 @@ function BarraBusqueda() {
               width: 200,
             }}
             onChange={handleChangeEdad}
+            
             options={[
               {
                 value: "Cualquiera",
@@ -381,6 +410,7 @@ function BarraBusqueda() {
           />
         </div>
         <Space>
+          
           <Button
             className="estilo-btn"
             type="primary"

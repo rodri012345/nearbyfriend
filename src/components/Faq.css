@@ -1,0 +1,42 @@
+.preguntas-FAQ{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    margin-bottom: 5px;
+    padding: 8px;
+  }
+  
+  .faq-question {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .faq-answer {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    
+  }
+  
+  .faq-icon {
+    font-size: 1.3rem;
+  }
+  
+  .faq-icon.open {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .faq-icon.closed {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+  }
+  

@@ -1,39 +1,52 @@
-.slider-container {
-  padding: 25px;
-  width: 80%;
-  margin: 0 auto;
+.style-carrusel {
+    padding: 10px 100px;
+    width: 90%;
+    height: 550px;
+    margin:50px auto;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
-
-.perfil{
-  display: block;
-  text-align: center;
-  height: 80px;
-}
-
-.perfil-btn{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .slick-prev,
 .slick-next {
-  display: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; 
+    height: 30px;
+    background: none !important;
+    z-index: 1; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    margin: -60px;
 }
 
-.mi-boton {
-  padding: auto;
-  border: 2px solid black;
+
+.slick-prev {
+    left: 10px;
 }
 
-.text-center {
-  text-align: center;
+
+.slick-next {
+    right: 10px;
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: blue; 
+}
+
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+    color: blue;
 }
 
 .estilo-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#212ea0 !important ;
 }
 
 .image-style {

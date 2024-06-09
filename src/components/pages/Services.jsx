@@ -6,8 +6,9 @@ import GestionDeSolicitudes from "../GestionDeSolicitudes";
 export const Services = () => {
   return (
     <>
+      
       <GestionDeSolicitudes/>
-      <Footer />
+      
     </>
   );
 };

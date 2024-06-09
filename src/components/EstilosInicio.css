@@ -1,0 +1,19 @@
+.estilo-h3 {
+    margin-left: 34px;
+    color: #000F38;
+}
+.content-buscador {
+    display: flex;
+    justify-content: space-around;
+    background-color: #DDDDDA;
+    margin-bottom: '20px';
+}
+.fuente-inicio {
+    font-family: cursive;
+}
+
+.estilo-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

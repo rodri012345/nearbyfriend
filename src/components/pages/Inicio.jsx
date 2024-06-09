@@ -1,11 +1,16 @@
-import React from "react";
-import InicioPerfil from "../InicioPerfil";
-import Menu from "../Menu"
+import React, { useEffect, useState } from "react";
+import { db,auth } from '../../firebase/firebase-conf';
+import { doc, getDoc } from 'firebase/firestore';
+
+
+
 export const Inicio= () => {
+
+    
     return (
-        <>
-        <InicioPerfil />
-        <Menu />
-        </>
+        p
+        
     );
 };
+
+export default Inicio;

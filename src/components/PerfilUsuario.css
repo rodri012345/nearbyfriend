@@ -1,0 +1,69 @@
+.perfil-container{
+    padding: 10px;
+    margin: 50px auto;
+    font-size: 17px;
+}
+
+.perfil-content{
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    text-align: left;
+}
+
+.perfil-izq {
+    flex-basis: 40%;
+    
+}
+
+.perfil-der {
+    flex-basis: 56%;
+    background-color: #fbf9f9;
+    border-radius: 15px;
+    padding: 20px;
+    padding: 30px;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+.perfil-der h1{
+    text-transform: uppercase;
+}
+
+.perfil-der h2{
+    font-size: 18px;
+    padding: 7px;
+}
+.det-img{
+    height: 300px;
+    border-radius: 15px;
+}
+.usr-info{
+    padding: 5px;
+    color: rgb(88, 86, 86);
+}
+.hobbies-perfil{        
+    display: flex;
+    padding: 10px;
+}
+
+.hobbies-perfil h4{
+    padding: 10px;
+    color: #fff;
+    background: rgb(19, 79, 175);
+    margin: 2px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.usr-det{
+    padding: 8px;
+    align-items: center;
+    text-align: center;
+}
+
+.usr-det h4{
+    text-transform: capitalize;
+    color: rgb(88, 86, 86);;
+}

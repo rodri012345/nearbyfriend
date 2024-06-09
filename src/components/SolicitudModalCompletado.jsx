@@ -70,14 +70,14 @@ const SolicitudModalCompletado = ({eventoId}) => {
 
     return (
         <>
-            <Button type='primary' onClick={showModal}>
+            <button type='primary' className="mon-n" onClick={showModal}>
                 Abrir
-            </Button>
+            </button>
             <Modal title="Solicitud" visible={isModalOpen} onOk={handleOk}  onCancel={handleCancel} width={600} height={600}
              footer={[
-              <Button key="aceptar" type="primary" onClick={handleOk}>
+              <button key="aceptar" className="mon-n" type="primary" onClick={handleOk}>
                   Concluir cita
-              </Button>,
+              </button>,
           ]}
             >
                 {isLoading && <p>Cargando...</p>}
@@ -99,15 +99,11 @@ const SolicitudModalCompletado = ({eventoId}) => {
                             <p>Ciudad: {cliente.departamento}</p>
                             <p>Telefono: {cliente.telefono}</p>
                         </div>
-                        <div className='hobbies' style={{ marginLeft: '20px' }}>
-                            <p>{cliente.hobbies[0]}</p>
-                            <p>{cliente.hobbies[1]}</p>
-                            <p>{cliente.hobbies[2]}</p>
-                        </div>
+                        
                     </div>
                 )}
                 {evento && (
-                    <div style={{alignItems: 'center', marginLeft: '180px'}}>
+                    <div style={{alignItems: 'center', marginLeft: '120px'}}>
                         <p>Fecha: {evento.fecha}</p>
                         <p>Duracion: {evento.duracion}</p> 
                         <p>Hora: {evento.hora}</p>

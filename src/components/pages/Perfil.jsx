@@ -1,17 +1,19 @@
-import React from "react";
-import Footer from "../Fotter";
-import Alquilar from "../Alquilar";
-import PerfilAmigo from "../PerfilAmigo";
-import PerfilCliente from "../PerfilCliente";
-import SoliModal from "../SolicitudModal";
-import GestionDeSolicitudes from "../GestionDeSolicitudes";
-export const Perfil = () => {
+import React from 'react'
+import PerfilAmigoCliente from "../PerfilAmigoCliente";
+import PerfilAmigo from '../PerfilAmigo';
+
+
+export const Perfil = ({amigoId}) => {
+    
+    
     return (
         <>
-        <PerfilAmigo amigoId="2OD9yIDoUoyiLfnR6JZZ"/>
+        
+        
+        {/* <Titulo  titulo="Amigos para toda ocasión"/>
+        <PerfilAmigoCliente amigoId={amigoId}/> */}
+        <PerfilAmigo amigoId={amigoId}/>
         </>
     )
 
 }
-
-

@@ -22,7 +22,7 @@ const BuscarAmigo = ({seleccion}) => {
                     </div>
                 ))}
             </div>
-        </div>
+    </div>
   );
 };
 
