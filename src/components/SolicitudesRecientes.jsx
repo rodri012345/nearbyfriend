@@ -39,7 +39,7 @@ const SolicitudesRecientes = ({amigoId}) => {
     };
 
     fetchEvents();
-  }, []);
+  }, [amigoId]);
 
   const onLoadMore = () => {
     setLoading(true);

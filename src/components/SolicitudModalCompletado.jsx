@@ -109,7 +109,7 @@ const SolicitudModalCompletado = ({eventoId}) => {
                         <p>Hora: {evento.hora}</p>
                         <p>Lugar de encuentro: {evento.lugar}</p>
                         <p>Detalle: {evento.descripcion}  </p>
-                        <p>Monto Total: 80 bs</p>
+                        <p>Monto Total: {parseInt(evento.duracion)*50} bs</p>
                     </div>
                 )}
             </Modal>

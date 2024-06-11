@@ -1,5 +1,5 @@
 import "./ModificarPerfil.css";
-import { Image, Form, Button, Input } from "antd";
+import { Image, Form, Button, Input, Flex } from "antd";
 import React, { useState, useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase-conf";
@@ -9,6 +9,7 @@ import ModificarTelefono from "./ActualizarTelefono";
 import ModificarHobbies from "./ActualizarHobbies";
 import ModificarDescripcion from "./ActualizarDescripcion";
 import ModificarFoto from "./ActualizarFoto";
+import { CgDisplayFlex } from "react-icons/cg";
 
 const ModificarPerfil = ({ amigoId }) => {
     const [amigo, setAmigo] = useState(null);
@@ -29,7 +30,7 @@ const ModificarPerfil = ({ amigoId }) => {
         };
 
         obtenerAmigo();
-    }, []);
+    }, [amigoId]);
 
     return (
         <div className="perfil-container">
@@ -88,42 +89,47 @@ const ModificarPerfil = ({ amigoId }) => {
                         <div className=" perfil-izq">
                             
                                 <Form>
+                                    <div className="fila-dat" >
                                     <Form.Item label="Correo">
                                         <Input
                                             type="email"
                                             placeholder={amigo.correo}
                                             readOnly
-                                            style={{width:'350px'}}
+                                            style={{width:'300px'}}
                                         />
 
-                                        
+                                         <div className="fila-datt">
                                             <ModificarCorreo
                                                 amigoId={amigo.id}
                                             />
-                                        
+                                      </div>
                                     </Form.Item>
+                                    </div>
                                 </Form>
                             
                             
                                 <Form>
+                                <div className="fila-dat" >
                                     <Form.Item label="Contraseña">
                                         <Input
                                             type="password"
                                             placeholder={amigo.contraseña}
                                             readOnly
-                                            style={{width:'350px'}}
+                                            style={{width:'300px'}}
                                         />
 
-                                        
+                                        <div className="fila-datt">
                                             <ModificarContraseña
                                                 amigoId={amigo.id}
                                             />
-                                        
+                                        </div>
                                     </Form.Item>
+                                    </div>
                                 </Form>
                             
                             
                                 <Form>
+                                <div className="fila-dat">
                                     <Form.Item
                                         label="Teléfono"
                                         labelAlign="center"
@@ -132,17 +138,18 @@ const ModificarPerfil = ({ amigoId }) => {
                                             type="int"
                                             placeholder={amigo.telefono}
                                             readOnly
-                                            style={{width:'350px'}}
+                                            style={{width:'300px'}}
                                         />
 
-                                        
+                                        <div className="fila-datt">
                                             <ModificarTelefono
                                                 
                                                 amigoId={amigo.id}
                                                 
                                             />
-                                        
+                                        </div>
                                     </Form.Item>
+                                    </div>
                                 </Form>
                             
                         </div>

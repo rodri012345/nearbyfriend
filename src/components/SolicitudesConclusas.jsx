@@ -36,7 +36,7 @@ const SolicitudesRecientes = ({amigoId}) => {
     };
 
     fetchEvents();
-  }, []);
+  }, [amigoId]);
 
   const onLoadMore = () => {
     setLoading(true);
@@ -72,7 +72,7 @@ const SolicitudesRecientes = ({amigoId}) => {
             <List.Item.Meta
               avatar={<Avatar src={item.cliente?.imageURL} />}
               title={<a href="">{`${item.cliente?.nombre} ${item.cliente?.apellido}`}</a>}
-              description="Solicito una cita"
+              description="Cita terminada"
             />
           </Skeleton>
         </List.Item>

@@ -207,3 +207,12 @@
         margin-bottom: 2px;
     }
 }
+
+.fila-dat{
+    
+    display: inline-flex;
+}
+.fila-datt{
+    margin-left: 4px;
+    display: inline-flex;
+}

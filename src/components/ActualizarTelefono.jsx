@@ -29,6 +29,9 @@ const ModificarTelefono = ({ amigoId }) => {
 
             message.success("Datos de amigo actualizados con éxito");
             cerrarModal();
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
         } catch (error) {
             message.error(
                 "Error al actualizar datos de amigo: " + error.message

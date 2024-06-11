@@ -52,7 +52,9 @@ function ModificarFoto({ amigoId }) {
                 setUploadError(null);
                 message.success("Imagen actualizada correctamente.");
                 setModalVisible(false); // Cerrar el modal después de la actualización
-            };
+            };setTimeout(() => {
+                window.location.reload();
+            }, 1000);
         } catch (error) {
             console.error("Error al cargar la imagen:", error);
             setUploadError(
