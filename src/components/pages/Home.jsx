@@ -10,12 +10,12 @@ import Enlaces from "../Enlaces";
 import ListaAmg from "../ListaAmg";
 
 const { Content } = Layout;
-export const Home = ({ user, userID }) => {
+export const Home = ({ user, userID,amigo}) => {
     console.log("este es el uID", userID);
     return (
         <>
             <Content>
-                {user && (
+                {(user && !amigo) && (
                     <>
                         <div>
                             <Fondo
@@ -36,6 +36,21 @@ export const Home = ({ user, userID }) => {
                         />
                         <ListaAmg />
                     </>
+                )}
+                {(user && amigo) && (
+                    <>
+                    <div>
+                        <Fondo
+                            titulo="Bienvenido a la plataforma mas grande de amigos"
+                            subtitulo="Comienza a buscar al amigo que necesitas, para ese momento especial."
+                            user={user}
+                        />
+                    </div>
+                    <Detalles />
+
+                    
+                    
+                </>
                 )}
                 {!user && (
                     <>

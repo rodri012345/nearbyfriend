@@ -88,7 +88,7 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={<Home user={user} userID={userID} />}
+                        element={<Home user={user} userID={userID} amigo={amigo} />}
                     />
                     
                     <Route
@@ -124,11 +124,13 @@ function App() {
                         <NavbarRegistro2
                             userData={userDetails}
                             userID={userID}
+                            
                         />
                     ) : user ? (
                         <NavbarRegistro1
                             userData={userDetails}
                             userID={userID}
+                            
                         />
                     ) : (
                         <Navbar />

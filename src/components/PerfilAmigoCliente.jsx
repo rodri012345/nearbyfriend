@@ -11,6 +11,7 @@ import Alquilar from "./Alquilar";
 
 const PerfilAmigoCliente = ({ amigoId , clienteId}) => {
     const [amigo, setAmigo] = useState(null);
+    const [edadAmigo, setEdadAmigo] = useState(0);
 
     var settings = {
         dots: true,
@@ -31,7 +32,11 @@ const PerfilAmigoCliente = ({ amigoId , clienteId}) => {
                 const amigoRef = doc(db, "amigos", amigoId);
                 const docSnap = await getDoc(amigoRef);
                 if (docSnap.exists()) {
+                    const amigoData = docSnap.data();
+                    setEdadAmigo(calcularEdad(amigoData.dob));
                     setAmigo({ id: docSnap.id, ...docSnap.data() });
+                    
+                    console.log("edad del amigo",edadAmigo)
                 } else {
                     console.log("No se encontró el amigo.");
                 }
@@ -43,6 +48,20 @@ const PerfilAmigoCliente = ({ amigoId , clienteId}) => {
 
         obtenerAmigo();
     }, [amigoId]);
+
+    const calcularEdad = (fecha) => {
+        const fechaNac = new Date(fecha);
+        const ahora = new Date();
+        let edadCalculada = ahora.getFullYear() - fechaNac.getFullYear();
+        const diferenciaMeses = ahora.getMonth() - fechaNac.getMonth();
+        if (
+          diferenciaMeses < 0 ||
+          (diferenciaMeses === 0 && ahora.getDate() < fechaNac.getDate())
+        ) {
+          edadCalculada--;
+        }
+        return edadCalculada;
+      };
 
     return (
         <div className="perfil-container">
@@ -114,6 +133,7 @@ const PerfilAmigoCliente = ({ amigoId , clienteId}) => {
                             <h4>Correo: {amigo.correo}</h4>
                             <h4>Teléfono: {amigo.telefono}</h4>
                             <h4>Genero: {amigo.genero}</h4>
+                            <h4>Edad: {edadAmigo} años</h4>
                         </div>
 
                         <h2>Mis Hobies y gustos Son:</h2>
